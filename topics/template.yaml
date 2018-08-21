@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ TOPIC_NAME }}
+  labels:
+    strimzi.io/kind: topic
+    strimzi.io/cluster: {{ KAFKA_CLUSTER }}
+data:
+  name: {{ TOPIC_NAME }}
+  partitions: "{{ PARTITIONS }}"
+  replicas: "{{ REPLICAS }}"

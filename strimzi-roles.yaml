@@ -1,0 +1,78 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: strimzi-cluster-operator
+  labels:
+    app: strimzi
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: RoleBinding
+metadata:
+  name: strimzi-cluster-operator-binding
+  labels:
+    app: strimzi
+subjects:
+  - kind: ServiceAccount
+    name: strimzi-cluster-operator
+roleRef:
+  kind: ClusterRole
+  name: edit
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: strimzi-cluster-operator
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: strimzi-cluster-operator
+    spec:
+      serviceAccountName: strimzi-cluster-operator
+      containers:
+        - name: strimzi-cluster-operator
+          image: strimzi/cluster-operator:0.4.0
+          env:
+            - name: STRIMZI_CONFIGMAP_LABELS
+              value: "strimzi.io/kind=cluster"
+            - name: STRIMZI_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: STRIMZI_FULL_RECONCILIATION_INTERVAL_MS
+              value: "120000"
+            - name: STRIMZI_OPERATION_TIMEOUT_MS
+              value: "300000"
+            - name: STRIMZI_DEFAULT_ZOOKEEPER_IMAGE
+              value: strimzi/zookeeper:0.4.0
+            - name: STRIMZI_DEFAULT_KAFKA_IMAGE
+              value: strimzi/kafka:0.4.0
+            - name: STRIMZI_DEFAULT_KAFKA_CONNECT_IMAGE
+              value: strimzi/kafka-connect:0.4.0
+            - name: STRIMZI_DEFAULT_KAFKA_CONNECT_S2I_IMAGE
+              value: strimzi/kafka-connect-s2i:0.4.0
+            - name: STRIMZI_DEFAULT_TOPIC_OPERATOR_IMAGE
+              value: strimzi/topic-operator:0.4.0
+          livenessProbe:
+            httpGet:
+              path: /healthy
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 1000m
+            requests:
+              memory: 256Mi
+              cpu: 100m
+  strategy:
+    type: Recreate
