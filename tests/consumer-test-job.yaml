@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    app: consumer-test-job
+  name: consumer-test-job
+spec:
+  parallelism: 1
+  completions: 1
+  backoffLimit: 5
+  template:
+    metadata:
+      labels:
+        app: kafka-test-consumer
+    spec:
+      containers:
+      - name: kafka-test-consumer
+        image: scholzj/kafka-consumer:latest
+        env:
+          - name: BOOTSTRAP_SERVERS
+            value: platform-mq-kafka:9092
+          - name: TOPIC
+            value: test-job
+          - name: GROUP_ID
+            value: my-kafka-consumer
+          - name: MESSAGE_COUNT
+            value: "1000"
+      restartPolicy: OnFailure

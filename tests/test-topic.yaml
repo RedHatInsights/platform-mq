@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test-job
+  labels:
+    strimzi.io/kind: topic
+    strimzi.io/cluster: platform-mq
+data:
+  name: test-job
+  partitions: "1"
+  replicas: "1"
+  config: |-
+    {
+      "retention.bytes": "1073741824",
+      "retention.ms": "86400000",
+      "segment.bytes": "1073741824"
+    }

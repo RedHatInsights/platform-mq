@@ -8,7 +8,6 @@ CONFIG = {
     "REPLICAS": 3,
     "KAFKA_CLUSTER": 'platform-mq'
 }
-
 NAMESPACE = 'cmitchel-testing'
 
 templateLoader = jinja2.FileSystemLoader(searchpath="./")
