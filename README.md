@@ -1,7 +1,7 @@
 # Insights Platform Messaging Service
 
-This Messaging Service is designed to work as the piping between various
-Platform client services.
+This Messaging Service is designed to work as the piping between Platform
+client services.
 
 ## Details
 
@@ -35,26 +35,25 @@ passed through the Kafka nodes to subscribed Consumers.
 
 Errors and fault tolerance are largely handled via OpenShift and Strimzi.
 
-Failing pods will be restarted and the default three-node Kafka cluster offers
-additional resiliance for failure/error scenarios. 
+Containers determined to have failed (via the included health check endpoints)
+will be scaled/restarted by OpenShift and the default three-node Kafka cluster
+offers additional resiliance for failure/error scenarios.
 
 ## Getting Started
 
-**WIP** Local development and testing documentation in progress.
+This Messaging Service, as primarily a deployment and configuration of an
+existing product, development is something of a different concept than in other
+Platform Services. The intent of this repository is to house the deployment,
+setup, and simplification scripts needed for recreating and/or testing the
+service as needed.
 
-## Running with Tests
+Propsed changes to the deployment scripts should be tested, where possible, in
+an OpenShift environment comprable to OSD or OpenShift online, then submitted
+as PRs.
 
-Any new features added to the application should be accompanied by a Unittest in `./tests`
+### Deployment
 
-## Deployment
-
-**WIP** - the QA and Production projects are not in place yet. The project is deployed on
-`Platform-MQ` only
-
-## Contributing
-
-All outstanding issues or feature requests should be filed as Issues on this Github
-page. PRs should be submitted against the master branch for any new features or changes.
+**WIP**
 
 ## Authors
 
