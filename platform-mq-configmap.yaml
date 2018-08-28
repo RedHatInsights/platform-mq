@@ -31,7 +31,7 @@ data:
       "-Xmx": "256M",
       "-Xms": "256M"
     }
-  kafka-nodes: '1'
+  kafka-nodes: '3'
   kafka-resources: |-
     {
       "requests": {
