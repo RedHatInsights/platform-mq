@@ -53,7 +53,15 @@ as PRs.
 
 ### Deployment
 
-**WIP**
+Deployment of a test environment or redeployment is intended via the
+`strimzi-cluster-operator.yaml` and `platform-mq-configmap.yaml` files. With
+the `oc` command installed and working, the commands `oc create -n <namespace>
+-f strimzi-cluster-operator.yaml` followed by `oc create -n <namespace> -f
+platform-mq-configmap.yaml` will stand up a replica environment. Afterwards,
+running `create_topics.py <namespace>` in the `topics` directory will ensure
+the necessary testing topics are created and available in the new environment
+and the two test jobs in the `test` directory can be run to test message
+passing functionality.
 
 ## Authors
 
