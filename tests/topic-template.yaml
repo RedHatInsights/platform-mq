@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: topic-template
+parameters:
+- name: topic
+  description: Topic to create
+  required: true
+- name: cluster
+  description: Cluster in which to create topic
+  required: true
+objects:
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: ${topic}
+    labels:
+      strimzi.io/kind: topic
+      strimzi.io/cluster: ${cluster}
+  data:
+    name: ${topic}
+    partitions: "1"
+    replicas: "1"
+    config: |-
+      {
+        "retention.bytes": "1073741824",
+        "retention.ms": "86400000",
+        "segment.bytes": "1073741824"
+      }
