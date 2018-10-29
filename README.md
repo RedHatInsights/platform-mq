@@ -11,7 +11,7 @@ achieved with an OpenShift based deployment of Apache's Kafka message queue as
 deployed and orchestrated by the forthcoming AMQ Streams Red Hat project.
 
 Currently we're running the upstream product for AMQ Streams, Strimzi, at
-version 0.4.0.
+version 0.7.0.
 
 The service runs entirely in Openshift Dedicated.
 
@@ -20,12 +20,13 @@ The service runs entirely in Openshift Dedicated.
 The Messaging Service is a standard deployment of Apache Kafka orchestrated by
 Strimzi. Product documentation is available at:
 
-http://strimzi.io/docs/0.4.0/
+http://strimzi.io/docs/0.7.0/
 
-Topics are created via ConfigMaps in the associated OpenShift Project, and the
-topics required for a baseline testing environment with the Platform Upload and
-Engine services can be created by editing the `generate.py` script in the
-topics directory to suit your environment.
+Topics are created via KafkaTopic resoruces in the associated OpenShift
+Project, and the topics required for a baseline testing environment with the
+Platform Upload and Engine services can be created by editing the `topics.json`
+file in the topics directory to suit your environment and running the
+accompanying python script.
 
 From that point the OpenShift jobs in the tests directory can be altered for
 your environment/project and run to ensure that messages are properly being
@@ -53,8 +54,10 @@ as PRs.
 
 ### Deployment
 
+## NB: This section needs altering for the new environment, changes to come
+
 Deployment of a test environment or redeployment is intended via the
-`strimzi-cluster-operator.yaml` and `platform-mq-configmap.yaml` files. With
+`strimzi-cluster-operator.yaml` and `platform-mq-dev.yaml` files. With
 the `oc` command installed and working, the commands `oc create -n <namespace>
 -f strimzi-cluster-operator.yaml` followed by `oc create -n <namespace> -f
 platform-mq-configmap.yaml` will stand up a replica environment. Afterwards,

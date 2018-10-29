@@ -1,6 +1,8 @@
 [
-    "testareno",
-    "advisor",
-    "available",
-    "uploadvalidation"
+    "platform.upload.advisor",
+    "platform.upload.available",
+    "platform.upload.compliance",
+    "platform.upload.testareno",
+    "platform.upload.validation",
+    "platform.testing.testareno"
 ]

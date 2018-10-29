@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  creationTimestamp: 2018-09-28T22:50:04Z
+  name: resource-limits
+  namespace: platform-mq-ci
+  resourceVersion: "24630755"
+  selfLink: /api/v1/namespaces/platform-mq-ci/limitranges/resource-limits
+  uid: d732c1d0-c370-11e8-95e9-1201848727ae
+spec:
+  limits:
+  - max:
+      cpu: 1800m
+      memory: 5Gi
+    min:
+      cpu: 100m
+      memory: 50Mi
+    type: Pod
+  - default:
+      cpu: 300m
+      memory: 200Mi
+    defaultRequest:
+      cpu: 200m
+      memory: 100Mi
+    maxLimitRequestRatio:
+      cpu: "10"
+    type: Container
