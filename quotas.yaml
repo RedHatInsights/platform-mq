@@ -1,12 +1,8 @@
 apiVersion: v1
 kind: ResourceQuota
 metadata:
-  creationTimestamp: 2018-09-28T22:50:04Z
   name: compute-resources-non-terminating
-  namespace: platform-mq-ci
-  resourceVersion: "24643424"
-  selfLink: /api/v1/namespaces/platform-mq-ci/resourcequotas/compute-resources-non-terminating
-  uid: d7308845-c370-11e8-95e9-1201848727ae
+  namespace: platform-mq-dev
 spec:
   hard:
     limits.cpu: "12"
@@ -15,14 +11,3 @@ spec:
     requests.memory: 32Gi
   scopes:
   - NotTerminating
-status:
-  hard:
-    limits.cpu: "12"
-    limits.memory: 64Gi
-    requests.cpu: "6"
-    requests.memory: 32Gi
-  used:
-    limits.cpu: "10"
-    limits.memory: 28424Mi
-    requests.cpu: 5200m
-    requests.memory: 26244Mi
