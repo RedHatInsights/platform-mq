@@ -2,6 +2,7 @@
     "platform.upload.advisor",
     "platform.upload.available",
     "platform.upload.compliance",
+    "platform.upload.hccm",
     "platform.upload.testareno",
     "platform.upload.validation",
     "platform.testing.testareno"
