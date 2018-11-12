@@ -54,17 +54,32 @@ as PRs.
 
 ### Deployment
 
-## NB: This section needs altering for the new environment, changes to come
-
 Deployment of a test environment or redeployment is intended via the
-`strimzi-cluster-operator.yaml` and `platform-mq-dev.yaml` files. With
-the `oc` command installed and working, the commands `oc create -n <namespace>
--f strimzi-cluster-operator.yaml` followed by `oc create -n <namespace> -f
-platform-mq-configmap.yaml` will stand up a replica environment. Afterwards,
-running `create_topics.py <namespace>` in the `topics` directory will ensure
-the necessary testing topics are created and available in the new environment
-and the two test jobs in the `test` directory can be run to test message
-passing functionality.
+`strimzi-cluster-operator.yaml` and `platform-mq-<env>.yaml` files. With
+the `oc` command installed and working, the commands `oc apply -f
+strimzi-cluster-operator.yaml -n <namespace>` will create an operator tasked
+with watching for Strimzi `Kafka` resources. Following with `oc apply -f
+platform-mq-<env>.yaml -n <namespace>` will stand up a replica environment.
+Afterwards, running `create_topics.py -c <cluster_name> <namespace>` in the
+`topics` directory will create the necessary testing topics in the new cluster
+environment. Following this the test jobs in the `tests` directory can be run
+to test message passing functionality.
+
+## Additional Resources
+
+### Kafka Conenct
+
+    - **WIP**
+
+### Avro Schema Registry
+
+    - **WIP**
+
+### Authentication and Authorization
+
+    - **WIP**
+
+
 
 ## Authors
 
