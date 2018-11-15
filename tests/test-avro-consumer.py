@@ -11,7 +11,9 @@ c = AvroConsumer({
 
 c.subscribe([os.environ.get('TOPIC')])
 
-for i in range(int(os.environ.get('ITERATIONS'))):
+print("Starting consumer loop:")
+
+while True:
     try:
         msg = c.poll(10)
 

@@ -22,5 +22,6 @@ avroProducer = AvroProducer({
 
 for i in range(int(os.environ.get('ITERATIONS'))):
     data['payload_id'] = datetime.datetime.now().strftime('%s')
+    print(data)
     avroProducer.produce(topic=os.environ.get('TESTTOPIC'), value=data)
     avroProducer.flush()
