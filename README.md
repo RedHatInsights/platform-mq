@@ -67,7 +67,7 @@ to test message passing functionality.
 
 ## Additional Resources
 
-### Kafka Conenct
+### Kafka Connect
 
     - **WIP**
 
@@ -77,7 +77,14 @@ to test message passing functionality.
 
 ### Authentication and Authorization
 
-    - **WIP**
+Strimzi's deploys provide us with a User Operator in addition to the Cluster
+Operator tasked with keeping the Zookeeper ensemble and Kafka broker cluster
+running and stable. With this operator, KafkaUser resources can be created to
+generate appropriate certificates and ACLs for a given client application. With
+the certs created, the client should then connect to the kafka-brokers service
+at port 9093. As we work towards a production deployment, the expectations is
+that non-authed access will be disabled in favor of only using the authed
+service.
 
 
 
