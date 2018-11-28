@@ -65,6 +65,19 @@ Afterwards, running `create_topics.py -c <cluster_name> <namespace>` in the
 environment. Following this the test jobs in the `tests` directory can be run
 to test message passing functionality.
 
+### Topics and Topic Creation
+
+In our dev MQ instance, topics will be automatically created when produced to
+or consumed from. Given the potential for chaos that this could create in
+production, though, topic autocreation is locked down on non-dev MQ
+environments. For those environments topic creation is still possible, but must
+be done with intent via an administration interface. The simplest mechanism for
+this will be to request that a KafkaTopic resource with the required
+configuration be created. The following document contains the current and
+future plans for topics:
+
+https://docs.google.com/spreadsheets/d/1xx_Zu7fnE8qEtd46vTohR5pyVibRD1-IRDWyj2tZnM0
+
 ## Additional Resources
 
 ### Kafka Connect
