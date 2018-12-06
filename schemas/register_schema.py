@@ -1,3 +1,6 @@
+# Written by: Alexis Seigneurin
+# https://gist.github.com/aseigneurin/5730c07b4136a84acb5aeec42310312c
+
 import os
 import sys
 

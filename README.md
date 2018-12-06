@@ -86,7 +86,33 @@ https://docs.google.com/spreadsheets/d/1xx_Zu7fnE8qEtd46vTohR5pyVibRD1-IRDWyj2tZ
 
 ### Avro Schema Registry
 
-    - **WIP**
+Alongside the Kafka deployment we have an Avro Schema Registry deployed. This
+will allow us to have versioning and verifying of messages placed on the
+associated topics. Some information on API calls for registering schemas
+(written in JSON) to the registry is available at: 
+
+https://github.com/confluentinc/schema-registry
+
+Generally, Avro/Schema Registry aware libraries must be used for
+producing/consuming messages that adhere to a registered Avro schema. This may
+require some additional code, but as we're using Confluent's Avro Schema
+Registry image, their libraries should by and large be able to handle those
+connections:
+
+https://docs.confluent.io/current/clients/index.html
+
+#### Avro Template/Schema Workflow
+
+    1. Define topic schema (See sample in schemas subdir)
+    2. Register schema with Avro Registry (see above docs or register_schema
+       script in schemas subdir)
+    3. Configure your producer to use an Avro serializer
+        - **NB:** The schema is considered part and parcel to the message with
+          Avro. This means you'll need the schema definition in your producer
+          code somewhere.
+    4. Move your consumers to Avro capable deserializers
+    5. Messages to the registered topic using an Avro serializer will now be
+       passed through the registry for verification before being delivered
 
 ### Authentication and Authorization
 
