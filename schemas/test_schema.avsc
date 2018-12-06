@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "testdata",
+  "name": "avrotest",
   "namespace": "platform.testing",
   "fields": [
     {
