@@ -24,12 +24,33 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.upload.advisor-pup",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.upload.testareno",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
 {
     "TOPIC_NAME": "platform.upload.validation",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   "TOPIC_NAME": "platform.topological-inventory.operations-openshift",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   "TOPIC_NAME": "platform.topological-inventory.persister",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   "TOPIC_NAME": "platform.approval",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   "TOPIC_NAME": "platform.service-portal",
     "PARTITIONS": 3,
     "REPLICAS": 3
 }]
