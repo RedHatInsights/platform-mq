@@ -5,7 +5,7 @@ from confluent_kafka.avro import AvroProducer
 
 data = {
     "rh_account": "12345",
-    "principal": "myprince",
+    "principal": "avrotest",
     "validation": False,
     "size": 1237859,
     "service": "bob",
@@ -25,3 +25,6 @@ for i in range(int(os.environ.get('ITERATIONS'))):
     print(data)
     avroProducer.produce(topic=os.environ.get('TESTTOPIC'), value=data)
     avroProducer.flush()
+
+while True:
+    pass

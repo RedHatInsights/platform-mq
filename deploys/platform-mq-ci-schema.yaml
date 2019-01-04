@@ -1,0 +1,113 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftWebConsole
+  creationTimestamp: 2018-11-01T23:50:58Z
+  generation: 10
+  labels:
+    app: platform-mq-ci-schema
+  name: platform-mq-ci-schema
+  namespace: platform-mq-ci
+  resourceVersion: "39568629"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/platform-mq-ci/deploymentconfigs/platform-mq-ci-schema
+  uid: faec01bc-de30-11e8-9acb-1201848727ae
+spec:
+  replicas: 1
+  selector:
+    app: platform-mq-ci-schema
+    deploymentconfig: platform-mq-ci-schema
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+      creationTimestamp: null
+      labels:
+        app: platform-mq-ci-schema
+        deploymentconfig: platform-mq-ci-schema
+    spec:
+      containers:
+      - env:
+        - name: SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS
+          value: PLAINTEXT://platform-mq-ci-kafka-bootstrap.platform-mq-ci.svc:9092
+        - name: SCHEMA_REGISTRY_HOST_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.podIP
+        - name: SCHEMA_REGISTRY_LISTENERS
+          value: http://0.0.0.0:8081
+        - name: SCHEMA_REGISTRY_KAFKASTORE_SECURITY_PROTOCOL
+          value: PLAINTEXT
+        image: confluentinc/cp-schema-registry@sha256:60406295fc091374f645c03fb265f58f11cb393f0668f82476c87602e3be9fbb
+        imagePullPolicy: Always
+        name: platform-mq-ci-schema
+        ports:
+        - containerPort: 8081
+          protocol: TCP
+        resources:
+          limits:
+            memory: 1Gi
+          requests:
+            memory: 500Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /etc/schema-registry/secrets
+          name: platform-mq-ci-schema-1
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - emptyDir: {}
+        name: platform-mq-ci-schema-1
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - platform-mq-ci-schema
+      from:
+        kind: ImageStreamTag
+        name: platform-mq-ci-schema:latest
+        namespace: platform-mq-ci
+      lastTriggeredImage: confluentinc/cp-schema-registry@sha256:60406295fc091374f645c03fb265f58f11cb393f0668f82476c87602e3be9fbb
+    type: ImageChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: 2018-11-03T00:42:03Z
+    lastUpdateTime: 2018-11-03T00:42:04Z
+    message: replication controller "platform-mq-ci-schema-5" successfully rolled
+      out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: 2018-11-28T18:08:22Z
+    lastUpdateTime: 2018-11-28T18:08:22Z
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  details:
+    causes:
+    - type: ConfigChange
+    message: config change
+  latestVersion: 5
+  observedGeneration: 10
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1

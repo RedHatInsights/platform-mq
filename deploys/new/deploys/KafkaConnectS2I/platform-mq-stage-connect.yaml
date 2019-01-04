@@ -1,0 +1,24 @@
+apiVersion: kafka.strimzi.io/v1alpha1
+kind: KafkaConnectS2I
+metadata:
+  name: platform-mq-stage-connect-cluster
+spec:
+  replicas: 1
+  resources:
+    limits:
+      memory: 1Gi
+    requests:
+      memory: 512Mi
+  readinessProbe:
+    initialDelaySeconds: 60
+    timeoutSeconds: 5
+  livenessProbe:
+    initialDelaySeconds: 60
+    timeoutSeconds: 5
+  bootstrapServers: platform-mq-stage-kafka-bootstrap:9093
+  metrics:
+    lowercaseOutputName: true
+  tls:
+    trustedCertificates:
+      - secretName: platform-mq-stage-cluster-ca-cert
+        certificate: ca.crt

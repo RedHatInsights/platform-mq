@@ -32,4 +32,19 @@
     "TOPIC_NAME": "platform.upload.validation",
     "PARTITIONS": 3,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "vulnerability.rules-engine.requests",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "vulnerability.rules-engine.results",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "vulnerability.evaluator.requests",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
 }]
