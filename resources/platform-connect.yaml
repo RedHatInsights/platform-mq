@@ -1,7 +1,7 @@
 apiVersion: kafka.strimzi.io/v1alpha1
 kind: KafkaConnectS2I
 metadata:
-  name: platform-ci-connect-cluster
+  name: platform-<env>-connect-cluster
 spec:
   replicas: 1
   readinessProbe:
@@ -10,10 +10,10 @@ spec:
   livenessProbe:
     initialDelaySeconds: 60
     timeoutSeconds: 5
-  bootstrapServers: platform-mq-ci-kafka-bootstrap:9093
+  bootstrapServers: platform-mq-<emv>-kafka-bootstrap:9093
   metrics:
     lowercaseOutputName: true
   tls:
     trustedCertificates:
-      - secretName: platform-mq-ci-cluster-ca-cert
+      - secretName: platform-mq-<env>-cluster-ca-cert
         certificate: ca.crt

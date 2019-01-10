@@ -7,7 +7,7 @@ spec:
   limits:
   - max:
       cpu: 1800m
-      memory: 5Gi
+      memory: 6Gi
     min:
       cpu: 100m
       memory: 50Mi
