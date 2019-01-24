@@ -8,7 +8,7 @@
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
- {
+{
     "TOPIC_NAME": "platform.upload.compliance",
     "PARTITIONS": 3,
     "REPLICAS": 3
@@ -38,31 +38,43 @@
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   "TOPIC_NAME": "platform.topological-inventory.operations-openshift",
+{   
+    "TOPIC_NAME": "platform.topological-inventory.operations-openshift",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   "TOPIC_NAME": "platform.topological-inventory.persister",
+{   
+    "TOPIC_NAME": "platform.topological-inventory.persister",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   "TOPIC_NAME": "platform.approval",
+{   
+    "TOPIC_NAME": "platform.approval",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   "TOPIC_NAME": "platform.service-portal",
+{   
+    "TOPIC_NAME": "platform.service-portal",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   "TOPIC_NAME": "vulnerability.rules-engine.requests",
+{   
+    "TOPIC_NAME": "vulnerability.rules-engine.requests",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   "TOPIC_NAME": "vulnerability.rules-engine.results",
+{   
+    "TOPIC_NAME": "vulnerability.rules-engine.results",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   "TOPIC_NAME": "vulnerability.evaluator.requests",
+{   
+    "TOPIC_NAME": "vulnerability.evaluator.requests",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "notifications.outbox",
     "PARTITIONS": 3,
     "REPLICAS": 3
 }]
