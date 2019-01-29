@@ -37,7 +37,7 @@
     "TOPIC_NAME": "platform.upload.tower",
     "PARTITIONS": 3,
     "REPLICAS": 3
-}
+},
 {
     "TOPIC_NAME": "platform.upload.validation",
     "PARTITIONS": 3,
