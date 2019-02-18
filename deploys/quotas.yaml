@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ResourceQuota
 metadata:
   name: compute-resources-non-terminating
-  namespace: platform-mq-dev
+  namespace: <>
 spec:
   hard:
     limits.cpu: "12"

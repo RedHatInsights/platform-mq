@@ -1,11 +1,11 @@
 [{
     "TOPIC_NAME": "platform.upload.advisor",
-    "PARTITIONS": 3,
+    "PARTITIONS": 6,
     "REPLICAS": 3
 },
 {
     "TOPIC_NAME": "platform.upload.available",
-    "PARTITIONS": 3,
+    "PARTITIONS": 6,
     "REPLICAS": 3
 },
 {
