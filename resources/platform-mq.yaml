@@ -2,8 +2,9 @@ apiVersion: kafka.strimzi.io/v1alpha1
 kind: Kafka
 metadata:
   name: platform-mq-<env>
-  labels:
-    app: strimzi
+  namespace: platform-mq-<env>
+  label:
+    app: platform-mq-<env>
 spec:
   entityOperator:
     topicOperator: {}
@@ -18,6 +19,7 @@ spec:
   kafka:
     config:
       auto.create.topics.enable: false
+      log.retention.hours: 72
       offsets.topic.replication.factor: 3
       transaction.state.log.min.isr: 2
       transaction.state.log.replication.factor: 3
@@ -124,14 +126,14 @@ spec:
     replicas: 3
     resources:
       limits:
-        cpu: "1"
+        cpu: 1000m
         memory: 5Gi
       requests:
         cpu: 250m
         memory: 4Gi
     storage:
       deleteClaim: false
-      size: 10Gi
+      size: 100Gi
       type: persistent-claim
   zookeeper:
     livenessProbe:
@@ -145,12 +147,12 @@ spec:
     replicas: 3
     resources:
       limits:
-        cpu: "1"
+        cpu: 1000m
         memory: 5Gi
       requests:
         cpu: 250m
         memory: 4Gi
     storage:
       deleteClaim: false
-      size: 10Gi
+      size: 50Gi
       type: persistent-claim
