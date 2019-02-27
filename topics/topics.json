@@ -44,12 +44,22 @@
     "REPLICAS": 3
 },
 {   
+    "TOPIC_NAME": "platform.topological-inventory.event-stream",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   
     "TOPIC_NAME": "platform.topological-inventory.operations-openshift",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
 {   
     "TOPIC_NAME": "platform.topological-inventory.persister",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   
+    "TOPIC_NAME": "platform.topological-inventory.persister-output-stream",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
