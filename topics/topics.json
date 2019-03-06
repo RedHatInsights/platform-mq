@@ -4,6 +4,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.upload.advisor-pup",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.upload.available",
     "PARTITIONS": 6,
     "REPLICAS": 3
@@ -24,7 +29,7 @@
     "REPLICAS": 3
 },
 {
-    "TOPIC_NAME": "platform.upload.advisor-pup",
+    "TOPIC_NAME": "platform.upload.rhv",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
