@@ -97,4 +97,9 @@
     "TOPIC_NAME": "notifications.outbox",
     "PARTITIONS": 3,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.insights.rule_hits",
+    "PARTITIONS": 50,
+    "REPLICAS": 3
 }]
