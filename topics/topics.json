@@ -1,6 +1,6 @@
 [{
     "TOPIC_NAME": "platform.upload.advisor",
-    "PARTITIONS": 6,
+    "PARTITIONS": 64,
     "REPLICAS": 3
 },
 {
@@ -10,7 +10,7 @@
 },
 {
     "TOPIC_NAME": "platform.upload.available",
-    "PARTITIONS": 6,
+    "PARTITIONS": 24,
     "REPLICAS": 3
 },
 {
@@ -45,7 +45,7 @@
 },
 {
     "TOPIC_NAME": "platform.upload.validation",
-    "PARTITIONS": 3,
+    "PARTITIONS": 24,
     "REPLICAS": 3
 },
 {   
