@@ -43,6 +43,11 @@
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
+{   
+    "TOPIC_NAME": "platform.sources.event-stream",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
 {
     "TOPIC_NAME": "platform.upload.validation",
     "PARTITIONS": 3,
@@ -99,7 +104,7 @@
     "REPLICAS": 3
 },
 {
-    "TOPIC_NAME": "platform.insights.rule_hits",
+    "TOPIC_NAME": "platform.insights.rule-hits",
     "PARTITIONS": 50,
     "REPLICAS": 3
 }]
