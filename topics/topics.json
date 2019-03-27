@@ -43,6 +43,11 @@
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
+{   
+    "TOPIC_NAME": "platform.sources.event-stream",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
 {
     "TOPIC_NAME": "platform.upload.validation",
     "PARTITIONS": 24,
