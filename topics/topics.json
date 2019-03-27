@@ -1,6 +1,6 @@
 [{
     "TOPIC_NAME": "platform.upload.advisor",
-    "PARTITIONS": 6,
+    "PARTITIONS": 64,
     "REPLICAS": 3
 },
 {
@@ -10,7 +10,7 @@
 },
 {
     "TOPIC_NAME": "platform.upload.available",
-    "PARTITIONS": 6,
+    "PARTITIONS": 24,
     "REPLICAS": 3
 },
 {
@@ -45,7 +45,7 @@
 },
 {
     "TOPIC_NAME": "platform.upload.validation",
-    "PARTITIONS": 3,
+    "PARTITIONS": 24,
     "REPLICAS": 3
 },
 {   
@@ -65,6 +65,11 @@
 },
 {   
     "TOPIC_NAME": "platform.topological-inventory.persister-output-stream",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   
+    "TOPIC_NAME": "platform.topological-inventory.task-output-stream",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
@@ -99,7 +104,7 @@
     "REPLICAS": 3
 },
 {
-    "TOPIC_NAME": "platform.insights.rule_hits",
+    "TOPIC_NAME": "platform.insights.rule-hits",
     "PARTITIONS": 50,
     "REPLICAS": 3
 }]
