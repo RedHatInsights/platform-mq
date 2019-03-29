@@ -109,6 +109,26 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.upload.aiops-insights-clustering",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.upload.aiops-volume-type-validation",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.upload.aiops-outlier-detection",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.upload.aiops-idle-cost-savings",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.insights.rule-hits",
     "PARTITIONS": 50,
     "REPLICAS": 3
