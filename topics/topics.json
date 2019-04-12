@@ -90,7 +90,7 @@
 },
 {   
     "TOPIC_NAME": "vulnerability.evaluator.requests",
-    "PARTITIONS": 3,
+    "PARTITIONS": 24,
     "REPLICAS": 3
 },
 {
