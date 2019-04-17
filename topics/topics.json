@@ -122,4 +122,9 @@
     "TOPIC_NAME": "platform.insights.rule-hits",
     "PARTITIONS": 50,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.upload.buckit",
+    "PARTITIONS": 16,
+    "REPLICAS": 3
 }]
