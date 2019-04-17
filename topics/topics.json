@@ -89,18 +89,8 @@
     "REPLICAS": 3
 },
 {   
-    "TOPIC_NAME": "vulnerability.rules-engine.requests",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{   
-    "TOPIC_NAME": "vulnerability.rules-engine.results",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{   
     "TOPIC_NAME": "vulnerability.evaluator.requests",
-    "PARTITIONS": 3,
+    "PARTITIONS": 24,
     "REPLICAS": 3
 },
 {
