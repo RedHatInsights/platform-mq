@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  consumer_config.ini: |-
+    bootstrap_servers=platform-mq-<env>-kafka-bootstrap.platform-mq-<env>.svc.cluster.local:9092
+    auto_offset_reset=latest
+    group_id=lag_exporter_<env>
+kind: ConfigMap
+metadata:
+  name: consumerconfig
+  namespace: platform-mq-<env>
