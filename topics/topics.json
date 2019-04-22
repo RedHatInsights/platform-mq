@@ -1,4 +1,59 @@
-[{
+[{   
+    "TOPIC_NAME": "notifications.outbox",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.approval",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.insights.rule-hits",
+    "PARTITIONS": 50,
+    "REPLICAS": 3
+},
+{   
+    "TOPIC_NAME": "platform.service-portal",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   
+    "TOPIC_NAME": "platform.system-profile",
+    "PARTITIONS": 32,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.sources.event-stream",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   
+    "TOPIC_NAME": "platform.topological-inventory.event-stream",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   
+    "TOPIC_NAME": "platform.topological-inventory.operations-openshift",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   
+    "TOPIC_NAME": "platform.topological-inventory.persister",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   
+    "TOPIC_NAME": "platform.topological-inventory.persister-output-stream",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   
+    "TOPIC_NAME": "platform.topological-inventory.task-output-stream",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.upload.advisor",
     "PARTITIONS": 64,
     "REPLICAS": 3
@@ -9,8 +64,33 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.upload.aiops-idle-cost-savings",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.upload.aiops-insights-clustering",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.upload.aiops-outlier-detection",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.upload.aiops-volume-type-validation",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.upload.available",
     "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.upload.buckit",
+    "PARTITIONS": 16,
     "REPLICAS": 3
 },
 {
@@ -43,88 +123,13 @@
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   
-    "TOPIC_NAME": "platform.sources.event-stream",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
 {
     "TOPIC_NAME": "platform.upload.validation",
     "PARTITIONS": 24,
     "REPLICAS": 3
 },
 {   
-    "TOPIC_NAME": "platform.topological-inventory.event-stream",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{   
-    "TOPIC_NAME": "platform.topological-inventory.operations-openshift",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{   
-    "TOPIC_NAME": "platform.topological-inventory.persister",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{   
-    "TOPIC_NAME": "platform.topological-inventory.persister-output-stream",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{   
-    "TOPIC_NAME": "platform.topological-inventory.task-output-stream",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{   
-    "TOPIC_NAME": "platform.approval",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{   
-    "TOPIC_NAME": "platform.service-portal",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{   
     "TOPIC_NAME": "vulnerability.evaluator.requests",
     "PARTITIONS": 24,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "notifications.outbox",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.upload.aiops-insights-clustering",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.upload.aiops-volume-type-validation",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.upload.aiops-outlier-detection",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.upload.aiops-idle-cost-savings",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.insights.rule-hits",
-    "PARTITIONS": 50,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.upload.buckit",
-    "PARTITIONS": 16,
     "REPLICAS": 3
 }]
