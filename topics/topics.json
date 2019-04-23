@@ -84,6 +84,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.upload.aiops-instance-type-validation",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.upload.available",
     "PARTITIONS": 24,
     "REPLICAS": 3
