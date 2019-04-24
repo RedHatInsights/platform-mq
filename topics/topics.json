@@ -13,6 +13,11 @@
     "PARTITIONS": 50,
     "REPLICAS": 3
 },
+{
+    "TOPIC_NAME": "platform.payload-status",
+    "PARTITIONS": 4,
+    "REPLICAS": 3
+},
 {   
     "TOPIC_NAME": "platform.service-portal",
     "PARTITIONS": 3,
