@@ -6,7 +6,8 @@ metadata:
   labels:
     strimzi.io/cluster: {{ KAFKA_CLUSTER }}
 spec:
-  config: {{ TOPIC_CONFIGS }}
+  config: 
+    {{ TOPIC_CONFIGS | indent(4) }}
   partitions: {{ PARTITIONS }}
   replicas: {{ REPLICAS }}
   topicName: {{ TOPIC_NAME }}

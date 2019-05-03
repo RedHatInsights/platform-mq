@@ -26,7 +26,8 @@
 {   
     "TOPIC_NAME": "platform.system-profile",
     "PARTITIONS": 32,
-    "REPLICAS": 3
+    "REPLICAS": 3,
+    "TOPIC_CONFIGS": "retention.ms: 86400000"
 },
 {
     "TOPIC_NAME": "platform.sources.event-stream",
@@ -95,7 +96,7 @@
 },
 {
     "TOPIC_NAME": "platform.upload.available",
-    "PARTITIONS": 24,
+    "PARTITIONS": 64,
     "REPLICAS": 3
 },
 {
