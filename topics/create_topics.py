@@ -34,7 +34,7 @@ for topic in topics:
     topic.update(CONFIG)
     rendered = template.render(**topic)
     if args.dryrun:
-        print(rendered)
+        print("{}\n\n".format(rendered))
     else:
         with NamedTemporaryFile(dir='.') as tmpl:
             tmpl.write(template.render(**topic))
