@@ -163,4 +163,9 @@
     "TOPIC_NAME": "platform.inventory.events",
     "PARTITIONS": 64,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.rhsm-conduit.tasks",
+    "PARTITIONS": 64,
+    "REPLICAS": 3
 }]
