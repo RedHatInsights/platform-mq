@@ -60,7 +60,7 @@ the `oc` command installed and working, the commands `oc apply -f
 strimzi-cluster-operator.yaml -n <namespace>` will create an operator tasked
 with watching for Strimzi `Kafka` resources. Following with `oc apply -f
 platform-mq-<env>.yaml -n <namespace>` will stand up a replica environment.
-Afterwards, running `create_topics.py -c <cluster_name> <namespace>` in the
+Afterwards, running `create_topics.py -n <namespace>` in the
 `topics` directory will create the necessary testing topics in the new cluster
 environment. Following this the test jobs in the `tests` directory can be run
 to test message passing functionality.
@@ -72,9 +72,11 @@ or consumed from. Given the potential for chaos that this could create in
 production, though, topic autocreation is locked down on non-dev MQ
 environments. For those environments topic creation is still possible, but must
 be done with intent via an administration interface. The simplest mechanism for
-this will be to request that a KafkaTopic resource with the required
-configuration be created. The following document contains the current and
-future plans for topics:
+this will be to create a PR adding the new topic configuration to the
+`topics.json` file. Once merged, a user with access to the OpenShift MQ projects
+can use the `create_topics.py` script to sync the topic configs.
+
+The following document contains the current and future plans for topics:
 
 https://docs.google.com/spreadsheets/d/1xx_Zu7fnE8qEtd46vTohR5pyVibRD1-IRDWyj2tZnM0
 
