@@ -144,11 +144,6 @@
     "PARTITIONS": 24,
     "REPLICAS": 3
 },
-{   
-    "TOPIC_NAME": "vulnerability.evaluator.requests",
-    "PARTITIONS": 24,
-    "REPLICAS": 3
-},
 {
     "TOPIC_NAME": "vulnerability.evaluator.upload",
     "PARTITIONS": 24,
