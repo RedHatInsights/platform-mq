@@ -53,4 +53,4 @@ for ns in namespaces:
             with NamedTemporaryFile(dir='.') as tmpl:
                 tmpl.write(template.render(**topic))
                 tmpl.flush()
-                subprocess.call(['oc', 'apply', '-n', args.namespace, '-f', tmpl.name])
+                subprocess.call(['oc', 'apply', '-n', ns, '-f', tmpl.name])

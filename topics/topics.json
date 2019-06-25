@@ -125,6 +125,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.upload.leapp-reporting",
+    "PARTITIONS": 2,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.upload.qpc",
     "PARTITIONS": 3,
     "REPLICAS": 3
