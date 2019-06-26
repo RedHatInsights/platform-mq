@@ -173,4 +173,9 @@
     "TOPIC_NAME": "platform.rhsm-conduit.tasks",
     "PARTITIONS": 24,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.host-ingress",
+    "PARTITIONS": 20,
+    "REPLICAS": 3
 }]
