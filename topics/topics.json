@@ -175,7 +175,7 @@
     "REPLICAS": 3
 },
 {
-    "TOPIC_NAME": "platform.host-ingress",
+    "TOPIC_NAME": "platform.inventory.host-ingress",
     "PARTITIONS": 20,
     "REPLICAS": 3
 }]
