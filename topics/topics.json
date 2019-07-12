@@ -52,7 +52,8 @@
 {   
     "TOPIC_NAME": "platform.topological-inventory.persister",
     "PARTITIONS": 3,
-    "REPLICAS": 3
+    "REPLICAS": 3,
+    "TOPIC_CONFIGS": "retention.ms: 86400000\nretention.bytes: 500000000"
 },
 {   
     "TOPIC_NAME": "platform.topological-inventory.persister-output-stream",

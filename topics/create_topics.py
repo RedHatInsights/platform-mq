@@ -37,6 +37,7 @@ else:
     sys.exit("--namespace or --environment required")
 
 for ns in namespaces:
+    print(ns + '\n')
     CONFIG = {
         "KAFKA_CLUSTER": ns,
         "NAMESPACE": ns
