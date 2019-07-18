@@ -179,4 +179,9 @@
     "TOPIC_NAME": "platform.inventory.host-ingress",
     "PARTITIONS": 20,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "ruledev.nomination",
+    "PARTITIONS": 2,
+    "REPLICAS": 3
 }]
