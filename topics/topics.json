@@ -183,7 +183,8 @@
 {
     "TOPIC_NAME": "platform.inventory.host-ingress",
     "PARTITIONS": 20,
-    "REPLICAS": 3
+    "REPLICAS": 3,
+    "TOPIC_CONFIGS": "retention.ms: 86400000\nretention.bytes: 2684354560"
 },
 {
     "TOPIC_NAME": "platform.inventory.host-egress",
