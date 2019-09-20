@@ -17,6 +17,7 @@ parser.add_argument('-e', '--environment', help='prod/dev environment for topic 
 parser.add_argument('-d', '--dryrun', action='store_true',
                     help='Print topics to be created without applying them')
 parser.add_argument('-n', '--namespace', help='Specific OpenShift namespace/project for topic creation. Ignores --environment if set')
+parser.add_argument('-y', '--yaml', help='Generate YAML files for topic resources', action='store_true')
 args = parser.parse_args()
 
 templateLoader = jinja2.FileSystemLoader(searchpath="./")
@@ -50,6 +51,11 @@ for ns in namespaces:
         rendered = template.render(**topic)
         if args.dryrun:
             print("{}\n\n".format(rendered))
+        elif args.yaml:
+            filename = "{}.yaml".format(topic["TOPIC_NAME"])
+            print(filename)
+            with open(filename, "w+") as yamlFile:
+                yamlFile.write(template.render(**topic))
         else:
             with NamedTemporaryFile(dir='.') as tmpl:
                 tmpl.write(template.render(**topic))
