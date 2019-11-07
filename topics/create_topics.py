@@ -57,7 +57,7 @@ for ns in namespaces:
             with open(filename, "w+") as yamlFile:
                 yamlFile.write(template.render(**topic))
         else:
-            with NamedTemporaryFile(dir='.') as tmpl:
+            with NamedTemporaryFile(dir='.', mode='w+') as tmpl:
                 tmpl.write(template.render(**topic))
                 tmpl.flush()
                 subprocess.call(['oc', 'apply', '-n', ns, '-f', tmpl.name])
