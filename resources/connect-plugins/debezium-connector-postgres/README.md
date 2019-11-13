@@ -20,7 +20,7 @@ Debezium provides modules that do this work for you. Some modules are generic an
 
 ## Basic architecture
 
-Debezium is a change data capture (CDC) platform that achieves its durability, reliability, and fault tolerance qualities by reusing Kafka and Kafka Connect. Each connector deployed to the Kafka Connect distributed, scalable, fault tolerant service monitors a single upstream database server, capturing all of the changes and recording them in one or more Kafka topics (typically one topic per database table). Kafka ensures that all of these data change events are replicated and totally ordered, and allows many clients to independently consume these same data change events with little impact on the upstream system. Additionally, clients can stop consuming at any time, and when they restart they resume exactly where they left off. Each client can determine whether they want exactly-only or at-least-once delivery of all data change events, and all data change events for each database/table are delivered in the same order they occurred in the upstream database.
+Debezium is a change data capture (CDC) platform that achieves its durability, reliability, and fault tolerance qualities by reusing Kafka and Kafka Connect. Each connector deployed to the Kafka Connect distributed, scalable, fault tolerant service monitors a single upstream database server, capturing all of the changes and recording them in one or more Kafka topics (typically one topic per database table). Kafka ensures that all of these data change events are replicated and totally ordered, and allows many clients to independently consume these same data change events with little impact on the upstream system. Additionally, clients can stop consuming at any time, and when they restart they resume exactly where they left off. Each client can determine whether they want exactly-once or at-least-once delivery of all data change events, and all data change events for each database/table are delivered in the same order they occurred in the upstream database.
 
 Applications that don't need or want this level of fault tolerance, performance, scalability, and reliability can instead use Debezium's *embedded connector engine* to run a connector directly within the application space. They still want the same data change events, but prefer to have the connectors send them directly to the application rather than persist them inside Kafka.
 
@@ -48,8 +48,6 @@ Data is often stored in multiple places, especially when it is used for differen
 
 The [Command Query Responsibility Separation (CQRS)](http://martinfowler.com/bliki/CQRS.html) architectural pattern uses a one data model for updating and one or more other data models for reading. As changes are recorded on the update-side, those changes are then processed and used to update the various read representations. As a result CQRS applications are usually more complicated, especially when they need to ensure reliable and totally-ordered processing. Debezium and CDC can make this more approachable: writes are recorded as normal, but Debezium captures those changes in durable, totally ordered streams that are consumed by the services that asynchronously update the read-only views. The write-side tables can represent domain-oriented entities, or when CQRS is paired with [Event Sourcing](http://martinfowler.com/eaaDev/EventSourcing.html) the write-side tables are the append-only event log of commands.
 
-
-
 ## Building Debezium
 
 The following software is required to work with the Debezium codebase and build it locally:
@@ -65,7 +63,6 @@ See the links above for installation instructions on your platform. You can veri
     $ javac -version
     $ mvn -version
     $ docker --version
-
 
 ### Why Docker?
 
@@ -119,6 +116,17 @@ To run the integration tests of the PG connector using wal2json, enable the "wal
 
 A few tests currently don't pass when using the wal2json plug-in.
 Look for references to the types defined in `io.debezium.connector.postgresql.DecoderDifferences` to find these tests.
+
+### Running tests of the Postgres connector against an external database, e.g. Amazon RDS
+
+    $ mvn clean install -pl debezium-connector-postgres -Pwal2json-decoder \
+         -Ddocker.skip.build=true -Ddocker.skip.run=true -Dpostgres.host=<your PG host> \
+         -Dpostgres.user=<your user> -Dpostgres.password=<your password> \
+         -Ddebezium.test.records.waittime=10
+
+Adjust the timeout value as needed.
+
+See [PostgreSQL on Amazon RDS](debezium-connector-postgres/RDS.md) for details on setting up a database on RDS to test against.
 
 ## Contributing
 
