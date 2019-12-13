@@ -141,6 +141,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.upload.mkt",
+    "PARTITIONS": 10,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.upload.qpc",
     "PARTITIONS": 3,
     "REPLICAS": 3
