@@ -4,6 +4,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "ccx.ocp.results",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "hooks.outbox",
     "PARTITIONS": 3,
     "REPLICAS": 3
