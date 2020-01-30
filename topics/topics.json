@@ -24,6 +24,11 @@
     "REPLICAS": 3
 },
 {   
+    "TOPIC_NAME": "platform.receptor-controller.responses",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   
     "TOPIC_NAME": "platform.service-portal",
     "PARTITIONS": 3,
     "REPLICAS": 3
