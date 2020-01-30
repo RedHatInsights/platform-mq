@@ -217,4 +217,15 @@
     "TOPIC_NAME": "ruledev.nomination",
     "PARTITIONS": 2,
     "REPLICAS": 3
-}]
+},
+{
+    "TOPIC_NAME": "patchman.evaluator.upload"
+    "PARTITIONS": 64,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "patchman.evaluator.recalc"
+    "PARTITIONS": 64,
+    "REPLICAS": 3
+}
+]
