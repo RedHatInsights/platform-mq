@@ -186,6 +186,16 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "patchman.evaluator.upload",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "patchman.evaluator.recalc",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.inventory.events",
     "PARTITIONS": 64,
     "REPLICAS": 3
