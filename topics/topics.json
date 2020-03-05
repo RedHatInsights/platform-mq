@@ -4,6 +4,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "ccx.ocp.results",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "hooks.outbox",
     "PARTITIONS": 3,
     "REPLICAS": 3
@@ -21,6 +26,11 @@
 {
     "TOPIC_NAME": "platform.custom-policies.actions-webhook",
     "PARTITIONS": 2,
+    "REPLICAS": 3,
+},
+{
+    "TOPIC_NAME": "platform.engine.results",
+    "PARTITIONS": 3,
     "REPLICAS": 3
 },
 {
@@ -31,6 +41,11 @@
 {
     "TOPIC_NAME": "platform.payload-status",
     "PARTITIONS": 4,
+    "REPLICAS": 3
+},
+{   
+    "TOPIC_NAME": "platform.receptor-controller.responses",
+    "PARTITIONS": 3,
     "REPLICAS": 3
 },
 {   
@@ -191,6 +206,16 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "patchman.evaluator.upload",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "patchman.evaluator.recalc",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.inventory.events",
     "PARTITIONS": 64,
     "REPLICAS": 3
@@ -213,6 +238,12 @@
     "TOPIC_CONFIGS": "retention.ms: 86400000\nretention.bytes: 2684354560"
 },
 {
+    "TOPIC_NAME": "platform.inventory.host-ingress-p1",
+    "PARTITIONS": 20,
+    "REPLICAS": 3,
+    "TOPIC_CONFIGS": "retention.ms: 86400000\nretention.bytes: 2684354560"
+},
+{
     "TOPIC_NAME": "platform.inventory.host-egress",
     "PARTITIONS": 20,
     "REPLICAS": 3
@@ -221,4 +252,15 @@
     "TOPIC_NAME": "ruledev.nomination",
     "PARTITIONS": 2,
     "REPLICAS": 3
-}]
+},
+{
+    "TOPIC_NAME": "patchman.evaluator.upload",
+    "PARTITIONS": 64,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "patchman.evaluator.recalc",
+    "PARTITIONS": 64,
+    "REPLICAS": 3
+}
+]
