@@ -19,6 +19,16 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.custom-policies.actions-email",
+    "PARTITIONS": 2,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.custom-policies.actions-webhook",
+    "PARTITIONS": 2,
+    "REPLICAS": 3,
+},
+{
     "TOPIC_NAME": "platform.engine.results",
     "PARTITIONS": 3,
     "REPLICAS": 3
