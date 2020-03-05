@@ -75,6 +75,11 @@
     "REPLICAS": 3
 },
 {   
+    "TOPIC_NAME": "platform.topological-inventory.operations-azure",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{   
     "TOPIC_NAME": "platform.topological-inventory.operations-ansible-tower",
     "PARTITIONS": 3,
     "REPLICAS": 3
