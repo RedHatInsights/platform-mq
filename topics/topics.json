@@ -5,7 +5,7 @@
 },
 {
     "TOPIC_NAME": "ccx.ocp.results",
-    "PARTITIONS": 3,
+    "PARTITIONS": 1,
     "REPLICAS": 3
 },
 {
@@ -26,7 +26,7 @@
 {
     "TOPIC_NAME": "platform.custom-policies.actions-webhook",
     "PARTITIONS": 2,
-    "REPLICAS": 3,
+    "REPLICAS": 3
 },
 {
     "TOPIC_NAME": "platform.engine.results",
