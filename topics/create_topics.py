@@ -10,7 +10,7 @@ DESCRIPTION = 'Create expected topics on a Strimzi Kafka cluster'
 TEMPLATE_FILE = "./topictemplate.yaml"
 TOPIC_JSON = "./topics.json"
 DEV_PROJS = ['platform-mq-dev', 'platform-mq-ci', 'platform-mq-qa']
-PROD_PROJS = ['platform-mq-prod']
+PROD_PROJS = ['platform-mq-prod','platform-mq-stage']
 
 parser = argparse.ArgumentParser(description=DESCRIPTION)
 parser.add_argument('-e', '--environment', help='prod/dev environment for topic creation')
