@@ -9,7 +9,7 @@ See [docs](https://helm.sh/docs/) to [install](https://helm.sh/docs/intro/instal
 Run following command to generate the OpenShift template to create the Kafka topics.
 
 ```sh
-$ helm template ./helm/kafka-topics -f helm/kafka-topics/values.yaml > deploys/openshift/kafa-topics.yaml
+$ helm template ./helm/kafka-topics -f helm/kafka-topics/values.yaml > deploys/openshift/kafka-topics.yaml
 ```
 
 ## Add New Topic
