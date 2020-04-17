@@ -1,0 +1,588 @@
+---
+# Source: kafka-topics/templates/template.yml
+apiVersion: v1
+kind: Template
+metadata:
+  name: kafka-topics
+objects:
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: notifications.outbox
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: notifications.outbox
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: ccx.ocp.results
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: ccx.ocp.results
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: hooks.outbox
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: hooks.outbox
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.approval
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.approval
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.custom-policies.actions-email
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 2
+    replicas: 3
+    topicName: platform.custom-policies.actions-email
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.custom-policies.actions-webhook
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 2
+    replicas: 3
+    topicName: platform.custom-policies.actions-webhook
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.engine.results
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.engine.results
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.insights.rule-hits
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 50
+    replicas: 3
+    topicName: platform.insights.rule-hits
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.payload-status
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 4
+    replicas: 3
+    topicName: platform.payload-status
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.receptor-controller.responses
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.receptor-controller.responses
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.service-portal
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.service-portal
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.system-profile
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 32
+    replicas: 3
+    topicName: platform.system-profile
+    config:
+      retention.ms: 86400000
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.sources.event-stream
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.sources.event-stream
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.topological-inventory.event-stream
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.topological-inventory.event-stream
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.topological-inventory.operations-amazon
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.topological-inventory.operations-amazon
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.topological-inventory.operations-azure
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.topological-inventory.operations-azure
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.topological-inventory.operations-ansible-tower
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.topological-inventory.operations-ansible-tower
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.topological-inventory.operations-openshift
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.topological-inventory.operations-openshift
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.topological-inventory.operations-satellite
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.topological-inventory.operations-satellite
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.topological-inventory.persister
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.topological-inventory.persister
+    config:
+      retention.ms: 86400000
+      retention.bytes: 500000000
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.topological-inventory.persister-output-stream
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.topological-inventory.persister-output-stream
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.topological-inventory.task-output-stream
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.topological-inventory.task-output-stream
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.advisor
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 64
+    replicas: 3
+    topicName: platform.upload.advisor
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.xavier
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.xavier
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.advisor-pup
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.advisor-pup
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.aiops-idle-cost-savings
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.aiops-idle-cost-savings
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.aiops-insights-clustering
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.aiops-insights-clustering
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.aiops-outlier-detection
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.aiops-outlier-detection
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.aiops-volume-type-validation
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.aiops-volume-type-validation
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.aiops-instance-type-validation
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.aiops-instance-type-validation
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.available
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 64
+    replicas: 3
+    topicName: platform.upload.available
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.buckit
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 16
+    replicas: 3
+    topicName: platform.upload.buckit
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.compliance
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.compliance
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.hccm
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.hccm
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.leapp-reporting
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 2
+    replicas: 3
+    topicName: platform.upload.leapp-reporting
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.mkt
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 10
+    replicas: 3
+    topicName: platform.upload.mkt
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.qpc
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.qpc
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.rhv
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.rhv
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.testareno
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.testareno
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.tower
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.tower
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.topological-inventory
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.topological-inventory
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.validation
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.upload.validation
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: vulnerability.evaluator.upload
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: vulnerability.evaluator.upload
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: vulnerability.evaluator.recalc
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: vulnerability.evaluator.recalc
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: patchman.evaluator.upload
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: patchman.evaluator.upload
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: patchman.evaluator.recalc
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: patchman.evaluator.recalc
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.inventory.events
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 64
+    replicas: 3
+    topicName: platform.inventory.events
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.rhsm-conduit.tasks
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-conduit.tasks
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.testing.rhsm-conduit-tasks
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.testing.rhsm-conduit-tasks
+    config:
+      retention.ms: 86400000
+      retention.bytes: 2684354560
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.inventory.host-ingress
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 20
+    replicas: 3
+    topicName: platform.inventory.host-ingress
+    config:
+      retention.ms: 86400000
+      retention.bytes: 2684354560
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.inventory.host-ingress-p1
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 20
+    replicas: 3
+    topicName: platform.inventory.host-ingress-p1
+    config:
+      retention.ms: 86400000
+      retention.bytes: 2684354560
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.inventory.host-egress
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 20
+    replicas: 3
+    topicName: platform.inventory.host-egress
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: ruledev.nomination
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 2
+    replicas: 3
+    topicName: ruledev.nomination
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: patchman.evaluator.upload
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 64
+    replicas: 3
+    topicName: patchman.evaluator.upload
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: patchman.evaluator.recalc
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 64
+    replicas: 3
+    topicName: patchman.evaluator.recalc
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.rhsm-subscriptions.tasks
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.tasks
+parameters:
+# Needed for processing by app-interface but not used.
+- name: IMAGE_TAG
+  value: latest
+# Kafka cluster name will be provided at run tim
+- name: KAFKA_CLUSTER
+  value: ""
