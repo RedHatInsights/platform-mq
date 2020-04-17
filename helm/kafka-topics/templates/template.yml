@@ -1,0 +1,31 @@
+---
+apiVersion: v1
+kind: Template
+metadata:
+  name: kafka-topics
+objects:
+{{- range $t, $topic := .Values.topics }}
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: {{ $topic.topic_name }}
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: {{ $topic.partitions }}
+    replicas: {{ $topic.replicas }}
+    topicName: {{ $topic.topic_name }}
+    {{- if $topic.topic_configs }}
+    config:
+      {{- range $c, $config := $topic.topic_configs }}
+      {{ $config.name }}: {{ $config.value }}
+      {{- end }}
+    {{- end }}
+{{- end }}
+parameters:
+# Needed for processing by app-interface but not used.
+- name: IMAGE_TAG
+  value: latest
+# Kafka cluster name will be provided at run tim
+- name: KAFKA_CLUSTER
+  value: ""

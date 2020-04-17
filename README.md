@@ -80,6 +80,8 @@ The following document contains the current and future plans for topics:
 
 https://docs.google.com/spreadsheets/d/1xx_Zu7fnE8qEtd46vTohR5pyVibRD1-IRDWyj2tZnM0
 
+**Note:** In addition to adding Kafka topics to the `topics.json` file, please follow instructions in [README](helm/README.md) to add topics to [vaules.yaml](helm/kafka-topics/values.yaml) and update the OpenShift [template](deploys/openshift/kafa-topics.yaml).
+
 ## Additional Resources
 
 ### Kafka Connect
@@ -91,7 +93,7 @@ https://docs.google.com/spreadsheets/d/1xx_Zu7fnE8qEtd46vTohR5pyVibRD1-IRDWyj2tZ
 Alongside the Kafka deployment we have an Avro Schema Registry deployed. This
 will allow us to have versioning and verifying of messages placed on the
 associated topics. Some information on API calls for registering schemas
-(written in JSON) to the registry is available at: 
+(written in JSON) to the registry is available at:
 
 https://github.com/confluentinc/schema-registry
 
