@@ -28,7 +28,9 @@ objects:
             cpu: 250m
             memory: 512Mi
     kafka:
+      version: 2.4.0
       config:
+        log.message.format.version: '2.4'
         auto.create.topics.enable: false
         log.retention.hours: 72
         offsets.topic.replication.factor: 3
