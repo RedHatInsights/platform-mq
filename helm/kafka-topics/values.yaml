@@ -140,12 +140,6 @@ topics:
 - topic_name: vulnerability.evaluator.recalc
   partitions: 24
   replicas: 3
-- topic_name: patchman.evaluator.upload
-  partitions: 24
-  replicas: 3
-- topic_name: patchman.evaluator.recalc
-  partitions: 24
-  replicas: 3
 - topic_name: platform.inventory.events
   partitions: 64
   replicas: 3
