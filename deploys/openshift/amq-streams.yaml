@@ -14,7 +14,7 @@ objects:
   kind: Kafka
   metadata:
     name: platform-mq
-    label:
+    labels:
       app: platform-mq
   spec:
     entityOperator:

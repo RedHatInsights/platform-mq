@@ -3,7 +3,7 @@ kind: Kafka
 metadata:
   name: platform-mq-<env>
   namespace: platform-mq-<env>
-  label:
+  labels:
     app: platform-mq-<env>
 spec:
   entityOperator:
