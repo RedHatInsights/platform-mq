@@ -244,7 +244,8 @@
 {
     "TOPIC_NAME": "platform.inventory.events",
     "PARTITIONS": 64,
-    "REPLICAS": 3
+    "REPLICAS": 3,
+    "TOPIC_CONFIGS": "cleanup.policy: compact,delete\nmin.compaction.lag.ms: 43200000\nretention.bytes: 5368709120\nretention.ms: 1209600000"
 },
 {
     "TOPIC_NAME": "platform.rhsm-conduit.tasks",
