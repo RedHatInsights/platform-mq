@@ -296,7 +296,7 @@
     "REPLICAS": 3
 },
 {
-    "TOPIC_NAME": "platform.application.updates",
+    "TOPIC_NAME": "platform.application.remediation-updates",
     "PARTITIONS": 3,
     "REPLICAS": 3
 }
