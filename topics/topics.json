@@ -71,6 +71,11 @@
     "TOPIC_CONFIGS": "retention.ms: 86400000"
 },
 {
+    "TOPIC_NAME": "platform.sources.status",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.sources.event-stream",
     "PARTITIONS": 3,
     "REPLICAS": 3
@@ -232,20 +237,10 @@
     "REPLICAS": 3
 },
 {
-    "TOPIC_NAME": "patchman.evaluator.upload",
-    "PARTITIONS": 24,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "patchman.evaluator.recalc",
-    "PARTITIONS": 24,
-    "REPLICAS": 3
-},
-{
     "TOPIC_NAME": "platform.inventory.events",
     "PARTITIONS": 64,
     "REPLICAS": 3,
-    "TOPIC_CONFIGS": "cleanup.policy: compact,delete\nmin.compaction.lag.ms: 43200000\nretention.bytes: 5368709120\nretention.ms: 1209600000"
+    "TOPIC_CONFIGS": "cleanup.policy: compact,delete\nmin.compaction.lag.ms: 43200000\nretention.bytes: 5368709120\nretention.ms: 2678400000"
 },
 {
     "TOPIC_NAME": "platform.rhsm-conduit.tasks",
@@ -273,7 +268,8 @@
 {
     "TOPIC_NAME": "platform.inventory.host-egress",
     "PARTITIONS": 64,
-    "REPLICAS": 3
+    "REPLICAS": 3,
+    "TOPIC_CONFIGS": "retention.bytes: 1073741824\nretention.ms: 86400000\nsegment.bytes: 524288000"
 },
 {
     "TOPIC_NAME": "ruledev.nomination",
