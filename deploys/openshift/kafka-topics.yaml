@@ -48,23 +48,23 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
-    name: platform.policies.actions-email
+    name: platform.custom-policies.actions-email
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
     partitions: 2
     replicas: 3
-    topicName: platform.policies.actions-email
+    topicName: platform.custom-policies.actions-email
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
-    name: platform.policies.actions-webhook
+    name: platform.custom-policies.actions-webhook
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
     partitions: 2
     replicas: 3
-    topicName: platform.policies.actions-webhook
+    topicName: platform.custom-policies.actions-webhook
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
