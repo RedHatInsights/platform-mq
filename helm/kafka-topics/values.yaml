@@ -12,10 +12,10 @@ topics:
 - topic_name: platform.approval
   partitions: 3
   replicas: 3
-- topic_name: platform.custom-policies.actions-email
+- topic_name: platform.policies.actions-email
   partitions: 2
   replicas: 3
-- topic_name: platform.custom-policies.actions-webhook
+- topic_name: platform.policies.actions-webhook
   partitions: 2
   replicas: 3
 - topic_name: platform.engine.results
