@@ -242,6 +242,12 @@
     "REPLICAS": 3,
     "TOPIC_CONFIGS": "cleanup.policy: compact,delete\nmin.compaction.lag.ms: 43200000\nretention.bytes: 5368709120\nretention.ms: 2678400000"
 },
+ {
+    "TOPIC_NAME": "platform.legacy-bridge.events",
+    "PARTITIONS": 64,
+    "REPLICAS": 3,
+    "TOPIC_CONFIGS": "cleanup.policy: compact,delete\nmin.compaction.lag.ms: 43200000\nretention.bytes: 5368709120\nretention.ms: 2678400000"
+},
 {
     "TOPIC_NAME": "platform.cyndi.dlq",
     "PARTITIONS": 1,
