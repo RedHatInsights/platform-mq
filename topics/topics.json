@@ -39,6 +39,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.insights.client-metrics",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.engine.results",
     "PARTITIONS": 3,
     "REPLICAS": 3,
