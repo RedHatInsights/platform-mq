@@ -185,3 +185,15 @@ topics:
 - topic_name: platform.rhsm-subscriptions.tasks
   partitions: 24
   replicas: 3
+- topic_name: platform.remediation-updates.advisor
+  partitions: 3
+  replicas: 3
+- topic_name: platform.remediation-updates.patch
+  partitions: 3
+  replicas: 3
+- topic_name: platform.remediation-updates.vulnerability
+  partitions: 3
+  replicas: 3
+- topic_name: platform.remediation-updates.compliance
+  partitions: 3
+  replicas: 3
