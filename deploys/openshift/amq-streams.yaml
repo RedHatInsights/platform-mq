@@ -9,6 +9,31 @@ parameters:
 - name: ZK_VOL_SIZE
   description: Size of volumes for Zookeeper nodes
   value: 50Gi
+- name: KAFKA_CPU_REQUESTS
+  value: 250m
+- name: KAFKA_CPU_LIMITS
+  value: '1'
+- name: KAFKA_MEMORY_REQUESTS
+  value: 4Gi
+- name: KAFKA_MEMORY_LIMITS
+  value: 5Gi
+- name: KAFKA_NUM_REPLICAS
+  value: '3'
+- name: KAFKA_HEAP_OPTS_XMS
+  value: 4g
+- name: KAFKA_HEAP_OPTS_XMX
+  value: 4g
+- name: ZOOKEEPER_CPU_REQUESTS
+  value: 250m
+- name: ZOOKEEPER_CPU_LIMITS
+  value: '1'
+- name: ZOOKEEPER_MEMORY_REQUESTS
+  value: 4Gi
+- name: ZOOKEEPER_MEMORY_LIMITS
+  value: 5Gi
+- name: ZOOKEEPER_NUM_REPLICAS
+  value: '3'
+
 objects:
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: Kafka
@@ -37,8 +62,8 @@ objects:
         transaction.state.log.min.isr: 2
         transaction.state.log.replication.factor: 3
       jvmOptions:
-        -Xms: 4g
-        -Xmx: 4g
+        -Xms: ${KAFKA_HEAP_OPTS_XMS}
+        -Xmx: ${KAFKA_HEAP_OPTS_XMX}
       listeners:
         plain: {}
         tls: {}
@@ -136,14 +161,14 @@ objects:
       readinessProbe:
         initialDelaySeconds: 15
         timeoutSeconds: 5
-      replicas: 3
+      replicas: ${KAFKA_NUM_REPLICAS}
       resources:
         limits:
-          cpu: 1000m
-          memory: 5Gi
+          cpu: ${KAFKA_CPU_LIMITS}
+          memory: ${KAFKA_MEMORY_LIMITS}
         requests:
-          cpu: 250m
-          memory: 4Gi
+          cpu: ${KAFKA_CPU_REQUESTS}
+          memory: ${KAFKA_MEMORY_REQUESTS}
       storage:
         deleteClaim: false
         size: ${KAFKA_VOL_SIZE}
@@ -157,14 +182,14 @@ objects:
       readinessProbe:
         initialDelaySeconds: 15
         timeoutSeconds: 5
-      replicas: 3
+      replicas: ${ZOOKEEPER_NUM_REPLICAS}
       resources:
         limits:
-          cpu: 1000m
-          memory: 5Gi
+          cpu: ${ZOOKEEPER_CPU_LIMITS}
+          memory: ${ZOOKEEPER_MEMORY_LIMITS}
         requests:
-          cpu: 250m
-          memory: 4Gi
+          cpu: ${ZOOKEEPER_CPU_REQUESTS}
+          memory: ${ZOOKEEPER_MEMORY_REQUESTS}
       storage:
         deleteClaim: false
         size: ${ZK_VOL_SIZE}
