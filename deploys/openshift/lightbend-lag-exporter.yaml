@@ -91,3 +91,23 @@ objects:
     name: lightbend-exporter-config
     annotations:
       qontract.recycle: "true"
+
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      prometheus.io/path: /
+      prometheus.io/port: '8000'
+      prometheus.io/scrape: 'true'
+    labels:
+      app: lightbend-lag-exporter
+    name: lightbend-lag-exporter
+  spec:
+    ports:
+      - port: 8000
+        protocol: TCP
+        targetPort: 8000
+    selector:
+      app: lightbend-lag-exporter
+    sessionAffinity: None
+    type: ClusterIP
