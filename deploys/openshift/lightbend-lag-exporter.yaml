@@ -35,7 +35,7 @@ objects:
       spec:
         containers:
           - image: >-
-              quay.io/cloudservices/lightbend-lag-exporter:0.6.2
+              quay.io/app-sre/lightbend-lag-exporter:0.6.2
             imagePullPolicy: IfNotPresent
             name: lightbend-lag-exporter
             ports:
