@@ -1,0 +1,93 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: lightbend-lag-exporter
+parameters:
+- name: APPSRE_ENV
+  value: stage
+
+objects:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    labels:
+      app: lightbend-lag-exporter
+    name: lightbend-lag-exporter
+  spec:
+    replicas: 1
+    selector:
+      app: lightbend-lag-exporter
+      deploymentconfig: lightbend-lag-exporter
+    strategy:
+      resources: {}
+      rollingParams:
+        intervalSeconds: 1
+        maxSurge: 1
+        maxUnavailable: 0
+        timeoutSeconds: 600
+        updatePeriodSeconds: 1
+      type: Rolling
+    template:
+      metadata:
+        labels:
+          app: lightbend-lag-exporter
+          deploymentconfig: lightbend-lag-exporter
+      spec:
+        containers:
+          - image: >-
+              quay.io/cloudservices/lightbend-lag-exporter
+            imagePullPolicy: IfNotPresent
+            name: lightbend-lag-exporter
+            ports:
+              - name: lightbend-lag-exporter-port
+                containerPort: 8000
+                protocol: TCP
+            resources:
+              limits:
+                memory: 500Mi
+                cpu: 500m
+              requests:
+                memory: 250Mi
+                cpu: 250m
+            terminationMessagePath: /dev/termination-log
+            terminationMessagePolicy: File
+            volumeMounts:
+              - mountPath: /opt/docker/conf/
+                name: volume-c86u8
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+          - configMap:
+              defaultMode: 420
+              name: lightbend-exporter-config
+            name: volume-c86u8
+
+- apiVersion: v1
+  data:
+    application.conf: |-
+      kafka-lag-exporter {
+        reporters.prometheus.port = 8000
+        poll-interval = 30 seconds
+        lookup-table-size = 60
+        client-group-id = "lightbendlagexporter-${APPSRE_ENV}"
+        kafka-client-timeout = 10 seconds
+        clusters = [
+          {
+            name = "platform-mq"
+            bootstrap-brokers = "platform-mq-kafka-bootstrap.platform-mq-${APPSRE_ENV}.svc.cluster.local:9092"
+            topic-whitelist = [".*"]
+          }
+        ]
+        watchers = {
+          strimzi = "false"
+        }
+        metric-whitelist = [".*"]
+      }
+  kind: ConfigMap
+  metadata:
+    name: lightbend-exporter-config
+    annotations:
+      qontract.recycle: "true"
