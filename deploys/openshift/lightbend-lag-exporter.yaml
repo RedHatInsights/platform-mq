@@ -56,9 +56,6 @@ objects:
                 name: volume-c86u8
         dnsPolicy: ClusterFirst
         restartPolicy: Always
-        imagePullSecrets:
-          - name: "quay-cloudservices-pull"
-          - name: rh-registry-pull
         schedulerName: default-scheduler
         securityContext: {}
         terminationGracePeriodSeconds: 30
@@ -98,16 +95,13 @@ objects:
 - apiVersion: v1
   kind: Service
   metadata:
-    annotations:
-      prometheus.io/path: /
-      prometheus.io/port: '8000'
-      prometheus.io/scrape: 'true'
     labels:
       app: lightbend-lag-exporter
     name: lightbend-lag-exporter
   spec:
     ports:
-      - port: 8000
+      - name: "8000"
+        port: 8000
         protocol: TCP
         targetPort: 8000
     selector:
