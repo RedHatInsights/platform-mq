@@ -39,7 +39,7 @@ objects:
             imagePullPolicy: IfNotPresent
             name: lightbend-lag-exporter
             ports:
-              - name: lightbend-lag-exporter-port
+              - name: "8000"
                 containerPort: 8000
                 protocol: TCP
             resources:
