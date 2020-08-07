@@ -161,7 +161,7 @@ objects:
       readinessProbe:
         initialDelaySeconds: 15
         timeoutSeconds: 5
-      replicas: ${KAFKA_NUM_REPLICAS}
+      replicas: ${{KAFKA_NUM_REPLICAS}}
       resources:
         limits:
           cpu: ${KAFKA_CPU_LIMITS}
@@ -182,7 +182,7 @@ objects:
       readinessProbe:
         initialDelaySeconds: 15
         timeoutSeconds: 5
-      replicas: ${ZOOKEEPER_NUM_REPLICAS}
+      replicas: ${{ZOOKEEPER_NUM_REPLICAS}}
       resources:
         limits:
           cpu: ${ZOOKEEPER_CPU_LIMITS}
