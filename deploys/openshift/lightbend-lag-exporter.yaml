@@ -5,6 +5,8 @@ metadata:
 parameters:
 - name: APPSRE_ENV
   value: stage
+- name: REPLICAS
+  value: "1"
 
 objects:
 - apiVersion: apps/v1
@@ -14,56 +16,77 @@ objects:
       app: lightbend-lag-exporter
     name: lightbend-lag-exporter
   spec:
-    replicas: 1
+    minReadySeconds: 15
+    progressDeadlineSeconds: 600
+    replicas: ${{REPLICAS}}
+    revisionHistoryLimit: 9
     selector:
       matchLabels:
         app: lightbend-lag-exporter
     strategy:
-      resources: {}
-      rollingParams:
-        intervalSeconds: 1
+      rollingUpdate:
         maxSurge: 1
         maxUnavailable: 0
-        timeoutSeconds: 600
-        updatePeriodSeconds: 1
-      type: Rolling
+      type: RollingUpdate
     template:
       metadata:
         labels:
           app: lightbend-lag-exporter
-          deploymentconfig: lightbend-lag-exporter
       spec:
+        affinity:
+          podAntiAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                    - lightbend-lag-exporter
+                topologyKey: failure-domain.beta.kubernetes.io/zone
+              weight: 100
+            - podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                    - lightbend-lag-exporter
+                topologyKey: kubernetes.io/hostname
+              weight: 99
         containers:
-          - image: >-
-              quay.io/app-sre/lightbend-lag-exporter:0.6.2
-            imagePullPolicy: IfNotPresent
-            name: lightbend-lag-exporter
-            ports:
-              - name: port-8000
-                containerPort: 8000
-                protocol: TCP
-            resources:
-              limits:
-                memory: 500Mi
-                cpu: 500m
-              requests:
-                memory: 250Mi
-                cpu: 250m
-            terminationMessagePath: /dev/termination-log
-            terminationMessagePolicy: File
-            volumeMounts:
-              - mountPath: /opt/docker/conf/
-                name: volume-c86u8
+        - image: quay.io/app-sre/lightbend-lag-exporter:0.6.2
+          imagePullPolicy: IfNotPresent
+          name: lightbend-lag-exporter
+          ports:
+          - containerPort: 8000
+            name: port-8000
+            protocol: TCP
+          resources:
+            limits:
+              cpu: 500m
+              memory: 500Mi
+            requests:
+              cpu: 250m
+              memory: 250Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/docker/conf/
+            name: volume-c86u8
         dnsPolicy: ClusterFirst
+        imagePullSecrets:
+        - name: quay-cloudservices-pull
+        - name: rh-registry-pull
         restartPolicy: Always
         schedulerName: default-scheduler
         securityContext: {}
         terminationGracePeriodSeconds: 30
         volumes:
-          - configMap:
-              defaultMode: 420
-              name: lightbend-exporter-config
-            name: volume-c86u8
+        - configMap:
+            defaultMode: 420
+            name: lightbend-exporter-config
+          name: volume-c86u8
 
 - apiVersion: v1
   data:
