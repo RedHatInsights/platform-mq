@@ -24,6 +24,11 @@ topics:
 - topic_name: platform.engine.results
   partitions: 3
   replicas: 3
+  topic_configs:
+  - name: retention.ms
+    value: '86400000'
+  - name: retention.bytes
+    value: '5368709120'
 - topic_name: platform.insights.rule-hits
   partitions: 50
   replicas: 3
@@ -146,6 +151,23 @@ topics:
 - topic_name: platform.inventory.events
   partitions: 64
   replicas: 3
+  topic_configs:
+  - name: cleanup.policy
+    value: 'compact,delete'
+  - name: min.compaction.lag.ms
+    value: '43200000'
+  - name: retention.bytes
+    value: '5368709120'
+  - name: retention.ms
+    value: '2678400000'
+- topic_name: platform.cyndi.dlq
+  partitions: 1
+  replicas: 3
+  topic_configs:
+    - name: retention.bytes
+      value: '5368709120'
+    - name: retention.ms
+      value: '2678400000'
 - topic_name: platform.rhsm-conduit.tasks
   partitions: 24
   replicas: 3
@@ -176,6 +198,13 @@ topics:
 - topic_name: platform.inventory.host-egress
   partitions: 20
   replicas: 3
+  topic_configs:
+  - name: retention.bytes
+    value: '1073741824'
+  - name: retention.ms
+    value: '86400000'
+  - name: segment.bytes
+    value: '524288000'
 - topic_name: ruledev.nomination
   partitions: 2
   replicas: 3
