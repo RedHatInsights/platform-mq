@@ -50,6 +50,9 @@ topics:
 - topic_name: platform.sources.event-stream
   partitions: 3
   replicas: 3
+- topic_name: platform.sources.status
+  partitions: 3
+  replicas: 3
 - topic_name: platform.topological-inventory.event-stream
   partitions: 3
   replicas: 3
@@ -60,6 +63,9 @@ topics:
   partitions: 3
   replicas: 3
 - topic_name: platform.topological-inventory.operations-ansible-tower
+  partitions: 3
+  replicas: 3
+- topic_name: platform.topological-inventory.collector-ansible-tower
   partitions: 3
   replicas: 3
 - topic_name: platform.topological-inventory.operations-openshift
