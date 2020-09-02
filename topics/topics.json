@@ -110,6 +110,11 @@
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
+{
+    "TOPIC_NAME": "platform.topological-inventory.collector-ansible-tower",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
 {   
     "TOPIC_NAME": "platform.topological-inventory.operations-satellite",
     "PARTITIONS": 3,
