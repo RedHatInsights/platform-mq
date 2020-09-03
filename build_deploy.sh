@@ -2,7 +2,7 @@
 
 set -exv
 
-IMAGE="quay.io/app-sre/platform-mq"
+IMAGE="quay.io/cloudservices/kafka-connect"
 IMAGE_TAG=$(git rev-parse --short=7 HEAD)
 
 if [[ -z "$QUAY_USER" || -z "$QUAY_TOKEN" ]]; then
