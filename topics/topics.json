@@ -288,12 +288,6 @@
     "TOPIC_CONFIGS": "retention.ms: 86400000\nretention.bytes: 2684354560"
 },
 {
-    "TOPIC_NAME": "platform.inventory.host-egress",
-    "PARTITIONS": 64,
-    "REPLICAS": 3,
-    "TOPIC_CONFIGS": "retention.bytes: 1073741824\nretention.ms: 86400000\nsegment.bytes: 524288000"
-},
-{
     "TOPIC_NAME": "ruledev.nomination",
     "PARTITIONS": 2,
     "REPLICAS": 3
