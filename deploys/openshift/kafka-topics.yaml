@@ -563,20 +563,6 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
-    name: platform.inventory.host-egress
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 20
-    replicas: 3
-    topicName: platform.inventory.host-egress
-    config:
-      retention.bytes: 1073741824
-      retention.ms: 86400000
-      segment.bytes: 524288000
-- apiVersion: kafka.strimzi.io/v1beta1
-  kind: KafkaTopic
-  metadata:
     name: ruledev.nomination
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
