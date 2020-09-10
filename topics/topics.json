@@ -55,6 +55,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.notifications.ingress",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.payload-status",
     "PARTITIONS": 4,
     "REPLICAS": 3
