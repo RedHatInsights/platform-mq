@@ -14,7 +14,8 @@ objects:
     name: platform-kafka-connect
     labels:
       app: platform-mq
-    strimzi.io/use-connector-resources: "true"
+    annotations:
+      strimzi.io/use-connector-resources: "true"
   spec:
     image: ${KAFKA_CONNECT_IMAGE}
     version: 2.4.0
