@@ -13,7 +13,7 @@ objects:
   metadata:
     name: platform-kafka-connect
     labels:
-      app: platform-mp
+      app: platform-mq
     strimzi.io/use-connector-resources: "true"
   spec:
     image: ${KAFKA_CONNECT_IMAGE}
