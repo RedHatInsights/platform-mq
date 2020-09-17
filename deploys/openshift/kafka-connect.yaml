@@ -23,7 +23,7 @@ objects:
     bootstrapServers: ${BOOTSTRAP_SERVERS}
     tls:
       trustedCertificates:
-        - secretName: platform-mq-connect-cluster-ca-cert
+        - secretName: platform-mq-cluster-ca-cert
           certificate: ca.crt
     config:
       group.id: connect-cluster
