@@ -6,7 +6,7 @@ parameters:
 - name: KAFKA_CONNECT_IMAGE
   value: quay.io/cloudservices/kafka-connect
 - name: BOOTSTRAP_SERVERS
-  value: platform-mq-kafka-bootstrap.platform-mq-prod.svc.cluster.local:9092
+  value: platform-mq-kafka-bootstrap.platform-mq.svc.cluster.local:9093
 objects:
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaConnect
