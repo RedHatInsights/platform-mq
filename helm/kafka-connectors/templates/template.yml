@@ -1,0 +1,30 @@
+---
+apiVersion: v1
+kind: Template
+metadata:
+  name: kafka-connectors
+objects:
+{{- range $c, $connector := .Values.connectors }}
+- apiVersion: kafka.strimzi.io/v1alpha1
+  kind: KafkaConnector
+  metadata:
+    name: {{ $connector.connector_name }}
+    labels:
+      strimzi.io/cluster: ${KAFKA_CONNECT_CLUSTER}
+  spec:
+    class: {{ $connector.class }}
+    tasksMax: {{ $connector.tasksmax }}
+    {{- if $connector.config }}
+    config:
+      {{- range $kc, $config := $connector.config }}
+      {{ $config.name }}: {{ $config.value }}
+      {{- end }}
+    {{- end }}
+{{- end }}
+parameters:
+# Needed for processing by app-interface but not used.
+- name: IMAGE_TAG
+  value: latest
+# Kafka cluster name will be provided at run tim
+- name: KAFKA_CLUSTER
+  value: ""

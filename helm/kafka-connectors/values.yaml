@@ -1,0 +1,42 @@
+---
+connectors:
+- connector_name: stage-mq-s3-sink
+  class: io.confluent.connect.s3.S3SinkConnector
+  tasksmax: 3
+  config:
+    - name: "errors.log.enable"
+      value: "true"
+    - name: "errors.log.include.messages"
+      value: "true"
+    - name: "errors.tolerance"
+      value: "all"
+    - name: "format.class"
+      value: "io.confluent.connect.s3.format.json.JsonFormat"
+    - name: "key.converter"
+      value: "org.apache.kafka.connect.storage.StringConverter"
+    - name: "key.converter.schemas.enable"
+      value: "false"
+    - name: "flush.size"
+      value: "1"
+    - name: "partitioner.class"
+      value: "io.confluent.connect.storage.partitioner.DefaultPartitioner"
+    - name: "s3.bucket.name"
+      value: "ci-mq-egress-data-sink"
+    - name: "s3.part.size"
+      value: "5242880"
+    - name: "s3.region"
+      value: "us-east-1"
+    - name: "schema.compatibility"
+      value: "NONE"
+    - name: "storage.class"
+      value: "io.confluent.connect.s3.storage.S3Storage"
+    - name: "topics"
+      value: "platform.inventory.events"
+    - name: "value.converter"
+      value: "org.apache.kafka.connect.json.JsonConverter"
+    - name: "value.converter.schemas.enable"
+      value: "false"
+    - name: "aws.access.key.id"
+      value: ${EVENTS_S3_KEY}
+    - name: "aws.access.key.id"
+      value: ${EVENTS_S3_VALUE}
