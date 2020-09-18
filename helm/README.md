@@ -15,3 +15,18 @@ $ helm template ./helm/kafka-topics -f helm/kafka-topics/values.yaml > deploys/o
 ## Add New Topic
 
 Add new topic and its configuration to [values.yaml](kafka-topics/values.yaml) and then run `helm` command to generate updated template.
+
+
+# Creating Kafka Connectors Template
+
+## Add New Connector Definition
+
+Add new connector configuration to [values.yaml](kafka-connectors/values.yaml) and then run the `helm` command below to generate an updated template.
+
+## Generate Template
+
+Run following command to generate the OpenShift template to create Kafka Connectors.
+
+```sh
+$ helm template ./helm/kafka-connectors -f helm/kafka-connectors/values.yaml > deploys/openshift/kafka-connectors.yaml
+```
