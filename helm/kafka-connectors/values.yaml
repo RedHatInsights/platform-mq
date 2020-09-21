@@ -37,6 +37,6 @@ connectors:
     - name: "value.converter.schemas.enable"
       value: "false"
     - name: "aws.access.key.id"
-      value: ${EVENTS_S3_KEY}
-    - name: "aws.access.key.id"
-      value: ${EVENTS_S3_VALUE}
+      value: ${EVENTS_S3_ACCESS_KEY}
+    - name: "aws.secret.access.key"
+      value: ${EVENTS_S3_SECRET_KEY}
