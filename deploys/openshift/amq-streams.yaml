@@ -90,6 +90,15 @@ objects:
         requests:
           cpu: ${KAFKA_CPU_REQUESTS}
           memory: ${KAFKA_MEMORY_REQUESTS}
+      tlsSidecar:
+        resources:
+          limits:
+            cpu: 100m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          
       storage:
         deleteClaim: false
         size: ${KAFKA_VOL_SIZE}
