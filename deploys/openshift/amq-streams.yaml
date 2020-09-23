@@ -43,6 +43,14 @@ objects:
       app: platform-mq
   spec:
     entityOperator:
+      tlsSidecar:
+        resources:
+          limits:
+            cpu: 100m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
       topicOperator:
         resources:
           limits:
@@ -98,7 +106,6 @@ objects:
           requests:
             cpu: 100m
             memory: 256Mi
-          
       storage:
         deleteClaim: false
         size: ${KAFKA_VOL_SIZE}
