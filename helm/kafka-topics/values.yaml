@@ -161,7 +161,7 @@ topics:
   - name: cleanup.policy
     value: 'compact,delete'
   - name: min.compaction.lag.ms
-    value: '43200000'
+    value: '3600000'
   - name: retention.bytes
     value: '5368709120'
   - name: retention.ms
