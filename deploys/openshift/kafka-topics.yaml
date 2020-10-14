@@ -86,8 +86,8 @@ objects:
     replicas: 3
     topicName: platform.engine.results
     config:
-      retention.ms: 86400000
-      retention.bytes: 5368709120
+      retention.ms: "86400000"
+      retention.bytes: "5368709120"
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
@@ -139,7 +139,7 @@ objects:
     replicas: 3
     topicName: platform.system-profile
     config:
-      retention.ms: 86400000
+      retention.ms: "86400000"
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
@@ -241,8 +241,8 @@ objects:
     replicas: 3
     topicName: platform.topological-inventory.persister
     config:
-      retention.ms: 86400000
-      retention.bytes: 500000000
+      retention.ms: "86400000"
+      retention.bytes: "500000000"
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
@@ -494,10 +494,10 @@ objects:
     replicas: 3
     topicName: platform.inventory.events
     config:
-      cleanup.policy: compact,delete
-      min.compaction.lag.ms: 3600000
-      retention.bytes: 5368709120
-      retention.ms: 2678400000
+      cleanup.policy: "compact,delete"
+      min.compaction.lag.ms: "3600000"
+      retention.bytes: "5368709120"
+      retention.ms: "2678400000"
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
@@ -509,8 +509,8 @@ objects:
     replicas: 3
     topicName: platform.cyndi.dlq
     config:
-      retention.bytes: 5368709120
-      retention.ms: 2678400000
+      retention.bytes: "5368709120"
+      retention.ms: "2678400000"
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
@@ -532,8 +532,8 @@ objects:
     replicas: 3
     topicName: platform.testing.rhsm-conduit-tasks
     config:
-      retention.ms: 86400000
-      retention.bytes: 2684354560
+      retention.ms: "86400000"
+      retention.bytes: "2684354560"
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
@@ -545,8 +545,8 @@ objects:
     replicas: 3
     topicName: platform.inventory.host-ingress
     config:
-      retention.ms: 86400000
-      retention.bytes: 2684354560
+      retention.ms: "86400000"
+      retention.bytes: "2684354560"
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
@@ -558,8 +558,8 @@ objects:
     replicas: 3
     topicName: platform.inventory.host-ingress-p1
     config:
-      retention.ms: 86400000
-      retention.bytes: 2684354560
+      retention.ms: "86400000"
+      retention.bytes: "2684354560"
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:

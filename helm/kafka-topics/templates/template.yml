@@ -18,7 +18,7 @@ objects:
     {{- if $topic.topic_configs }}
     config:
       {{- range $c, $config := $topic.topic_configs }}
-      {{ $config.name }}: {{ $config.value }}
+      {{ $config.name }}: "{{ $config.value }}"
       {{- end }}
     {{- end }}
 {{- end }}
