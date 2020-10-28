@@ -32,6 +32,9 @@ topics:
 - topic_name: platform.insights.rule-hits
   partitions: 50
   replicas: 3
+- topic_name: platform.logging.logs
+  partitions: 2
+  replicas: 3
 - topic_name: platform.payload-status
   partitions: 4
   replicas: 3

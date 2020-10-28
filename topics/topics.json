@@ -29,6 +29,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.logging.logs",
+    "PARTITIONS": 2,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.policies.actions-email",
     "PARTITIONS": 2,
     "REPLICAS": 3
