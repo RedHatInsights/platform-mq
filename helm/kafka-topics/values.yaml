@@ -78,7 +78,7 @@ topics:
   partitions: 3
   replicas: 3
 - topic_name: platform.topological-inventory.persister
-  partitions: 3
+  partitions: 10
   replicas: 3
   topic_configs:
   - name: retention.ms
