@@ -247,7 +247,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 10
     replicas: 3
     topicName: platform.topological-inventory.persister
     config:
