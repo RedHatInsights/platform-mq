@@ -336,5 +336,10 @@
     "TOPIC_NAME": "platform.remediation-updates.compliance",
     "PARTITIONS": 3,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.upload.catalog",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
 }
 ]
