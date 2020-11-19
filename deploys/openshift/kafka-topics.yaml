@@ -115,7 +115,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 4
+    partitions: 8
     replicas: 3
     topicName: platform.payload-status
 - apiVersion: kafka.strimzi.io/v1beta1
