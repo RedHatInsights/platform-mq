@@ -36,7 +36,7 @@ topics:
   partitions: 2
   replicas: 3
 - topic_name: platform.payload-status
-  partitions: 4
+  partitions: 8
   replicas: 3
 - topic_name: platform.receptor-controller.responses
   partitions: 3
