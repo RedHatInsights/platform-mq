@@ -1,6 +1,5 @@
 ---
 # Source: kafka-topics/templates/template.yml
----
 apiVersion: v1
 kind: Template
 metadata:
