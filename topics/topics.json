@@ -346,5 +346,10 @@
     "TOPIC_NAME": "platform.catalog.persister",
     "PARTITIONS": 3,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.catalog-inventory.task-output-stream",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
 }
 ]
