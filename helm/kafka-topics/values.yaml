@@ -172,18 +172,6 @@ topics:
     value: '5368709120'
   - name: retention.ms
     value: '2678400000'
-- topic_name: platform.inventory.events-test-synchronizer
-  partitions: 64
-  replicas: 3
-  topic_configs:
-  - name: cleanup.policy
-    value: 'compact,delete'
-  - name: min.compaction.lag.ms
-    value: '3600000'
-  - name: retention.bytes
-    value: '536870912'
-  - name: retention.ms
-    value: '2678400000'
 - topic_name: platform.cyndi.dlq
   partitions: 1
   replicas: 3
