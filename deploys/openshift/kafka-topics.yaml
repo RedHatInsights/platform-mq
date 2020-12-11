@@ -521,6 +521,21 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
+    name: platform.inventory.events-test-synchronizer
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 64
+    replicas: 3
+    topicName: platform.inventory.events-test-synchronizer
+    config:
+      cleanup.policy: "compact,delete"
+      min.compaction.lag.ms: "3600000"
+      retention.bytes: "536870912"
+      retention.ms: "2678400000"
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
     name: platform.cyndi.dlq
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
