@@ -172,7 +172,7 @@ topics:
     value: '5368709120'
   - name: retention.ms
     value: '2678400000'
-- topic_name: platform.inventory.events-test
+- topic_name: platform.inventory.events-test-synchronizer
   partitions: 64
   replicas: 3
   topic_configs:
