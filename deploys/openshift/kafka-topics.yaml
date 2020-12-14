@@ -675,6 +675,36 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.remediation-updates.compliance
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.catalog.persister
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.catalog.persister
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.catalog-inventory.task-output-stream
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.catalog-inventory.task-output-stream
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.playbook
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.upload.playbook
 parameters:
 # Needed for processing by app-interface but not used.
 - name: IMAGE_TAG
