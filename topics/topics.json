@@ -237,6 +237,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.upload.playbook",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.upload.topological-inventory",
     "PARTITIONS": 3,
     "REPLICAS": 3
