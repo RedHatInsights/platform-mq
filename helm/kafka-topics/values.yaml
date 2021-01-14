@@ -252,3 +252,6 @@ topics:
 - topic_name: platform.upload.playbook
   partitions: 3
   replicas: 3
+- topic_name: ccx.ocp.dlq
+  partitions: 1
+  replicas: 3
