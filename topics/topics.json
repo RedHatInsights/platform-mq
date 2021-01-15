@@ -115,6 +115,11 @@
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
+{
+    "TOPIC_NAME": "platform.topological-inventory.operations-google",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
 {   
     "TOPIC_NAME": "platform.topological-inventory.operations-openshift",
     "PARTITIONS": 3,
