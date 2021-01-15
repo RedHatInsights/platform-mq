@@ -139,6 +139,9 @@ topics:
 - topic_name: platform.upload.qpc
   partitions: 3
   replicas: 3
+- topic_name: platform.upload.resource-optimization
+  partitions: 3
+  replicas: 3
 - topic_name: platform.upload.rhv
   partitions: 3
   replicas: 3
