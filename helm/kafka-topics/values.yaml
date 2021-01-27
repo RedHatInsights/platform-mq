@@ -256,8 +256,20 @@ topics:
   partitions: 3
   replicas: 3
 - topic_name: platform.upload.playbook
-  partitions: 3
+  partitions: 16
   replicas: 3
 - topic_name: ccx.ocp.dlq
   partitions: 1
   replicas: 3
+- topic_name: platform.playbook-dispatcher.runner-updates
+  partitions: 16
+  replicas: 3
+  topic_configs:
+  - name: cleanup.policy
+    value: 'compact,delete'
+  - name: min.compaction.lag.ms
+    value: '3600000'
+  - name: retention.bytes
+    value: '1073741824'
+  - name: retention.ms
+    value: '86400000'
