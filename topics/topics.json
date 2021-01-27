@@ -248,7 +248,7 @@
 },
 {
     "TOPIC_NAME": "platform.upload.playbook",
-    "PARTITIONS": 3,
+    "PARTITIONS": 16,
     "REPLICAS": 3
 },
 {
@@ -371,5 +371,11 @@
     "TOPIC_NAME": "ccx.ocp.dlq",
     "PARTITIONS": 1,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.playbook-dispatcher.runner-updates",
+    "PARTITIONS": 16,
+    "REPLICAS": 3,
+    "TOPIC_CONFIGS": "cleanup.policy: compact,delete\nmin.compaction.lag.ms: 3600000\nretention.bytes: 1073741824\nretention.ms: 86400000"
 }
 ]
