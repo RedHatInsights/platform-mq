@@ -750,6 +750,16 @@ objects:
       min.compaction.lag.ms: "3600000"
       retention.bytes: "1073741824"
       retention.ms: "86400000"
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.rhsm-subscriptions.openshift-metering-tasks
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.openshift-metering-tasks
 parameters:
 # Needed for processing by app-interface but not used.
 - name: IMAGE_TAG
