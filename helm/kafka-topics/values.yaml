@@ -273,3 +273,6 @@ topics:
     value: '1073741824'
   - name: retention.ms
     value: '86400000'
+- topic_name: platform.rhsm-subscriptions.openshift-metering-tasks
+  partitions: 24
+  replicas: 3
