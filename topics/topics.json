@@ -382,5 +382,10 @@
     "TOPIC_NAME": "platform.rhsm-subscriptions.openshift-metering-tasks",
     "PARTITIONS": 24,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.rhsm-subscriptions.tally",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
 }
 ]
