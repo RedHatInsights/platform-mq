@@ -95,6 +95,11 @@
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
+{
+    "TOPIC_NAME": "platform.sources.superkey-requests",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
 {   
     "TOPIC_NAME": "platform.topological-inventory.event-stream",
     "PARTITIONS": 3,
