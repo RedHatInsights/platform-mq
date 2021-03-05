@@ -78,6 +78,7 @@ objects:
         imagePullSecrets:
         - name: quay-cloudservices-pull
         - name: rh-registry-pull
+        - name: default-dockercfg-8bg88
         restartPolicy: Always
         schedulerName: default-scheduler
         securityContext: {}
