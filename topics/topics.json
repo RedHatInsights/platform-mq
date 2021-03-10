@@ -1,4 +1,4 @@
-[{   
+[{
     "TOPIC_NAME": "notifications.outbox",
     "PARTITIONS": 3,
     "REPLICAS": 3
@@ -69,17 +69,17 @@
     "PARTITIONS": 8,
     "REPLICAS": 3
 },
-{   
+{
     "TOPIC_NAME": "platform.receptor-controller.responses",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   
+{
     "TOPIC_NAME": "platform.service-portal",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   
+{
     "TOPIC_NAME": "platform.system-profile",
     "PARTITIONS": 32,
     "REPLICAS": 3,
@@ -100,22 +100,22 @@
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   
+{
     "TOPIC_NAME": "platform.topological-inventory.event-stream",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   
+{
     "TOPIC_NAME": "platform.topological-inventory.operations-amazon",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   
+{
     "TOPIC_NAME": "platform.topological-inventory.operations-azure",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   
+{
     "TOPIC_NAME": "platform.topological-inventory.operations-ansible-tower",
     "PARTITIONS": 3,
     "REPLICAS": 3
@@ -125,7 +125,7 @@
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   
+{
     "TOPIC_NAME": "platform.topological-inventory.operations-openshift",
     "PARTITIONS": 3,
     "REPLICAS": 3
@@ -135,23 +135,23 @@
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   
+{
     "TOPIC_NAME": "platform.topological-inventory.operations-satellite",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   
+{
     "TOPIC_NAME": "platform.topological-inventory.persister",
     "PARTITIONS": 10,
     "REPLICAS": 3,
     "TOPIC_CONFIGS": "retention.ms: 86400000\nretention.bytes: 500000000"
 },
-{   
+{
     "TOPIC_NAME": "platform.topological-inventory.persister-output-stream",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
-{   
+{
     "TOPIC_NAME": "platform.topological-inventory.task-output-stream",
     "PARTITIONS": 3,
     "REPLICAS": 3
@@ -210,7 +210,7 @@
     "TOPIC_NAME": "platform.upload.compliance",
     "PARTITIONS": 3,
     "REPLICAS": 3
-},  
+},
 {
     "TOPIC_NAME": "platform.upload.hccm",
     "PARTITIONS": 3,
