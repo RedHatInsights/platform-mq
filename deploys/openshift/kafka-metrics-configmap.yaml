@@ -112,6 +112,9 @@ objects:
   metadata:
     labels:
       app: platform-mq
+      strimzi.io/discovery: "true"
+      strimzi.io/cluster: platform-mq
+      strimzi.io/kind: Kafka
     name: kafka-metrics
     annotations:
       prometheus.io/path: /metrics
