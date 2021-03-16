@@ -106,3 +106,26 @@ objects:
         name: kafka_$1_$2_$3
         pattern: 'kafka.(\w+)<type=(.+), name=(.+)><>(\d+)thPercentile'
         type: GAUGE
+
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      app: platform-mq
+    name: kafka-metrics
+    annotations:
+      prometheus.io/path: /metrics
+      prometheus.io/port: "9404" 
+      prometheus.io/scrape: "true"  
+  spec:
+    ports:
+      - name: tcp-prometheus
+        port: 9404
+        protocol: TCP
+        targetPort: 9404
+    selector:
+      app: platform-mq
+      strimzi.io/kind: Kafka
+    sessionAffinity: None
+    type: ClusterIP
+
