@@ -318,6 +318,11 @@
     "TOPIC_CONFIGS": "retention.ms: 86400000\nretention.bytes: 2684354560"
 },
 {
+    "TOPIC_NAME": "platform.inventory.system-profile",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "ruledev.nomination",
     "PARTITIONS": 2,
     "REPLICAS": 3
