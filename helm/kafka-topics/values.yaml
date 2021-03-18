@@ -225,6 +225,9 @@ topics:
     value: '86400000'
   - name: retention.bytes
     value: '2684354560'
+- topic_name: platform.inventory.system-profile
+  partitions: 3
+  replicas: 3
 - topic_name: ruledev.nomination
   partitions: 2
   replicas: 3
