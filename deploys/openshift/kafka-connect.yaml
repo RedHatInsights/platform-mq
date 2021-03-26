@@ -28,18 +28,6 @@ objects:
         cpu: 500m
         memory: 1Gi
     bootstrapServers: ${BOOTSTRAP_SERVERS}
-    externalConfiguration:
-      env:
-        - name: AWS_ACCESS_KEY_ID
-          valueFrom:
-            secretKeyRef:
-              name: insights-client-metrics-bucket
-              key: aws_access_key_id
-        - name: AWS_SECRET_ACCESS_KEY
-          valueFrom:
-            secretKeyRef:
-              name: insights-client-metrics-bucket
-              key: aws_secret_access_key
     tls:
       trustedCertificates:
         - secretName: platform-mq-cluster-ca-cert
