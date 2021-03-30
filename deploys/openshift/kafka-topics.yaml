@@ -286,6 +286,16 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
+    name: platform.tower-analytics.data-exporter
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 10
+    replicas: 3
+    topicName: platform.tower-analytics.data-exporter
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
     name: platform.upload.advisor
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}

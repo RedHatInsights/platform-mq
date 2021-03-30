@@ -157,6 +157,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.tower-analytics.data-exporter",
+    "PARTITIONS": 10,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.upload.advisor",
     "PARTITIONS": 64,
     "REPLICAS": 3
