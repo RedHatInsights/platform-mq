@@ -94,6 +94,9 @@ topics:
 - topic_name: platform.topological-inventory.task-output-stream
   partitions: 3
   replicas: 3
+- topic_name: platform.tower-analytics.data-exporter
+  partitions: 10
+  replicas: 3
 - topic_name: platform.upload.advisor
   partitions: 64
   replicas: 3
