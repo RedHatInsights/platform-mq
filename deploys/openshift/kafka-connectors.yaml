@@ -10,7 +10,7 @@ objects:
   metadata:
     name: ${S3_SINK_CONNECTOR_NAME}
     labels:
-      strimzi.io/cluster: ${KAFKA_CONNECT_CLUSTER}
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
     class: io.confluent.connect.s3.S3SinkConnector
     tasksMax: 3
