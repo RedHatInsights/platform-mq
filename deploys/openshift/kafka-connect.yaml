@@ -40,8 +40,6 @@ objects:
             secretKeyRef:
               name: insights-client-metrics-strimzi-bucket
               key: aws_secret_access_key
-        - name: REBUILD
-          value: 'test'
     tls:
       trustedCertificates:
         - secretName: platform-mq-cluster-ca-cert
