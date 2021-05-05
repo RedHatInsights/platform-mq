@@ -77,6 +77,7 @@ objects:
         transaction.state.log.min.isr: 2
         transaction.state.log.replication.factor: 3
         num.recovery.threads.per.data.dir: 3
+        message.max.bytes: 2097152
       jvmOptions:
         -Xms: ${KAFKA_HEAP_OPTS_XMS}
         -Xmx: ${KAFKA_HEAP_OPTS_XMX}
