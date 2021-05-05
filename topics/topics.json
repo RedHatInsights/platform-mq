@@ -349,22 +349,22 @@
 },
 {
     "TOPIC_NAME": "platform.remediation-updates.advisor",
-    "PARTITIONS": 3,
+    "PARTITIONS": 12,
     "REPLICAS": 3
 },
 {
     "TOPIC_NAME": "platform.remediation-updates.patch",
-    "PARTITIONS": 3,
+    "PARTITIONS": 12,
     "REPLICAS": 3
 },
 {
     "TOPIC_NAME": "platform.remediation-updates.vulnerability",
-    "PARTITIONS": 3,
+    "PARTITIONS": 12,
     "REPLICAS": 3
 },
 {
     "TOPIC_NAME": "platform.remediation-updates.compliance",
-    "PARTITIONS": 3,
+    "PARTITIONS": 12,
     "REPLICAS": 3
 },
 {

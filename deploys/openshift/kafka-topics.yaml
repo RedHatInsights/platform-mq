@@ -682,7 +682,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 12
     replicas: 3
     topicName: platform.remediation-updates.advisor
 - apiVersion: kafka.strimzi.io/v1beta1
@@ -692,7 +692,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 12
     replicas: 3
     topicName: platform.remediation-updates.patch
 - apiVersion: kafka.strimzi.io/v1beta1
@@ -702,7 +702,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 12
     replicas: 3
     topicName: platform.remediation-updates.vulnerability
 - apiVersion: kafka.strimzi.io/v1beta1
@@ -712,7 +712,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 12
     replicas: 3
     topicName: platform.remediation-updates.compliance
 - apiVersion: kafka.strimzi.io/v1beta1
