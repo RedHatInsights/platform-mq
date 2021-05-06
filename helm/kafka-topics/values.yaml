@@ -56,6 +56,12 @@ topics:
 - topic_name: platform.sources.status
   partitions: 3
   replicas: 3
+- topic_name: platform.sources.operations-ansible-tower
+  partitions: 3
+  replicas: 3
+- topic_name: platform.sources.operations-satellite
+  partitions: 3
+  replicas: 3
 - topic_name: platform.topological-inventory.event-stream
   partitions: 3
   replicas: 3
