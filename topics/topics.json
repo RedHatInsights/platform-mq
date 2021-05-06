@@ -96,6 +96,16 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.sources.operations-satellite",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.sources.operations-ansible-tower",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.sources.superkey-requests",
     "PARTITIONS": 3,
     "REPLICAS": 3
