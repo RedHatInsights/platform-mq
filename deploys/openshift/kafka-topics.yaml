@@ -788,6 +788,16 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
+    name: platform.rhsm-subscriptions.metering-tasks
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.metering-tasks
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
     name: platform.rhsm-subscriptions.openshift-metering-tasks
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
