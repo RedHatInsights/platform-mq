@@ -44,6 +44,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.policies.history",
+    "PARTITIONS": 2,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.insights.client-metrics",
     "PARTITIONS": 3,
     "REPLICAS": 3

@@ -80,7 +80,7 @@ The following document contains the current and future plans for topics:
 
 https://docs.google.com/spreadsheets/d/1xx_Zu7fnE8qEtd46vTohR5pyVibRD1-IRDWyj2tZnM0
 
-**Note:** In addition to adding Kafka topics to the `topics.json` file, please follow instructions in [README](helm/README.md) to add topics to [vaules.yaml](helm/kafka-topics/values.yaml) and update the OpenShift [template](deploys/openshift/kafa-topics.yaml).
+**Note:** In addition to adding Kafka topics to the `topics.json` file, please follow instructions in [README](helm/README.md) to add topics to [values.yaml](helm/kafka-topics/values.yaml) and update the OpenShift [template](deploys/openshift/kafa-topics.yaml).
 
 ## Additional Resources
 
