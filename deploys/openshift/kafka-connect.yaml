@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: kafka-connect
 parameters:
-- name KAFKA_CONNECT_IMAGE
+- name: KAFKA_CONNECT_IMAGE
   description: Image for kafka connect instance
   value: quay.io/cloudservices/kafka-connect
 - name: KAFKA_CONNECT_VERSION
