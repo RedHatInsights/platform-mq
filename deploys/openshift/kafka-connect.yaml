@@ -3,8 +3,9 @@ kind: Template
 metadata:
   name: kafka-connect
 parameters:
-- name: KAFKA_CONNECT_IMAGE
-  value: quay.io/cloudservices/kafka-connect
+- name: KAFKA_CONNECT_VERSION
+  description: Version of the kafka-connect service
+  value: 2.7.0
 - name: BOOTSTRAP_SERVERS
   value: platform-mq-kafka-bootstrap.platform-mq.svc.cluster.local:9093
 objects:
@@ -17,8 +18,7 @@ objects:
     annotations:
       strimzi.io/use-connector-resources: "true"
   spec:
-    image: ${KAFKA_CONNECT_IMAGE}
-    version: 2.4.0
+    version: ${KAFKA_CONNECT_VERSION}
     replicas: 1
     resources:
       limits:
