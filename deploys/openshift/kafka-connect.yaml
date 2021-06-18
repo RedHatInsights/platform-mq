@@ -3,6 +3,9 @@ kind: Template
 metadata:
   name: kafka-connect
 parameters:
+- name KAFKA_CONNECT_IMAGE
+  description: Image for kafka connect instance
+  value: quay.io/cloudservices/kafka-connect
 - name: KAFKA_CONNECT_VERSION
   description: Version of the kafka-connect service
   value: 2.7.0
@@ -18,6 +21,7 @@ objects:
     annotations:
       strimzi.io/use-connector-resources: "true"
   spec:
+    image: ${KAFKA_CONNECT_IMAGE}
     version: ${KAFKA_CONNECT_VERSION}
     replicas: 1
     resources:
