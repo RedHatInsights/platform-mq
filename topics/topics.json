@@ -428,5 +428,17 @@
     "TOPIC_NAME": "platform.rhsm-subscriptions.tally",
     "PARTITIONS": 24,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "storage-topic",
+    "PARTITIONS": 3,
+    "REPLICAS": 3,
+    "TOPIC_CONFIGS": "cleanup.policy: compact"
+},
+{
+    "TOPIC_NAME": "global-id-topic",
+    "PARTITIONS": 3,
+    "REPLICAS": 3,
+    "TOPIC_CONFIGS": "cleanup.policy: compact"
 }
 ]

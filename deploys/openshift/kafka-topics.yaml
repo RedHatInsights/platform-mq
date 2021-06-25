@@ -78,6 +78,16 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
+    name: platform.policies.history
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 2
+    replicas: 3
+    topicName: platform.policies.history
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
     name: platform.engine.results
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
@@ -855,6 +865,30 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.insights.client-metrics
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: storage-topic
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: storage-topic
+    config:
+      cleanup.policy: "compact"
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: global-id-topic
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: global-id-topic
+    config:
+      cleanup.policy: "compact"
 parameters:
 # Needed for processing by app-interface but not used.
 - name: IMAGE_TAG

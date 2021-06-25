@@ -6,6 +6,9 @@ parameters:
 - name: KAFKA_VOL_SIZE
   description: Size of volumes for Kafka brokers
   value: 250Gi
+- name: KAFKA_VERSION
+  description: kafka version
+  value: 2.7.0
 - name: ZK_VOL_SIZE
   description: Size of volumes for Zookeeper nodes
   value: 50Gi
@@ -68,9 +71,8 @@ objects:
             cpu: 250m
             memory: 512Mi
     kafka:
-      version: 2.5.0
+      version: ${KAFKA_VERSION}
       config:
-        log.message.format.version: '2.5'
         auto.create.topics.enable: false
         log.retention.hours: 72
         offsets.topic.replication.factor: 3
