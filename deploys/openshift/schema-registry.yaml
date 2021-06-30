@@ -1,0 +1,136 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: service-registry
+objects:
+# Services for the components
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: null
+    labels:
+      app: service-registry
+      template: service-registry
+    name: service-registry
+  spec:
+    selector:
+      app: service-registry
+    ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+    sessionAffinity: None
+  status:
+    loadBalancer: {}
+# Registry Deployment Configuration
+# #################################
+- apiVersion: v1
+  kind: DeploymentConfig
+  metadata:
+    creationTimestamp: null
+    labels:
+      app: service-registry
+      template: service-registry
+    name: service-registry
+  spec:
+    replicas: 1
+    selector:
+      app: service-registry
+      deploymentconfig: service-registry
+    strategy:
+      type: Recreate
+      recreateParams:
+        timeoutSeconds: 600
+      resources: {}
+      activeDeadlineSeconds: 21600
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: service-registry
+          deploymentconfig: service-registry
+          template: service-registry
+      spec:
+        replicas: 1
+        containers:
+        - image: ${SCHEMA_REGISTRY_IMAGE}
+          imagePullPolicy: Always
+          name: service-registry
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          env:
+          - name: QUARKUS_PROFILE
+            value: prod
+          - name: KAFKA_BOOTSTRAP_SERVERS
+            value: ${BOOTSTRAP_SERVERS}
+          - name: APPLICATION_ID
+            value: platform-mq
+          - name: APPLICATION_SERVER_HOST
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+          - name: APPLICATION_SERVER_PORT
+            value: "9000"
+          resources:
+            limits:
+              cpu: ${REGISTRY_CPU_LIMIT}
+              memory: ${REGISTRY_MEM_LIMIT}
+            requests:
+              cpu: ${REGISTRY_CPU_REQUEST}
+              memory: ${REGISTRY_MEM_REQUEST}
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        terminationGracePeriodSeconds: 30
+  status: {}
+# Template Parameters
+parameters:
+- name: REGISTRY_MEM_LIMIT
+  displayName: Registry Max Memory Limit
+  description: Registry Pods Max Memory Limit
+  value: 1300Mi
+  required: true
+- name: REGISTRY_MEM_REQUEST
+  displayName: Registry Memory Requests
+  description: Registry Pods Memory Requests
+  value: 600Mi
+  required: true
+- name: REGISTRY_CPU_LIMIT
+  displayName: Registry Max CPU Limit
+  description: Registry Pods Max CPU Limit
+  value: '1'
+  required: true
+- name: REGISTRY_CPU_REQUEST
+  displayName: Registry CPU Requests
+  description: Registry Pods CPU Requests
+  value: 100m
+  required: true
+- name: BOOTSTRAP_SERVERS
+  displayName: Kafka Bootstrap Servers
+  description: Kafka Bootstrap Servers
+  required: true
+- name: SCHEMA_REGISTRY_IMAGE
+  displayName: Image for registry
+  description: APICurio image to use for the Kafka topic schema registry
+  required: true
