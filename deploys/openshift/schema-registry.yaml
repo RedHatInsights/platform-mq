@@ -24,8 +24,8 @@ objects:
     loadBalancer: {}
 # Registry Deployment Configuration
 # #################################
-- apiVersion: apps/v1
-  kind: Deployment
+- apiVersion: v1
+  kind: DeploymentConfig
   metadata:
     creationTimestamp: null
     labels:
