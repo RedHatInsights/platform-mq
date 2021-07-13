@@ -25,7 +25,7 @@ objects:
 # Registry Deployment Configuration
 # #################################
 - apiVersion: v1
-  kind: DeploymentConfig
+  kind: Deployment
   metadata:
     creationTimestamp: null
     labels:
