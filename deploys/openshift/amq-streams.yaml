@@ -88,7 +88,7 @@ objects:
       livenessProbe:
         initialDelaySeconds: 15
         timeoutSeconds: 5
-      metrics:
+      metricsConfig:
         # Inspired by config from Kafka 2.0.0 example rules:
         # https://github.com/prometheus/jmx_exporter/blob/master/example_configs/kafka-2_0_0.yml
         lowercaseOutputName: true
@@ -224,14 +224,6 @@ objects:
         requests:
           cpu: ${KAFKA_CPU_REQUESTS}
           memory: ${KAFKA_MEMORY_REQUESTS}
-      tlsSidecar:
-        resources:
-          limits:
-            cpu: 100m
-            memory: 512Mi
-          requests:
-            cpu: 100m
-            memory: 256Mi
       storage:
         deleteClaim: false
         size: ${KAFKA_VOL_SIZE}
@@ -240,7 +232,7 @@ objects:
       livenessProbe:
         initialDelaySeconds: 15
         timeoutSeconds: 5
-      metrics:
+      metricsConfig:
         lowercaseOutputName: true
       readinessProbe:
         initialDelaySeconds: 15
