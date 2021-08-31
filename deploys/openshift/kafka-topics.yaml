@@ -858,6 +858,36 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
+    name: platform.rhsm-subscriptions.capacity-reconcile
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.capacity-reconcile
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.rhsm-subscriptions.subscription-sync
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.subscription-sync
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
+    name: platform.rhsm-subscriptions.offering-sync
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.offering-sync
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
     name: platform.sources.superkey-requests
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
