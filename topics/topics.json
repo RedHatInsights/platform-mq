@@ -435,6 +435,21 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.rhsm-subscriptions.capacity-reconcile",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.rhsm-subscriptions.subscription-sync",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.rhsm-subscriptions.offering-sync",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "storage-topic",
     "PARTITIONS": 3,
     "REPLICAS": 3,
