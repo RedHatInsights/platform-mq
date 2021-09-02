@@ -5,7 +5,7 @@ kind: Template
 metadata:
   name: kafka-connectors
 objects:
-- apiVersion: kafka.strimzi.io/v1alpha1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaConnector
   metadata:
     name: ${S3_SINK_CONNECTOR_NAME}
