@@ -465,5 +465,10 @@
     "PARTITIONS": 3,
     "REPLICAS": 3,
     "TOPIC_CONFIGS": "cleanup.policy: compact"
+},
+{
+    "TOPIC_NAME": "platform.cloud-connector.rhc-message-ingress",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
 }
 ]
