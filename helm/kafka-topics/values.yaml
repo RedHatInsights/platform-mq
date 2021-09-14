@@ -342,3 +342,6 @@ topics:
   topic_configs:
   - name: cleanup.policy
     value: 'compact'
+- topic_name: platform.cloud-connector.rhc-message-ingress
+  partitions: 3
+  replicas: 3
