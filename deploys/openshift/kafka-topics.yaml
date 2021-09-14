@@ -908,6 +908,16 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta1
   kind: KafkaTopic
   metadata:
+    name: platform.upload.announce
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 64
+    replicas: 3
+    topicName: platform.upload.announce
+- apiVersion: kafka.strimzi.io/v1beta1
+  kind: KafkaTopic
+  metadata:
     name: storage-topic
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
