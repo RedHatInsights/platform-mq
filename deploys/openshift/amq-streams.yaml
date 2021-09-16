@@ -83,8 +83,14 @@ objects:
         -Xms: ${KAFKA_HEAP_OPTS_XMS}
         -Xmx: ${KAFKA_HEAP_OPTS_XMX}
       listeners:
-        plain: {}
-        tls: {}
+      - name: plain
+        type: internal
+        port: 9092
+        tls: false
+      - name: tls
+        type: internal
+        port: 9093
+        tls: true
       livenessProbe:
         initialDelaySeconds: 15
         timeoutSeconds: 5
