@@ -4,7 +4,7 @@ metadata:
   name: kafka-topics
 objects:
 {{- range $t, $topic := .Values.topics }}
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: {{ $topic.topic_name }}
