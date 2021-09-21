@@ -23,7 +23,7 @@ objects:
   spec:
     image: ${KAFKA_CONNECT_IMAGE}
     version: ${KAFKA_CONNECT_VERSION}
-    replicas: 1
+    replicas: 2
     resources:
       limits:
         cpu: "1"
