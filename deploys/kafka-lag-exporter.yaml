@@ -39,7 +39,13 @@ spec:
         ports:
         - containerPort: 9208
           protocol: TCP
-        resources: {}
+        resources:
+          limits:
+            cpu: 500m
+            memory: 1000Mi
+          requests:
+            cpu: 250m
+            memory: 250Mi
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
         volumeMounts:
