@@ -470,5 +470,15 @@
     "TOPIC_NAME": "platform.cloud-connector.rhc-message-ingress",
     "PARTITIONS": 3,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.edge.fleetmgmt.image-build",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.edge.fleetmgmt.device-update",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
 }
 ]
