@@ -949,6 +949,26 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.cloud-connector.rhc-message-ingress
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.edge.fleetmgmt.image-build
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.edge.fleetmgmt.image-build
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.edge.fleetmgmt.device-update
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.edge.fleetmgmt.device-update
 parameters:
 # Needed for processing by app-interface but not used.
 - name: IMAGE_TAG
