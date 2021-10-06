@@ -122,6 +122,12 @@ objects:
       readinessProbe:
         initialDelaySeconds: 15
         timeoutSeconds: 5
+      metricsConfig:
+        type: jmxPrometheusExporter
+        valueFrom:
+          configMapKeyRef:
+            name: kafka-metrics
+            key: zookeeper-metrics-config.yml
       replicas: ${{ZOOKEEPER_NUM_REPLICAS}}
       resources:
         limits:
