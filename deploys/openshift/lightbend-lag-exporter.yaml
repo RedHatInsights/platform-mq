@@ -121,7 +121,13 @@ objects:
   metadata:
     labels:
       app: lightbend-lag-exporter
+      strimzi.io/discovery: "true"
+      strimzi.io/cluster: platform-mq
     name: lightbend-lag-exporter
+    annotations:
+      prometheus.io/path: /metrics
+      prometheus.io/port: "9404" 
+      prometheus.io/scrape: "true"  
   spec:
     ports:
       - name: port-8000
