@@ -5,7 +5,7 @@ kind: Template
 metadata:
   name: kafka-topics
 objects:
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: notifications.outbox
@@ -15,7 +15,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: notifications.outbox
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: ccx.ocp.results
@@ -25,7 +25,7 @@ objects:
     partitions: 1
     replicas: 3
     topicName: ccx.ocp.results
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: hooks.outbox
@@ -35,7 +35,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: hooks.outbox
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.approval
@@ -45,7 +45,17 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.approval
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.notifications.aggregation
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 2
+    replicas: 3
+    topicName: platform.notifications.aggregation
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.notifications.ingress
@@ -55,7 +65,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.notifications.ingress
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.policies.actions-email
@@ -65,7 +75,7 @@ objects:
     partitions: 2
     replicas: 3
     topicName: platform.policies.actions-email
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.policies.actions-webhook
@@ -75,7 +85,7 @@ objects:
     partitions: 2
     replicas: 3
     topicName: platform.policies.actions-webhook
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.policies.history
@@ -85,7 +95,7 @@ objects:
     partitions: 2
     replicas: 3
     topicName: platform.policies.history
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.engine.results
@@ -98,7 +108,7 @@ objects:
     config:
       retention.ms: "86400000"
       retention.bytes: "5368709120"
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.insights.rule-hits
@@ -108,7 +118,7 @@ objects:
     partitions: 50
     replicas: 3
     topicName: platform.insights.rule-hits
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.logging.logs
@@ -118,7 +128,7 @@ objects:
     partitions: 2
     replicas: 3
     topicName: platform.logging.logs
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.payload-status
@@ -128,7 +138,7 @@ objects:
     partitions: 8
     replicas: 3
     topicName: platform.payload-status
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.receptor-controller.responses
@@ -138,7 +148,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.receptor-controller.responses
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.service-portal
@@ -148,7 +158,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.service-portal
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.system-profile
@@ -160,7 +170,7 @@ objects:
     topicName: platform.system-profile
     config:
       retention.ms: "86400000"
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.sources.event-stream
@@ -170,7 +180,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.sources.event-stream
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.sources.status
@@ -180,7 +190,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.sources.status
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.sources.operations-ansible-tower
@@ -190,7 +200,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.sources.operations-ansible-tower
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.sources.operations-satellite
@@ -200,7 +210,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.sources.operations-satellite
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.topological-inventory.event-stream
@@ -210,7 +220,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.event-stream
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.topological-inventory.operations-amazon
@@ -220,7 +230,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.operations-amazon
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.topological-inventory.operations-azure
@@ -230,7 +240,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.operations-azure
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.topological-inventory.operations-ansible-tower
@@ -240,7 +250,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.operations-ansible-tower
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.topological-inventory.collector-ansible-tower
@@ -250,7 +260,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.collector-ansible-tower
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.topological-inventory.operations-google
@@ -260,7 +270,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.operations-google
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.topological-inventory.operations-openshift
@@ -270,7 +280,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.operations-openshift
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.topological-inventory.operations-satellite
@@ -280,7 +290,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.operations-satellite
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.topological-inventory.persister
@@ -293,7 +303,7 @@ objects:
     config:
       retention.ms: "86400000"
       retention.bytes: "500000000"
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.topological-inventory.persister-output-stream
@@ -303,7 +313,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.persister-output-stream
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.topological-inventory.task-output-stream
@@ -313,7 +323,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.task-output-stream
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.tower-analytics.data-exporter
@@ -323,7 +333,7 @@ objects:
     partitions: 10
     replicas: 3
     topicName: platform.tower-analytics.data-exporter
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.advisor
@@ -333,7 +343,7 @@ objects:
     partitions: 64
     replicas: 3
     topicName: platform.upload.advisor
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.catalog
@@ -343,7 +353,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.catalog
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.xavier
@@ -353,7 +363,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.xavier
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.advisor-pup
@@ -363,7 +373,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.advisor-pup
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.aiops-idle-cost-savings
@@ -373,7 +383,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.aiops-idle-cost-savings
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.aiops-insights-clustering
@@ -383,7 +393,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.aiops-insights-clustering
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.aiops-outlier-detection
@@ -393,7 +403,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.aiops-outlier-detection
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.aiops-volume-type-validation
@@ -403,7 +413,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.aiops-volume-type-validation
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.aiops-instance-type-validation
@@ -413,7 +423,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.aiops-instance-type-validation
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.available
@@ -423,7 +433,7 @@ objects:
     partitions: 64
     replicas: 3
     topicName: platform.upload.available
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.buckit
@@ -433,7 +443,7 @@ objects:
     partitions: 16
     replicas: 3
     topicName: platform.upload.buckit
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.compliance
@@ -443,7 +453,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.compliance
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.hccm
@@ -453,7 +463,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.hccm
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.leapp-reporting
@@ -463,7 +473,7 @@ objects:
     partitions: 2
     replicas: 3
     topicName: platform.upload.leapp-reporting
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.mkt
@@ -473,7 +483,7 @@ objects:
     partitions: 10
     replicas: 3
     topicName: platform.upload.mkt
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.qpc
@@ -483,7 +493,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.qpc
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.resource-optimization
@@ -493,7 +503,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.resource-optimization
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.rhv
@@ -503,7 +513,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.rhv
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.testareno
@@ -513,7 +523,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.testareno
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.tower
@@ -523,7 +533,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.tower
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.topological-inventory
@@ -533,7 +543,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.topological-inventory
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.validation
@@ -543,7 +553,7 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.upload.validation
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: vulnerability.evaluator.upload
@@ -553,7 +563,7 @@ objects:
     partitions: 24
     replicas: 3
     topicName: vulnerability.evaluator.upload
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: vulnerability.evaluator.recalc
@@ -563,7 +573,17 @@ objects:
     partitions: 24
     replicas: 3
     topicName: vulnerability.evaluator.recalc
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.upload.announce
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 64
+    replicas: 3
+    topicName: platform.upload.announce
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.inventory.events
@@ -578,7 +598,7 @@ objects:
       min.compaction.lag.ms: "3600000"
       retention.bytes: "5368709120"
       retention.ms: "2678400000"
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.inventory.events-test-synchronizer
@@ -593,7 +613,7 @@ objects:
       min.compaction.lag.ms: "3600000"
       retention.bytes: "536870912"
       retention.ms: "2678400000"
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.cyndi.dlq
@@ -606,7 +626,7 @@ objects:
     config:
       retention.bytes: "5368709120"
       retention.ms: "2678400000"
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.rhsm-conduit.tasks
@@ -616,7 +636,7 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-conduit.tasks
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.testing.rhsm-conduit-tasks
@@ -629,7 +649,7 @@ objects:
     config:
       retention.ms: "86400000"
       retention.bytes: "2684354560"
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.inventory.host-ingress
@@ -642,7 +662,7 @@ objects:
     config:
       retention.ms: "86400000"
       retention.bytes: "2684354560"
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.inventory.host-ingress-p1
@@ -655,7 +675,7 @@ objects:
     config:
       retention.ms: "86400000"
       retention.bytes: "2684354560"
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.inventory.system-profile
@@ -665,7 +685,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.inventory.system-profile
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: ruledev.nomination
@@ -675,7 +695,7 @@ objects:
     partitions: 2
     replicas: 3
     topicName: ruledev.nomination
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: patchman.evaluator.upload
@@ -685,7 +705,7 @@ objects:
     partitions: 64
     replicas: 3
     topicName: patchman.evaluator.upload
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: patchman.evaluator.recalc
@@ -695,7 +715,7 @@ objects:
     partitions: 64
     replicas: 3
     topicName: patchman.evaluator.recalc
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.rhsm-subscriptions.tasks
@@ -705,7 +725,7 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-subscriptions.tasks
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.remediation-updates.advisor
@@ -715,7 +735,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.remediation-updates.advisor
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.remediation-updates.patch
@@ -725,7 +745,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.remediation-updates.patch
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.remediation-updates.vulnerability
@@ -735,7 +755,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.remediation-updates.vulnerability
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.remediation-updates.compliance
@@ -745,7 +765,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.remediation-updates.compliance
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.catalog.persister
@@ -755,7 +775,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.catalog.persister
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.catalog-inventory.task-output-stream
@@ -765,7 +785,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.catalog-inventory.task-output-stream
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.upload.playbook
@@ -775,7 +795,7 @@ objects:
     partitions: 16
     replicas: 3
     topicName: platform.upload.playbook
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: ccx.ocp.dlq
@@ -785,7 +805,7 @@ objects:
     partitions: 1
     replicas: 3
     topicName: ccx.ocp.dlq
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.playbook-dispatcher.runner-updates
@@ -800,7 +820,7 @@ objects:
       min.compaction.lag.ms: "3600000"
       retention.bytes: "1073741824"
       retention.ms: "86400000"
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.playbook-dispatcher.runs
@@ -815,7 +835,7 @@ objects:
       min.compaction.lag.ms: "3600000"
       retention.bytes: "1073741824"
       retention.ms: "2678400000"
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.rhsm-subscriptions.metering-tasks
@@ -825,7 +845,7 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-subscriptions.metering-tasks
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.rhsm-subscriptions.openshift-metering-tasks
@@ -835,7 +855,7 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-subscriptions.openshift-metering-tasks
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.rhsm-subscriptions.tally
@@ -845,7 +865,37 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-subscriptions.tally
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.rhsm-subscriptions.capacity-reconcile
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.capacity-reconcile
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.rhsm-subscriptions.subscription-sync
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.subscription-sync
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.rhsm-subscriptions.offering-sync
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.offering-sync
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.sources.superkey-requests
@@ -855,7 +905,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.sources.superkey-requests
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: platform.insights.client-metrics
@@ -865,7 +915,7 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.insights.client-metrics
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: storage-topic
@@ -877,7 +927,7 @@ objects:
     topicName: storage-topic
     config:
       cleanup.policy: "compact"
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
     name: global-id-topic
@@ -889,6 +939,36 @@ objects:
     topicName: global-id-topic
     config:
       cleanup.policy: "compact"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.cloud-connector.rhc-message-ingress
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.cloud-connector.rhc-message-ingress
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.edge.fleetmgmt.image-build
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.edge.fleetmgmt.image-build
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.edge.fleetmgmt.device-update
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.edge.fleetmgmt.device-update
 parameters:
 # Needed for processing by app-interface but not used.
 - name: IMAGE_TAG

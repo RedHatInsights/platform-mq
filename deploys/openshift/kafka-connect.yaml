@@ -12,7 +12,7 @@ parameters:
 - name: BOOTSTRAP_SERVERS
   value: platform-mq-kafka-bootstrap.platform-mq.svc.cluster.local:9093
 objects:
-- apiVersion: kafka.strimzi.io/v1beta1
+- apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaConnect
   metadata:
     name: platform-kafka-connect

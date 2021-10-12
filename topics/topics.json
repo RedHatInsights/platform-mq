@@ -435,6 +435,26 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.rhsm-subscriptions.capacity-reconcile",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.rhsm-subscriptions.subscription-sync",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.rhsm-subscriptions.offering-sync",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.upload.announce",
+    "PARTITIONS": 64,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "storage-topic",
     "PARTITIONS": 3,
     "REPLICAS": 3,
@@ -445,5 +465,20 @@
     "PARTITIONS": 3,
     "REPLICAS": 3,
     "TOPIC_CONFIGS": "cleanup.policy: compact"
+},
+{
+    "TOPIC_NAME": "platform.cloud-connector.rhc-message-ingress",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.edge.fleetmgmt.image-build",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.edge.fleetmgmt.device-update",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
 }
 ]

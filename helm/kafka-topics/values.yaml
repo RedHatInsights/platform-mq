@@ -181,6 +181,9 @@ topics:
 - topic_name: vulnerability.evaluator.recalc
   partitions: 24
   replicas: 3
+- topic_name: platform.upload.announce
+  partitions: 64
+  replicas: 3
 - topic_name: platform.inventory.events
   partitions: 64
   replicas: 3
@@ -312,6 +315,15 @@ topics:
 - topic_name: platform.rhsm-subscriptions.tally
   partitions: 24
   replicas: 3
+- topic_name: platform.rhsm-subscriptions.capacity-reconcile
+  partitions: 24
+  replicas: 3
+- topic_name: platform.rhsm-subscriptions.subscription-sync
+  partitions: 24
+  replicas: 3
+- topic_name: platform.rhsm-subscriptions.offering-sync
+  partitions: 24
+  replicas: 3
 - topic_name: platform.sources.superkey-requests
   partitions: 3
   replicas: 3
@@ -330,3 +342,12 @@ topics:
   topic_configs:
   - name: cleanup.policy
     value: 'compact'
+- topic_name: platform.cloud-connector.rhc-message-ingress
+  partitions: 3
+  replicas: 3
+- topic_name: platform.edge.fleetmgmt.image-build
+  partitions: 3
+  replicas: 3
+- topic_name: platform.edge.fleetmgmt.device-update
+  partitions: 3
+  replicas: 3
