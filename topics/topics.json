@@ -75,6 +75,16 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.notifications.toCamel",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.notifications.fromCamel",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.payload-status",
     "PARTITIONS": 8,
     "REPLICAS": 3
