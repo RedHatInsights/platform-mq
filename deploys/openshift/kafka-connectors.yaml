@@ -53,8 +53,8 @@ parameters:
   required: true
 - name: S3_SINK_CONNECTOR_TASKS_MAX
   description: How many consumer tasks this connector should use
-  value: 3
+  value: "3"
 - name: S3_SINK_CONNECTOR_FLUSH_SIZE
   description: How many records/messages to batch before sending
-  value: 1000
+  value: "1000"
 
