@@ -9,6 +9,9 @@ parameters:
 - name: KAFKA_CONNECT_VERSION
   description: Version of the kafka-connect service
   value: 2.7.0
+- name: KAFKA_CONNECT_REPLICAS
+  description: Number of connect instances to run
+  value: 1
 - name: BOOTSTRAP_SERVERS
   value: platform-mq-kafka-bootstrap.platform-mq.svc.cluster.local:9093
 objects:
@@ -23,7 +26,7 @@ objects:
   spec:
     image: ${KAFKA_CONNECT_IMAGE}
     version: ${KAFKA_CONNECT_VERSION}
-    replicas: 1
+    replicas: ${KAFKA_CONNECT_REPLICAS}
     resources:
       limits:
         cpu: "1"
