@@ -13,7 +13,7 @@ objects:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
     class: io.confluent.connect.s3.S3SinkConnector
-    tasksMax: 3
+    tasksMax: ${S3_SINK_CONNECTOR_TASKS_MAX}
     config:
       errors.log.enable: true
       errors.log.include.messages: true
@@ -21,7 +21,7 @@ objects:
       format.class: io.confluent.connect.s3.format.json.JsonFormat
       key.converter: org.apache.kafka.connect.storage.StringConverter
       key.converter.schemas.enable: false
-      flush.size: 1
+      flush.size: ${S3_SINK_CONNECTOR_FLUSH_SIZE}
       partitioner.class: io.confluent.connect.storage.partitioner.DefaultPartitioner
       s3.bucket.name: ${S3_SINK_BUCKET_NAME}
       s3.part.size: 5242880
@@ -32,19 +32,29 @@ objects:
       value.converter: org.apache.kafka.connect.json.JsonConverter
       value.converter.schemas.enable: false
 parameters:
-# Needed for processing by app-interface but not used.
 - name: IMAGE_TAG
+  description: Needed for processing by app-interface but not used.
   value: latest
-# Kafka cluster name will be provided at run time
 - name: KAFKA_CLUSTER
+  description:  Kafka cluster name will be provided at run time
   value: ""
 - name: KAFKA_CONNECT_CLUSTER
   value: ""
-# Name of the connector resource to create
 - name: S3_SINK_CONNECTOR_NAME
+  description: Name of the connector resource to create
   value: client-metrics-sink
-# Topic to sink to s3 bucket
 - name: S3_SINK_TOPICS
+  description: Topic(s) to sink to s3 bucket
   value: ""
+  required: true
 - name: S3_SINK_BUCKET_NAME
+  description: Name of target S3 bucket
   value: ""
+  required: true
+- name: S3_SINK_CONNECTOR_TASKS_MAX
+  description: How many consumer tasks this connector should use
+  value: 3
+- name: S3_SINK_CONNECTOR_FLUSH_SIZE
+  description: How many records/messages to batch before sending
+  value: 1000
+
