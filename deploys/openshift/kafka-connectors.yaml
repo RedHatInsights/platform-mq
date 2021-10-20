@@ -31,8 +31,6 @@ objects:
       topics: ${S3_SINK_TOPICS}
       value.converter: org.apache.kafka.connect.json.JsonConverter
       value.converter.schemas.enable: false
-      aws.access.key.id: ${EVENTS_S3_ACCESS_KEY}
-      aws.secret.access.key: ${EVENTS_S3_SECRET_KEY}
 parameters:
 # Needed for processing by app-interface but not used.
 - name: IMAGE_TAG
