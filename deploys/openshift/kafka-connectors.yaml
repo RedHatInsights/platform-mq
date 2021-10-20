@@ -32,11 +32,9 @@ objects:
       value.converter: org.apache.kafka.connect.json.JsonConverter
       value.converter.schemas.enable: false
 parameters:
-# Needed for processing by app-interface but not used.
 - name: IMAGE_TAG
   description: Needed for processing by app-interface but not used.
   value: latest
-# Kafka cluster name will be provided at run tim
 - name: KAFKA_CLUSTER
   description:  Kafka cluster name will be provided at run time
   value: ""
