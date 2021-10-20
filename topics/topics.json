@@ -302,6 +302,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.upload.malware-detection",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "vulnerability.evaluator.upload",
     "PARTITIONS": 24,
     "REPLICAS": 3

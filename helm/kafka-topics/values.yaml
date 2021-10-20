@@ -175,6 +175,9 @@ topics:
 - topic_name: platform.upload.validation
   partitions: 24
   replicas: 3
+- topic_name: platform.upload.malware-detection
+  partitions: 3
+  replicas: 3
 - topic_name: vulnerability.evaluator.upload
   partitions: 24
   replicas: 3
