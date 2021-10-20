@@ -969,6 +969,26 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.edge.fleetmgmt.device-update
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.notifications.toCamel
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.notifications.toCamel
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.notifications.fromCamel
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.notifications.fromCamel
 parameters:
 # Needed for processing by app-interface but not used.
 - name: IMAGE_TAG
