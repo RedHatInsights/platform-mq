@@ -75,12 +75,12 @@
     "REPLICAS": 3
 },
 {
-    "TOPIC_NAME": "platform.notifications.toCamel",
+    "TOPIC_NAME": "platform.notifications.tocamel",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
 {
-    "TOPIC_NAME": "platform.notifications.fromCamel",
+    "TOPIC_NAME": "platform.notifications.fromcamel",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
