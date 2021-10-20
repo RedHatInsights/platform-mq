@@ -351,9 +351,9 @@ topics:
 - topic_name: platform.edge.fleetmgmt.device-update
   partitions: 3
   replicas: 3
-- topic_name: platform.notifications.toCamel
+- topic_name: platform.notifications.tocamel
   partitions: 3
   replicas: 3
-- topic_name: platform.notifications.fromCamel
+- topic_name: platform.notifications.fromcamel
   partitions: 3
   replicas: 3
