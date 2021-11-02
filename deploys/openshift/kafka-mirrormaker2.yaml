@@ -36,18 +36,18 @@ objects:
     mirrors:
       - checkpointConnector:
           config:
-            checkpoints.topic.replication.factor: ${REPLICATION_FACTOR}
+            checkpoints.topic.replication.factor: ${{REPLICATION_FACTOR}}
         groupsPattern: .*
         heartbeatConnector:
           config:
-            heartbeats.topic.replication.factor: ${REPLICATION_FACTOR}
+            heartbeats.topic.replication.factor: ${{REPLICATION_FACTOR}}
         sourceCluster: ${SRC_CLUSTER_ALIAS}
         sourceConnector:
           config:
-            offset-syncs.topic.replication.factor: ${REPLICATION_FACTOR}
-            replication.factor: ${REPLICATION_FACTOR}
+            offset-syncs.topic.replication.factor: ${{REPLICATION_FACTOR}}
+            replication.factor: ${{REPLICATION_FACTOR}}
             sync.topic.acls.enabled: 'false'
         targetCluster: ${TGT_CLUSTER_ALIAS}
         topicsPattern: .*
-    replicas: ${MM2_REPLICA_COUNT}
+    replicas: ${{MM2_REPLICA_COUNT}}
     version: 2.8.0
