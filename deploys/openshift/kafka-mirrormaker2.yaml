@@ -34,6 +34,10 @@ objects:
     clusters:
     - alias: ${SRC_CLUSTER_ALIAS}
       bootstrapServers: ${SRC_CLUSTER_BOOTSTRAP}
+      tls:
+        trustedCertificates:
+          - secretName: platform-mq-cluster-ca-cert
+            certificate: ca.crt
     - alias: ${TGT_CLUSTER_ALIAS}
       bootstrapServers: ${TGT_CLUSTER_BOOTSTRAP}
     config:
