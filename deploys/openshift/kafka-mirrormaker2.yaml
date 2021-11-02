@@ -17,6 +17,14 @@ parameters:
   required: true
 - name: REPLICATION_FACTOR
   value: "3"
+- name: ${MM2_CPU_LIMIT}
+  value: "1"
+- name: ${MM2_MEM_LIMIT}
+  value: 4Gi
+- name: ${MM2_CPU_REQ}
+  value: 500m
+- name: ${MM2_MEM_REQ}
+  value: 1Gi
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaMirrorMaker2
@@ -50,4 +58,11 @@ objects:
         targetCluster: ${TGT_CLUSTER_ALIAS}
         topicsPattern: .*
     replicas: ${{MM2_REPLICA_COUNT}}
+    resources:
+      limits:
+        cpu: ${MM2_CPU_LIMIT}
+        memory: ${MM2_MEM_LIMIT}
+      requests:
+        cpu: ${MM2_CPU_REQ}
+        memory: ${MM2_MEM_REQ}
     version: 2.8.0
