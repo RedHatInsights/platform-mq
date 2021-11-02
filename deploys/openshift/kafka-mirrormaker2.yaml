@@ -24,14 +24,14 @@ objects:
       name: ${MM2_CLUSTER_NAME}
     spec:
       clusters:
-        - alias: ${SRC_CLUSTER_ALIAS}
-          bootstrapServers: ${SRC_CLUSTER_BOOTSTRAP}
-        - alias: ${TGT_CLUSTER_ALIAS}
-          bootstrapServers: ${TGT_CLUSTER_BOOTSTRAP}
-          config:
-            config.storage.replication.factor: -1
-            offset.storage.replication.factor: -1
-            status.storage.replication.factor: -1
+      - alias: ${SRC_CLUSTER_ALIAS}
+        bootstrapServers: ${SRC_CLUSTER_BOOTSTRAP}
+      - alias: ${TGT_CLUSTER_ALIAS}
+        bootstrapServers: ${TGT_CLUSTER_BOOTSTRAP}
+      config:
+        config.storage.replication.factor: -1
+        offset.storage.replication.factor: -1
+        status.storage.replication.factor: -1
       connectCluster: ${SRC_CLUSTER_ALIAS}
       mirrors:
         - checkpointConnector:
