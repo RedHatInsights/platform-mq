@@ -28,11 +28,11 @@ parameters:
 - name: MANAGED_KAFKA_AUTH_ENDPOINT
   value: "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
 - name: MANAGED_KAFKA_CLIENT_ID
-  value: "client-id"
+  value: "sample-client"
 - name: AUTH_SECRET_NAME
   value: "mk-oauth-secret"
 - name: AUTH_SECRET_KEY
-  value: "client_secret"
+  value: "client-secret"
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaMirrorMaker2
