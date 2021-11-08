@@ -25,6 +25,14 @@ parameters:
   value: 500m
 - name: MM2_MEM_REQ
   value: 1Gi
+- name: MANAGED_KAFKA_AUTH_ENDPOINT
+  value: "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
+- name: MANAGED_KAFKA_CLIENT_ID
+  value: "client-id"
+- name: AUTH_SECRET_NAME
+  value: "mk-oauth-secret"
+- name: AUTH_SECRET_KEY
+  value: "secret"
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaMirrorMaker2
@@ -40,6 +48,13 @@ objects:
             certificate: ca.crt
     - alias: ${TGT_CLUSTER_ALIAS}
       bootstrapServers: ${TGT_CLUSTER_BOOTSTRAP}
+      authentication:
+        type: oauth
+        tokenEndpointUri: ${MANAGED_KAFKA_AUTH_ENDPOINT}
+        clientId: ${MANAGED_KAFKA_CLIENT_ID}
+        clientSecret:
+          secretName: ${AUTH_SECRET_NAME}
+          key: ${AUTH_SECRET_KEY}
     config:
       config.storage.replication.factor: -1
       offset.storage.replication.factor: -1
