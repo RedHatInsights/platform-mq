@@ -32,7 +32,7 @@ parameters:
 - name: AUTH_SECRET_NAME
   value: "mk-oauth-secret"
 - name: AUTH_SECRET_KEY
-  value: "client-secret"
+  value: "client_secret"
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaMirrorMaker2
