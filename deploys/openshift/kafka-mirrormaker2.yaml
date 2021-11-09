@@ -39,6 +39,10 @@ objects:
   metadata:
     name: ${MM2_CLUSTER_NAME}
   spec:
+    logging:
+      type: inline
+      loggers:
+        mirrormaker.root.logger: "DEBUG"
     clusters:
     - alias: ${SRC_CLUSTER_ALIAS}
       bootstrapServers: ${SRC_CLUSTER_BOOTSTRAP}
