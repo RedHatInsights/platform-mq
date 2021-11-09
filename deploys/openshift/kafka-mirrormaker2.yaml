@@ -42,7 +42,7 @@ objects:
     logging:
       type: inline
       loggers:
-        mirrormaker.root.logger: "DEBUG"
+        connect.root.logger.level: "DEBUG"
     clusters:
     - alias: ${SRC_CLUSTER_ALIAS}
       bootstrapServers: ${SRC_CLUSTER_BOOTSTRAP}
