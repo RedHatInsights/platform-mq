@@ -62,23 +62,24 @@ objects:
           secretName: ${AUTH_SECRET_NAME}
           key: ${AUTH_SECRET_KEY}
     config:
-      config.storage.replication.factor: -1
-      offset.storage.replication.factor: -1
-      status.storage.replication.factor: -1
+      config.storage.replication.factor: 3
+      offset.storage.replication.factor: 3
+      status.storage.replication.factor: 3
     connectCluster: ${SRC_CLUSTER_ALIAS}
     mirrors:
       - checkpointConnector:
           config:
-            checkpoints.topic.replication.factor: ${{REPLICATION_FACTOR}}
+            checkpoints.topic.replication.factor: 3
+            emit.checkpoints.interval.seconds: 60
+            refresh.groups.interval.seconds: 60
+            sync.group.offsets.enabled: true
+            sync.group.offsets.interval.seconds: 60
         groupsPattern: ".*"
-        heartbeatConnector:
-          config:
-            heartbeats.topic.replication.factor: ${{REPLICATION_FACTOR}}
         sourceCluster: ${SRC_CLUSTER_ALIAS}
         sourceConnector:
           config:
-            offset-syncs.topic.replication.factor: ${{REPLICATION_FACTOR}}
-            replication.factor: ${{REPLICATION_FACTOR}}
+            offset-syncs.topic.replication.factor: 3
+            replication.factor: 3
             sync.topic.acls.enabled: 'false'
         targetCluster: ${TGT_CLUSTER_ALIAS}
         topicsPattern: ".*"
