@@ -20,7 +20,7 @@ parameters:
 - name: MM2_CPU_LIMIT
   value: "1"
 - name: MM2_MEM_LIMIT
-  value: 3Gi
+  value: 4Gi
 - name: MM2_CPU_REQ
   value: 500m
 - name: MM2_MEM_REQ
