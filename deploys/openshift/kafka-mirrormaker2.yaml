@@ -52,6 +52,8 @@ objects:
             certificate: ca.crt
     - alias: ${TGT_CLUSTER_ALIAS}
       bootstrapServers: ${TGT_CLUSTER_BOOTSTRAP}
+      tls:
+        trustedCertificates: []
       authentication:
         type: oauth
         tokenEndpointUri: ${MANAGED_KAFKA_AUTH_ENDPOINT}
