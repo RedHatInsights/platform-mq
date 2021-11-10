@@ -1039,6 +1039,16 @@ objects:
     partitions: 1
     replicas: 3
     topicName: mirrormaker2-cluster-status
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: source-kafka-cluster.checkpoints.internal
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: source-kafka-cluster.checkpoints.internal
 parameters:
 # Needed for processing by app-interface but not used.
 - name: IMAGE_TAG
