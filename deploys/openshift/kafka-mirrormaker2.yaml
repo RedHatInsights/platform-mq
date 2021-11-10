@@ -70,7 +70,7 @@ objects:
       - checkpointConnector:
           config:
             checkpoints.topic.replication.factor: ${{REPLICATION_FACTOR}}
-        groupsPattern: .*
+        groupsPattern: ".*"
         heartbeatConnector:
           config:
             heartbeats.topic.replication.factor: ${{REPLICATION_FACTOR}}
@@ -81,7 +81,7 @@ objects:
             replication.factor: ${{REPLICATION_FACTOR}}
             sync.topic.acls.enabled: 'false'
         targetCluster: ${TGT_CLUSTER_ALIAS}
-        topicsPattern: .*
+        topicsPattern: ".*"
     replicas: ${{MM2_REPLICA_COUNT}}
     resources:
       limits:
