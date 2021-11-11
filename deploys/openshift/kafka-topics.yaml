@@ -1029,6 +1029,8 @@ objects:
     partitions: 1
     replicas: 3
     topicName: mirrormaker2-cluster-offsets
+    config:
+      cleanup.policy: "compact"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
