@@ -15,6 +15,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: notifications.outbox
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -25,6 +27,8 @@ objects:
     partitions: 1
     replicas: 3
     topicName: ccx.ocp.results
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -35,6 +39,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: hooks.outbox
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -45,6 +51,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.approval
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -55,6 +63,8 @@ objects:
     partitions: 2
     replicas: 3
     topicName: platform.notifications.aggregation
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -65,6 +75,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.notifications.ingress
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -75,6 +87,8 @@ objects:
     partitions: 2
     replicas: 3
     topicName: platform.policies.actions-email
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -85,6 +99,8 @@ objects:
     partitions: 2
     replicas: 3
     topicName: platform.policies.actions-webhook
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -95,6 +111,8 @@ objects:
     partitions: 2
     replicas: 3
     topicName: platform.policies.history
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -106,6 +124,7 @@ objects:
     replicas: 3
     topicName: platform.engine.results
     config:
+      min.insync.replicas: 2
       retention.ms: "86400000"
       retention.bytes: "5368709120"
 - apiVersion: kafka.strimzi.io/v1beta2
@@ -118,6 +137,8 @@ objects:
     partitions: 50
     replicas: 3
     topicName: platform.insights.rule-hits
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -128,6 +149,8 @@ objects:
     partitions: 2
     replicas: 3
     topicName: platform.logging.logs
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -138,6 +161,8 @@ objects:
     partitions: 8
     replicas: 3
     topicName: platform.payload-status
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -148,6 +173,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.receptor-controller.responses
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -158,6 +185,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.service-portal
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -169,6 +198,7 @@ objects:
     replicas: 3
     topicName: platform.system-profile
     config:
+      min.insync.replicas: 2
       retention.ms: "86400000"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
@@ -180,6 +210,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.sources.event-stream
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -190,6 +222,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.sources.status
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -200,6 +234,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.sources.operations-ansible-tower
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -210,6 +246,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.sources.operations-satellite
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -220,6 +258,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.event-stream
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -230,6 +270,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.operations-amazon
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -240,6 +282,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.operations-azure
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -250,6 +294,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.operations-ansible-tower
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -260,6 +306,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.collector-ansible-tower
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -270,6 +318,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.operations-google
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -280,6 +330,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.operations-openshift
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -290,6 +342,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.operations-satellite
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -301,6 +355,7 @@ objects:
     replicas: 3
     topicName: platform.topological-inventory.persister
     config:
+      min.insync.replicas: 2
       retention.ms: "86400000"
       retention.bytes: "500000000"
 - apiVersion: kafka.strimzi.io/v1beta2
@@ -313,6 +368,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.persister-output-stream
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -323,6 +380,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.task-output-stream
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -333,6 +392,8 @@ objects:
     partitions: 10
     replicas: 3
     topicName: platform.tower-analytics.data-exporter
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -343,6 +404,8 @@ objects:
     partitions: 64
     replicas: 3
     topicName: platform.upload.advisor
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -353,6 +416,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.catalog
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -363,6 +428,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.xavier
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -373,6 +440,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.advisor-pup
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -383,6 +452,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.aiops-idle-cost-savings
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -393,6 +464,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.aiops-insights-clustering
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -403,6 +476,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.aiops-outlier-detection
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -413,6 +488,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.aiops-volume-type-validation
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -423,6 +500,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.aiops-instance-type-validation
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -433,6 +512,8 @@ objects:
     partitions: 64
     replicas: 3
     topicName: platform.upload.available
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -443,6 +524,8 @@ objects:
     partitions: 16
     replicas: 3
     topicName: platform.upload.buckit
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -453,6 +536,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.compliance
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -463,6 +548,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.hccm
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -473,6 +560,8 @@ objects:
     partitions: 2
     replicas: 3
     topicName: platform.upload.leapp-reporting
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -483,6 +572,8 @@ objects:
     partitions: 10
     replicas: 3
     topicName: platform.upload.mkt
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -493,6 +584,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.qpc
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -503,6 +596,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.resource-optimization
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -513,6 +608,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.rhv
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -523,6 +620,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.testareno
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -533,6 +632,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.tower
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -543,6 +644,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.topological-inventory
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -553,6 +656,8 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.upload.validation
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -563,6 +668,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.upload.malware-detection
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -573,6 +680,8 @@ objects:
     partitions: 24
     replicas: 3
     topicName: vulnerability.evaluator.upload
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -583,6 +692,8 @@ objects:
     partitions: 24
     replicas: 3
     topicName: vulnerability.evaluator.recalc
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -593,6 +704,8 @@ objects:
     partitions: 64
     replicas: 3
     topicName: platform.upload.announce
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -604,6 +717,7 @@ objects:
     replicas: 3
     topicName: platform.inventory.events
     config:
+      min.insync.replicas: 2
       cleanup.policy: "compact,delete"
       min.compaction.lag.ms: "3600000"
       retention.bytes: "5368709120"
@@ -619,6 +733,7 @@ objects:
     replicas: 3
     topicName: platform.inventory.events-test-synchronizer
     config:
+      min.insync.replicas: 2
       cleanup.policy: "compact,delete"
       min.compaction.lag.ms: "3600000"
       retention.bytes: "536870912"
@@ -634,6 +749,7 @@ objects:
     replicas: 3
     topicName: platform.cyndi.dlq
     config:
+      min.insync.replicas: 2
       retention.bytes: "5368709120"
       retention.ms: "2678400000"
 - apiVersion: kafka.strimzi.io/v1beta2
@@ -646,6 +762,8 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-conduit.tasks
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -657,6 +775,7 @@ objects:
     replicas: 3
     topicName: platform.testing.rhsm-conduit-tasks
     config:
+      min.insync.replicas: 2
       retention.ms: "86400000"
       retention.bytes: "2684354560"
 - apiVersion: kafka.strimzi.io/v1beta2
@@ -670,6 +789,7 @@ objects:
     replicas: 3
     topicName: platform.inventory.host-ingress
     config:
+      min.insync.replicas: 2
       retention.ms: "86400000"
       retention.bytes: "2684354560"
 - apiVersion: kafka.strimzi.io/v1beta2
@@ -683,6 +803,7 @@ objects:
     replicas: 3
     topicName: platform.inventory.host-ingress-p1
     config:
+      min.insync.replicas: 2
       retention.ms: "86400000"
       retention.bytes: "2684354560"
 - apiVersion: kafka.strimzi.io/v1beta2
@@ -695,6 +816,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.inventory.system-profile
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -705,6 +828,8 @@ objects:
     partitions: 2
     replicas: 3
     topicName: ruledev.nomination
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -715,6 +840,8 @@ objects:
     partitions: 64
     replicas: 3
     topicName: patchman.evaluator.upload
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -725,6 +852,8 @@ objects:
     partitions: 64
     replicas: 3
     topicName: patchman.evaluator.recalc
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -735,6 +864,8 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-subscriptions.tasks
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -745,6 +876,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.remediation-updates.advisor
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -755,6 +888,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.remediation-updates.patch
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -765,6 +900,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.remediation-updates.vulnerability
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -775,6 +912,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.remediation-updates.compliance
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -785,6 +924,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.catalog.persister
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -795,6 +936,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.catalog-inventory.task-output-stream
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -805,6 +948,8 @@ objects:
     partitions: 16
     replicas: 3
     topicName: platform.upload.playbook
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -815,6 +960,8 @@ objects:
     partitions: 1
     replicas: 3
     topicName: ccx.ocp.dlq
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -826,6 +973,7 @@ objects:
     replicas: 3
     topicName: platform.playbook-dispatcher.runner-updates
     config:
+      min.insync.replicas: 2
       cleanup.policy: "compact,delete"
       min.compaction.lag.ms: "3600000"
       retention.bytes: "1073741824"
@@ -841,6 +989,7 @@ objects:
     replicas: 3
     topicName: platform.playbook-dispatcher.runs
     config:
+      min.insync.replicas: 2
       cleanup.policy: "compact,delete"
       min.compaction.lag.ms: "3600000"
       retention.bytes: "1073741824"
@@ -855,6 +1004,8 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-subscriptions.metering-tasks
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -865,6 +1016,8 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-subscriptions.openshift-metering-tasks
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -875,6 +1028,8 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-subscriptions.tally
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -885,6 +1040,8 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-subscriptions.capacity-reconcile
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -895,6 +1052,8 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-subscriptions.subscription-sync
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -905,6 +1064,8 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-subscriptions.offering-sync
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -915,6 +1076,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.sources.superkey-requests
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -925,6 +1088,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.insights.client-metrics
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -936,6 +1101,7 @@ objects:
     replicas: 3
     topicName: storage-topic
     config:
+      min.insync.replicas: 2
       cleanup.policy: "compact"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
@@ -948,6 +1114,7 @@ objects:
     replicas: 3
     topicName: global-id-topic
     config:
+      min.insync.replicas: 2
       cleanup.policy: "compact"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
@@ -959,6 +1126,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.cloud-connector.rhc-message-ingress
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -969,6 +1138,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.edge.fleetmgmt.image-build
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -979,6 +1150,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.edge.fleetmgmt.device-update
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -989,6 +1162,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.notifications.tocamel
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -999,6 +1174,8 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.notifications.fromcamel
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -1009,6 +1186,8 @@ objects:
     partitions: 1
     replicas: 3
     topicName: heartbeats
+    config:
+      min.insync.replicas: 2
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -1020,6 +1199,7 @@ objects:
     replicas: 3
     topicName: mirrormaker2-cluster-configs
     config:
+      min.insync.replicas: 2
       cleanup.policy: "compact"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
@@ -1032,6 +1212,7 @@ objects:
     replicas: 3
     topicName: mirrormaker2-cluster-offsets
     config:
+      min.insync.replicas: 2
       cleanup.policy: "compact"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
@@ -1044,6 +1225,7 @@ objects:
     replicas: 3
     topicName: mirrormaker2-cluster-status
     config:
+      min.insync.replicas: 2
       cleanup.policy: "compact"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
@@ -1055,6 +1237,8 @@ objects:
     partitions: 1
     replicas: 3
     topicName: source-kafka-cluster.checkpoints.internal
+    config:
+      min.insync.replicas: 2
 parameters:
 # Needed for processing by app-interface but not used.
 - name: IMAGE_TAG

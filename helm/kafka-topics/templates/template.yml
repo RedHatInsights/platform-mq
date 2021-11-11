@@ -14,8 +14,9 @@ objects:
     partitions: {{ $topic.partitions }}
     replicas: {{ $topic.replicas }}
     topicName: {{ $topic.topic_name }}
-    {{- if $topic.topic_configs }}
     config:
+      min.insync.replicas: 2
+    {{- if $topic.topic_configs }}
       {{- range $c, $config := $topic.topic_configs }}
       {{ $config.name }}: "{{ $config.value }}"
       {{- end }}
