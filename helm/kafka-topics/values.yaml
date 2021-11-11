@@ -366,6 +366,9 @@ topics:
 - topic_name: mirrormaker2-cluster-configs
   partitions: 1
   replicas: 3
+  topic_configs:
+  - name: cleanup.policy
+    value: 'compact'
 - topic_name: mirrormaker2-cluster-offsets
   partitions: 1
   replicas: 3
@@ -375,6 +378,9 @@ topics:
 - topic_name: mirrormaker2-cluster-status
   partitions: 1
   replicas: 3
+  topic_configs:
+  - name: cleanup.policy
+    value: 'compact'
 - topic_name: source-kafka-cluster.checkpoints.internal
   partitions: 1
   replicas: 3

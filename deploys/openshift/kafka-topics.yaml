@@ -1019,6 +1019,8 @@ objects:
     partitions: 1
     replicas: 3
     topicName: mirrormaker2-cluster-configs
+    config:
+      cleanup.policy: "compact"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -1041,6 +1043,8 @@ objects:
     partitions: 1
     replicas: 3
     topicName: mirrormaker2-cluster-status
+    config:
+      cleanup.policy: "compact"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
