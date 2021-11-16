@@ -6,7 +6,7 @@ parameters:
 - name: MM2_CLUSTER_NAME
   value: platform-kafka-mm2
 - name: MM2_REPLICA_COUNT
-  value: "1"
+  value: "0"
 - name: SRC_CLUSTER_ALIAS
   value: "source-kafka-cluster"
 - name: SRC_CLUSTER_BOOTSTRAP
@@ -80,7 +80,7 @@ objects:
           config:
             offset-syncs.topic.replication.factor: 3
             replication.factor: 3
-            sync.topic.acls.enabled: 'false'
+            sync.topic.acls.enabled: 'true'
         targetCluster: ${TGT_CLUSTER_ALIAS}
         topicsExcludePattern: ".*xjoin.inventory.*"
     replicas: ${{MM2_REPLICA_COUNT}}
