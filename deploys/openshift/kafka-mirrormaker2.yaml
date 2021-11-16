@@ -6,7 +6,7 @@ parameters:
 - name: MM2_CLUSTER_NAME
   value: platform-kafka-mm2
 - name: MM2_REPLICA_COUNT
-  value: "0"
+  value: "1"
 - name: SRC_CLUSTER_ALIAS
   value: "source-kafka-cluster"
 - name: SRC_CLUSTER_BOOTSTRAP
