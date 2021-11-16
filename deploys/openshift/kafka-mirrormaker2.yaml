@@ -61,10 +61,10 @@ objects:
         clientSecret:
           secretName: ${AUTH_SECRET_NAME}
           key: ${AUTH_SECRET_KEY}
-    config:
-      config.storage.replication.factor: 3
-      offset.storage.replication.factor: 3
-      status.storage.replication.factor: 3
+      config:
+        config.storage.replication.factor: 3
+        offset.storage.replication.factor: 3
+        status.storage.replication.factor: 3
     connectCluster: ${TGT_CLUSTER_ALIAS}
     mirrors:
       - checkpointConnector:
