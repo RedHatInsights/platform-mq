@@ -82,7 +82,7 @@ objects:
             replication.factor: 3
             sync.topic.acls.enabled: 'false'
         targetCluster: ${TGT_CLUSTER_ALIAS}
-        topicsPattern: ".*"
+        topicsExcludePattern: ".*xjoin.inventory.*"
     replicas: ${{MM2_REPLICA_COUNT}}
     resources:
       limits:
