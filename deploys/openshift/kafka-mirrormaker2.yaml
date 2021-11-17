@@ -81,9 +81,9 @@ objects:
             offset-syncs.topic.replication.factor: 3
             refresh.topics.interval.seconds: 60
             replication.factor: 3
-            sync.topic.acls.enabled: 'true'
+            sync.topic.acls.enabled: true
         targetCluster: ${TGT_CLUSTER_ALIAS}
-        topicsExcludePattern: ".*xjoin.*|.*connect-cluster.*|.*connect-offset.*"
+        topicsExcludePattern: ".*connect-*"
     replicas: ${{MM2_REPLICA_COUNT}}
     resources:
       limits:
