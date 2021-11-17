@@ -66,24 +66,6 @@ objects:
         offset.storage.replication.factor: 3
         status.storage.replication.factor: 3
     connectCluster: ${TGT_CLUSTER_ALIAS}
-    mirrors:
-      - checkpointConnector:
-          config:
-            checkpoints.topic.replication.factor: 3
-            emit.checkpoints.interval.seconds: 60
-            refresh.groups.interval.seconds: 60
-            sync.group.offsets.enabled: true
-            sync.group.offsets.interval.seconds: 60
-        groupsPattern: ".*"
-        sourceCluster: ${SRC_CLUSTER_ALIAS}
-        sourceConnector:
-          config:
-            offset-syncs.topic.replication.factor: 3
-            refresh.topics.interval.seconds: 60
-            replication.factor: 3
-            sync.topic.acls.enabled: 'true'
-        targetCluster: ${TGT_CLUSTER_ALIAS}
-        topicsExcludePattern: ".*xjoin.*"
     replicas: ${{MM2_REPLICA_COUNT}}
     resources:
       limits:
