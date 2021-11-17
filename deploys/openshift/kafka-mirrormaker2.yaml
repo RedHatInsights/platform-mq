@@ -72,7 +72,7 @@ objects:
             checkpoints.topic.replication.factor: 3
             emit.checkpoints.interval.seconds: 60
             refresh.groups.interval.seconds: 60
-            sync.group.offsets.enabled: true
+            sync.group.offsets.enabled: 'true'
             sync.group.offsets.interval.seconds: 60
         groupsPattern: ".*"
         sourceCluster: ${SRC_CLUSTER_ALIAS}
