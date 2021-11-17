@@ -79,6 +79,7 @@ objects:
         sourceConnector:
           config:
             offset-syncs.topic.replication.factor: 3
+            refresh.topics.interval.seconds: 60
             replication.factor: 3
             sync.topic.acls.enabled: 'true'
         targetCluster: ${TGT_CLUSTER_ALIAS}
