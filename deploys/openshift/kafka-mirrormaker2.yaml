@@ -83,7 +83,7 @@ objects:
             replication.factor: 3
             sync.topic.acls.enabled: true
         targetCluster: ${TGT_CLUSTER_ALIAS}
-        topicsExcludePattern: "xjoin.*|connect.*|consumer-offsets.*|strimzi.*"
+        topicsExcludePattern: "xjoin.*|.*connect.*|consumer-offsets.*|strimzi.*"
     replicas: ${{MM2_REPLICA_COUNT}}
     resources:
       limits:
