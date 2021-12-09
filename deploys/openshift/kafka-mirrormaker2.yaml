@@ -39,10 +39,6 @@ objects:
   metadata:
     name: ${MM2_CLUSTER_NAME}
   spec:
-    logging:
-      type: inline
-      loggers:
-        connect.root.logger.level: "DEBUG"
     clusters:
     - alias: ${SRC_CLUSTER_ALIAS}
       bootstrapServers: ${SRC_CLUSTER_BOOTSTRAP}
@@ -65,6 +61,7 @@ objects:
         config.storage.replication.factor: 3
         offset.storage.replication.factor: 3
         status.storage.replication.factor: 3
+        config.properties.exclude:  "follower.replication.throttled.replicas, leader.replication.throttled.replicas, message.timestamp.difference.max.ms, message.timestamp.type, unclean.leader.election.enable"
     connectCluster: ${TGT_CLUSTER_ALIAS}
     mirrors:
       - checkpointConnector:
