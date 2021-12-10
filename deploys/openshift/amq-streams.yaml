@@ -55,6 +55,10 @@ objects:
             cpu: 100m
             memory: 256Mi
       topicOperator:
+        jvmOptions:
+          javaSystemProperties:
+          - name: log4j2.formatMsgNoLookups
+            value: "true"
         resources:
           limits:
             cpu: "1"
@@ -63,6 +67,10 @@ objects:
             cpu: 250m
             memory: 512Mi
       userOperator:
+        jvmOptions:
+          javaSystemProperties:
+          - name: log4j2.formatMsgNoLookups
+            value: "true"
         resources:
           limits:
             cpu: "1"
