@@ -33,7 +33,7 @@ objects:
       template: service-registry
     name: service-registry
   spec:
-    replicas: 1
+    replicas: ${REPLICAS}
     selector:
       app: service-registry
       deploymentconfig: service-registry
@@ -51,7 +51,7 @@ objects:
           deploymentconfig: service-registry
           template: service-registry
       spec:
-        replicas: 1
+        replicas: ${REPLICAS}
         containers:
         - image: ${SCHEMA_REGISTRY_IMAGE}
           imagePullPolicy: Always
@@ -134,3 +134,5 @@ parameters:
   displayName: Image for registry
   description: APICurio image to use for the Kafka topic schema registry
   required: true
+- name: REPLICAS
+  value: '1'
