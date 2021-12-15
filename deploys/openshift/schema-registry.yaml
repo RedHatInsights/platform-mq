@@ -33,7 +33,7 @@ objects:
       template: service-registry
     name: service-registry
   spec:
-    replicas: ${REPLICAS}
+    replicas: ${{REPLICAS}}
     selector:
       app: service-registry
       deploymentconfig: service-registry
@@ -51,7 +51,7 @@ objects:
           deploymentconfig: service-registry
           template: service-registry
       spec:
-        replicas: ${REPLICAS}
+        replicas: ${{REPLICAS}}
         containers:
         - image: ${SCHEMA_REGISTRY_IMAGE}
           imagePullPolicy: Always
