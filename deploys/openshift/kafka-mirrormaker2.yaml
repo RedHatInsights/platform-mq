@@ -48,16 +48,20 @@ objects:
             certificate: ca.crt
     - alias: ${TGT_CLUSTER_ALIAS}
       bootstrapServers:
-        secretName: kafka
-        key: bootstrapServerHost
+        valueFrom:
+          secretKeyRef:
+            name: kafka
+            key: bootstrapServerHost
       tls:
         trustedCertificates: []
       authentication:
         type: oauth
         tokenEndpointUri: ${MANAGED_KAFKA_AUTH_ENDPOINT}
         clientId: 
-          secretName: kafka
-          key: clientId
+          valueFrom:
+            secretKeyRef:
+              name: kafka
+              key: clientId
         clientSecret:
           secretName: kafka
           key: clientSecret
