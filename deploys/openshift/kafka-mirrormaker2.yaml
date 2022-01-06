@@ -56,7 +56,7 @@ objects:
         clientId: ${MANAGED_KAFKA_CLIENT_ID}
         clientSecret:
           secretName: kafka
-          key: clientSecret
+          key: ${AUTH_SECRET_KEY}
       config:
         config.storage.replication.factor: 3
         offset.storage.replication.factor: 3
