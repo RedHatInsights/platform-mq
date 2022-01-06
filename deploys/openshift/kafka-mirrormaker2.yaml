@@ -55,7 +55,7 @@ objects:
         tokenEndpointUri: ${MANAGED_KAFKA_AUTH_ENDPOINT}
         clientId: ${MANAGED_KAFKA_CLIENT_ID}
         clientSecret:
-          secretName: kafka
+          secretName: ${AUTH_SECRET_NAME}
           key: ${AUTH_SECRET_KEY}
       config:
         config.storage.replication.factor: 3
