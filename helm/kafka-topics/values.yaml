@@ -167,7 +167,7 @@ topics:
   partitions: 3
   replicas: 3
 - topic_name: platform.upload.tower
-  partitions: 3
+  partitions: 10
   replicas: 3
 - topic_name: platform.upload.topological-inventory
   partitions: 3
