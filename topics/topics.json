@@ -455,6 +455,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.rhsm-subscriptions.subscription-prune",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.rhsm-subscriptions.subscription-sync",
     "PARTITIONS": 24,
     "REPLICAS": 3
