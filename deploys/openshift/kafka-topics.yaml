@@ -1045,6 +1045,18 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: platform.rhsm-subscriptions.subscription-prune
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.subscription-prune
+    config:
+      min.insync.replicas: 2
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: platform.rhsm-subscriptions.subscription-sync
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
