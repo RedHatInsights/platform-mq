@@ -9,6 +9,21 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "ccx.aggregator.dead.letter.queue",
+    "PARTITIONS": 1,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "ccx.data.pipeline.dead.letter.queue",
+    "PARTITIONS": 1,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "ccx.sha.extractor.dead.letter.queue",
+    "PARTITIONS": 1,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "hooks.outbox",
     "PARTITIONS": 3,
     "REPLICAS": 3
