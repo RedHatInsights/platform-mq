@@ -32,6 +32,42 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: ccx.aggregator.dead.letter.queue
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: ccx.aggregator.dead.letter.queue
+    config:
+      min.insync.replicas: 2
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: ccx.data.pipeline.dead.letter.queue
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: ccx.data.pipeline.dead.letter.queue
+    config:
+      min.insync.replicas: 2
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: ccx.sha.extractor.dead.letter.queue
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: ccx.sha.extractor.dead.letter.queue
+    config:
+      min.insync.replicas: 2
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: hooks.outbox
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
@@ -629,7 +665,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 10
     replicas: 3
     topicName: platform.upload.tower
     config:

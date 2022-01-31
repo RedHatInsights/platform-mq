@@ -6,6 +6,15 @@ topics:
 - topic_name: ccx.ocp.results
   partitions: 1
   replicas: 3
+- topic_name: ccx.aggregator.dead.letter.queue
+  partitions: 1
+  replicas: 3
+- topic_name: ccx.data.pipeline.dead.letter.queue
+  partitions: 1
+  replicas: 3
+- topic_name: ccx.sha.extractor.dead.letter.queue
+  partitions: 1
+  replicas: 3
 - topic_name: hooks.outbox
   partitions: 3
   replicas: 3
