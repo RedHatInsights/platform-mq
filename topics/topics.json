@@ -24,6 +24,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "ccx.image.sha.results",
+    "PARTITIONS": 2,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "hooks.outbox",
     "PARTITIONS": 3,
     "REPLICAS": 3

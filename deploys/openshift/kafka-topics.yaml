@@ -68,6 +68,18 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: ccx.image.sha.results
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 2
+    replicas: 3
+    topicName: ccx.image.sha.results
+    config:
+      min.insync.replicas: 2
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: hooks.outbox
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
