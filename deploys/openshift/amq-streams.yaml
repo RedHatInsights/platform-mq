@@ -82,7 +82,7 @@ objects:
       version: ${KAFKA_VERSION}
       config:
         auto.create.topics.enable: false
-        log.retention.hours: 72
+        log.retention.hours: 24
         offsets.topic.replication.factor: 3
         transaction.state.log.min.isr: 2
         transaction.state.log.replication.factor: 3
