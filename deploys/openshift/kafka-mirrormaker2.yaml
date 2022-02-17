@@ -33,6 +33,10 @@ parameters:
   value: "mk-oauth-secret"
 - name: AUTH_SECRET_KEY
   value: "client_secret"
+- name: AUTH_CONFIG_PROVIDER_ID
+  value: ${secrets:platform-mq-stage/kafka:client_id}
+- name: BOOTSTRAP_CONFIG_PROVIDER
+  value: ${secrets:platform-mq-stage/kafka:bootstrap_server_host}
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaMirrorMaker2
@@ -47,16 +51,16 @@ objects:
           - secretName: platform-mq-cluster-ca-cert
             certificate: ca.crt
     - alias: ${TGT_CLUSTER_ALIAS}
-      bootstrapServers: ${TGT_CLUSTER_BOOTSTRAP}
+      bootstrapServers: ${BOOTSTRAP_CONFIG_PROVIDER}
       tls:
         trustedCertificates: []
       authentication:
         type: oauth
         tokenEndpointUri: ${MANAGED_KAFKA_AUTH_ENDPOINT}
-        clientId: ${MANAGED_KAFKA_CLIENT_ID}
+        clientId: ${AUTH_CONFIG_PROVIDER_ID}
         clientSecret:
-          secretName: ${AUTH_SECRET_NAME}
-          key: ${AUTH_SECRET_KEY}
+          secretName: kafka
+          key: client_secret
       config:
         config.storage.replication.factor: 3
         offset.storage.replication.factor: 3
@@ -80,7 +84,7 @@ objects:
             replication.factor: 3
             sync.topic.acls.enabled: true
         targetCluster: ${TGT_CLUSTER_ALIAS}
-        topicsExcludePattern: "xjoin.*|.*connect.*|consumer-offsets.*|strimzi.*"
+        topicsExcludePattern: "^xjoin.*|.*connect.*|consumer-offsets.*|^strimzi.*"
     replicas: ${{MM2_REPLICA_COUNT}}
     resources:
       limits:
