@@ -51,7 +51,7 @@ objects:
           - secretName: platform-mq-cluster-ca-cert
             certificate: ca.crt
     - alias: ${TGT_CLUSTER_ALIAS}
-      bootstrapServers: ${BOOTSTRAP_CONFIG_PROVIDER}
+      bootstrapServers: ${{BOOTSTRAP_CONFIG_PROVIDER}}
       tls:
         trustedCertificates: []
       authentication:
@@ -66,6 +66,10 @@ objects:
         offset.storage.replication.factor: 3
         status.storage.replication.factor: 3
         config.properties.exclude:  "follower.replication.throttled.replicas, leader.replication.throttled.replicas, message.timestamp.difference.max.ms, message.timestamp.type, unclean.leader.election.enable"
+        config.providers: secrets,configmaps,file
+        config.providers.secrets.class: io.strimzi.kafka.KubernetesSecretConfigProvider
+        config.providers.configmaps.class: io.strimzi.kafka.KubernetesConfigMapConfigProvider
+        config.providers.file.class: org.apache.kafka.common.config.provider.FileConfigProvider
     connectCluster: ${TGT_CLUSTER_ALIAS}
     mirrors:
       - checkpointConnector:
