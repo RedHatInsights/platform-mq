@@ -36,6 +36,10 @@ parameters:
   value: 5Gi
 - name: ZOOKEEPER_NUM_REPLICAS
   value: '3'
+- name: READY_DELAY
+  value: 15
+- name: READY_TIMEOUT
+  value: 5
 
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
@@ -128,8 +132,8 @@ objects:
         initialDelaySeconds: 15
         timeoutSeconds: 5
       readinessProbe:
-        initialDelaySeconds: 15
-        timeoutSeconds: 5
+        initialDelaySeconds: ${{READY_DELAY}}
+        timeoutSeconds: ${{READY_TIMEOUT}}
       metricsConfig:
         type: jmxPrometheusExporter
         valueFrom:
