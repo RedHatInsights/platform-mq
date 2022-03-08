@@ -30,7 +30,7 @@ parameters:
 - name: MANAGED_KAFKA_CLIENT_ID
   value: "sample-client"
 - name: AUTH_SECRET_NAME
-  value: "mk-oauth-secret"
+  value: "kafka"
 - name: AUTH_SECRET_KEY
   value: "client_secret"
 - name: AUTH_CONFIG_PROVIDER_ID
@@ -57,10 +57,10 @@ objects:
       authentication:
         type: oauth
         tokenEndpointUri: ${MANAGED_KAFKA_AUTH_ENDPOINT}
-        clientId: ${AUTH_CONFIG_PROVIDER_ID}
+        clientId: ${{AUTH_CONFIG_PROVIDER_ID}}
         clientSecret:
-          secretName: kafka
-          key: client_secret
+          secretName: ${AUTH_SECRET_NAME}
+          key: ${AUTH_SECRET_KEY}
       config:
         config.storage.replication.factor: 3
         offset.storage.replication.factor: 3
