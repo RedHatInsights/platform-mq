@@ -87,6 +87,7 @@ objects:
             refresh.topics.interval.seconds: 60
             replication.factor: 3
             sync.topic.acls.enabled: true
+            replication.policy.class: org.strimzi.kafka.connect.mirror.IdentityReplicationPolicy
         targetCluster: ${TGT_CLUSTER_ALIAS}
         topicsExcludePattern: "^xjoin.*|.*connect.*|consumer-offsets.*|^strimzi.*"
     replicas: ${{MM2_REPLICA_COUNT}}
