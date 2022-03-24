@@ -90,7 +90,7 @@ objects:
           refresh.topics.interval.seconds: 60
           replication.factor: 3
           sync.topic.acls.enabled: true
-      topicsExcludePattern: "^xjoin.*|.*-connect-.*|consumer-offsets.*|^strimzi.*"
+      topicsExcludePattern: ".*connect.*|^xjoin.*|consumer-offsets.*|^strimzi.*"
     replicas: ${{MM2_REPLICA_COUNT}}
     resources:
       limits:
