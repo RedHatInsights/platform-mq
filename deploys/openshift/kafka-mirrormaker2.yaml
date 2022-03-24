@@ -91,8 +91,8 @@ objects:
           refresh.topics.interval.seconds: 60
           replication.factor: 3
           sync.topic.acls.enabled: true
-          replication.policy.class: "io.strimzi.kafka.connect.mirror.IdentityReplicationPolicy"
-      topicsExcludePattern: "^xjoin.*|.*connect.*|consumer-offsets.*|^strimzi.*"
+          replication.policy.class: io.strimzi.kafka.connect.mirror.IdentityReplicationPolicy
+      topicsExcludePattern: "^xjoin.*|.*-connect-.*|consumer-offsets.*|^strimzi.*"
     replicas: ${{MM2_REPLICA_COUNT}}
     resources:
       limits:
