@@ -13,8 +13,6 @@ parameters:
   required: true
 - name: TGT_CLUSTER_ALIAS
   value: "target-kafka-cluster"
-- name: TGT_CLUSTER_BOOTSTRAP
-  required: true
 - name: REPLICATION_FACTOR
   value: "3"
 - name: MM2_CPU_LIMIT
