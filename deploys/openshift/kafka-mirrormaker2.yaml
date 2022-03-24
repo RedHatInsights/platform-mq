@@ -38,7 +38,7 @@ parameters:
 - name: BOOTSTRAP_CONFIG_PROVIDER
   value: ${secrets:platform-mq-stage/kafka:bootstrap_server_host}
 - name: MM2_MAX_TASKS
-  value: 3
+  value: "3"
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaMirrorMaker2
