@@ -89,7 +89,7 @@ objects:
           offset-syncs.topic.replication.factor: 3
           refresh.topics.interval.seconds: 60
           replication.factor: 3
-          sync.topic.acls.enabled: true
+          sync.topic.acls.enabled: false
       topicsExcludePattern: ".*connect.*|^xjoin.*|consumer-offsets.*|^strimzi.*"
     replicas: ${{MM2_REPLICA_COUNT}}
     resources:
