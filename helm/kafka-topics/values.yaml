@@ -181,6 +181,9 @@ topics:
 - topic_name: platform.upload.mkt
   partitions: 10
   replicas: 3
+- topic_name: platform.upload.pinakes
+  partitions: 10
+  replicas: 3
 - topic_name: platform.upload.qpc
   partitions: 3
   replicas: 3
