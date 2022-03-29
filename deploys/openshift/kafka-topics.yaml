@@ -625,6 +625,18 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: platform.upload.pinakes
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 10
+    replicas: 3
+    topicName: platform.upload.pinakes
+    config:
+      min.insync.replicas: 2
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: platform.upload.qpc
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}

@@ -276,6 +276,11 @@
     "PARTITIONS": 2,
     "REPLICAS": 3
 },
+    {
+    "TOPIC_NAME": "platform.upload.pinakes",
+    "PARTITIONS": 10,
+    "REPLICAS": 3
+},
 {
     "TOPIC_NAME": "platform.upload.mkt",
     "PARTITIONS": 10,
