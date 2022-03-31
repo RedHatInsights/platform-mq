@@ -113,8 +113,8 @@ objects:
             name: kafka-metrics
             key: kafka-metrics-config.yml
       readinessProbe:
-        initialDelaySeconds: 15
-        timeoutSeconds: 5
+        initialDelaySeconds: ${{READY_DELAY}}
+        timeoutSeconds: ${{READY_TIMEOUT}}
       replicas: ${{KAFKA_NUM_REPLICAS}}
       resources:
         limits:
@@ -132,8 +132,8 @@ objects:
         initialDelaySeconds: 15
         timeoutSeconds: 5
       readinessProbe:
-        initialDelaySeconds: ${{READY_DELAY}}
-        timeoutSeconds: ${{READY_TIMEOUT}}
+        initialDelaySeconds: 15
+        timeoutSeconds: 5
       metricsConfig:
         type: jmxPrometheusExporter
         valueFrom:
