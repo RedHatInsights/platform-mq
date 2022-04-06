@@ -40,6 +40,10 @@ parameters:
   value: '15'
 - name: READY_TIMEOUT
   value: '5'
+- name: READY_PERIOD
+  value: '10'
+- name: READY_THRESHOLD
+  value: '3'
 
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
@@ -115,6 +119,8 @@ objects:
       readinessProbe:
         initialDelaySeconds: ${{READY_DELAY}}
         timeoutSeconds: ${{READY_TIMEOUT}}
+        periodSeconds: ${{READY_PERIOD}}
+        failureThreshold: ${{READY_THRESHOLD}}
       replicas: ${{KAFKA_NUM_REPLICAS}}
       resources:
         limits:
