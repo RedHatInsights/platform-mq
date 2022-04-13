@@ -37,6 +37,8 @@ parameters:
   value: ${secrets:platform-mq-stage/kafka:bootstrap_server_host}
 - name: MM2_MAX_TASKS
   value: "3"
+- name: KAFKA_MM2_VERSION
+  value: 2.8.0
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaMirrorMaker2
@@ -99,4 +101,4 @@ objects:
       requests:
         cpu: ${MM2_CPU_REQ}
         memory: ${MM2_MEM_REQ}
-    version: 2.8.0
+    version: ${KAFKA_MM2_VERSION}
