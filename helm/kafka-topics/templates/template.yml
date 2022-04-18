@@ -16,11 +16,18 @@ objects:
     topicName: {{ $topic.topic_name }}
     config:
       min.insync.replicas: 2
+    {{- $retention := false }}
     {{- if $topic.topic_configs }}
       {{- range $c, $config := $topic.topic_configs }}
+      {{- if contains "retention" $config.name }}
+        {{- $retention = true }}
+      {{- end }}
       {{ $config.name }}: "{{ $config.value }}"
       {{- end }}
     {{- end }}
+    {{- if not $retention }}
+      retention.ms: "259200000"
+    {{- end}}
 {{- end }}
 parameters:
 # Needed for processing by app-interface but not used.
