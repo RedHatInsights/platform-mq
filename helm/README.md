@@ -14,7 +14,15 @@ $ helm template ./helm/kafka-topics -f helm/kafka-topics/values.yaml > deploys/o
 
 ## Add New Topic
 
-Add new topic and its configuration to [values.yaml](kafka-topics/values.yaml) and then run `helm` command to generate updated template.
+Add new topic and its configuration to [values.yaml](kafka-topics/values.yaml) and then run the `helm` command above to generate updated template.
+
+## Update Topic Configuration or Partitions
+
+Make the required changes in [values.yaml](kafka-topics/values.yaml) and then run the `helm` command above to generate an updated template.
+
+## PRs and REF updates
+
+After making any changes that require generating an updated template, make a PR here with the updated template and values.yaml files. Once merged in, the platform-mq ref in App-Interface can be updated to deploy the new changes to stage/prod.
 
 
 # Creating Kafka Connectors Template
