@@ -1306,7 +1306,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 24
     replicas: 3
     topicName: platform.cloud-connector.rhc-message-ingress
     config:
