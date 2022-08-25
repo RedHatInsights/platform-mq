@@ -73,7 +73,7 @@ objects:
           terminationMessagePolicy: File
           volumeMounts:
           - mountPath: /opt/docker/conf/
-            name: volume-c86u8
+            name: exporter-config
         dnsPolicy: ClusterFirst
         imagePullSecrets:
         - name: quay-cloudservices-pull
@@ -84,37 +84,9 @@ objects:
         securityContext: {}
         terminationGracePeriodSeconds: 30
         volumes:
-        - configMap:
-            defaultMode: 420
-            name: lightbend-exporter-config
-          name: volume-c86u8
-
-- apiVersion: v1
-  data:
-    application.conf: |-
-      kafka-lag-exporter {
-        reporters.prometheus.port = 8000
-        poll-interval = 30 seconds
-        lookup-table-size = 60
-        client-group-id = "lightbendlagexporter-${APPSRE_ENV}"
-        kafka-client-timeout = 10 seconds
-        clusters = [
-          {
-            name = "platform-mq"
-            bootstrap-brokers = "platform-mq-kafka-bootstrap.platform-mq-${APPSRE_ENV}.svc.cluster.local:9092"
-            topic-whitelist = [".*"]
-          }
-        ]
-        watchers = {
-          strimzi = "false"
-        }
-        metric-whitelist = [".*"]
-      }
-  kind: ConfigMap
-  metadata:
-    name: lightbend-exporter-config
-    annotations:
-      qontract.recycle: "true"
+        - secret:
+            secretName: lightbend-exporter-config
+          name: exporter-config
 
 - apiVersion: v1
   kind: Service
