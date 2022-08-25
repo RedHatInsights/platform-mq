@@ -85,7 +85,7 @@ objects:
         terminationGracePeriodSeconds: 30
         volumes:
         - secret:
-            secretName: lightbend-exporter-config
+            secretName: lag-exporter-config
           name: exporter-config
 
 - apiVersion: v1
