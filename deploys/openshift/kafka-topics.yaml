@@ -90,7 +90,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 6
     replicas: 3
     topicName: hooks.outbox
     config:
@@ -129,7 +129,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 6
     replicas: 3
     topicName: platform.notifications.ingress
     config:
@@ -181,7 +181,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 6
     replicas: 3
     topicName: platform.engine.results
     config:
@@ -273,7 +273,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 6
     replicas: 3
     topicName: platform.sources.event-stream
     config:
@@ -1012,7 +1012,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 6
     replicas: 3
     topicName: platform.remediation-updates.advisor
     config:
