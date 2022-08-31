@@ -34,7 +34,7 @@ topics:
   - name: retention.ms
     value: '259200000'
 - topic_name: hooks.outbox
-  partitions: 3
+  partitions: 6
   replicas: 3
 - topic_name: platform.approval
   partitions: 3
@@ -43,7 +43,7 @@ topics:
   partitions: 2
   replicas: 3
 - topic_name: platform.notifications.ingress
-  partitions: 3
+  partitions: 6
   replicas: 3
 - topic_name: platform.policies.actions-email
   partitions: 2
@@ -55,7 +55,7 @@ topics:
   partitions: 2
   replicas: 3
 - topic_name: platform.engine.results
-  partitions: 3
+  partitions: 6
   replicas: 3
   topic_configs:
   - name: retention.ms
@@ -84,7 +84,7 @@ topics:
   - name: retention.ms
     value: '86400000'
 - topic_name: platform.sources.event-stream
-  partitions: 3
+  partitions: 6
   replicas: 3
 - topic_name: platform.sources.status
   partitions: 3
@@ -295,7 +295,7 @@ topics:
   partitions: 24
   replicas: 3
 - topic_name: platform.remediation-updates.advisor
-  partitions: 3
+  partitions: 6
   replicas: 3
 - topic_name: platform.remediation-updates.patch
   partitions: 3
