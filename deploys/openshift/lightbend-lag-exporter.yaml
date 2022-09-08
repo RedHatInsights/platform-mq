@@ -58,6 +58,9 @@ objects:
         - image: quay.io/app-sre/lightbend-lag-exporter:0.6.2
           imagePullPolicy: IfNotPresent
           name: lightbend-lag-exporter
+        - env:
+          - name: KAFKA_LAG_EXPORTER_KAFKA_LOG_LEVEL
+            value: DEBUG
           ports:
           - containerPort: 8000
             name: port-8000
