@@ -931,7 +931,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${LagEnv}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1009,7 +1009,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+                "uid": "${LagEnv}"
               },
               "editorMode": "code",
               "expr": "sum(kafka_consumergroup_group_lag{cluster_name=\"RHOSAK\", topic=~\"$Topic\"}) by (group, topic)",
