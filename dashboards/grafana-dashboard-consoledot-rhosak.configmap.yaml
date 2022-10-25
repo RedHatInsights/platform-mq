@@ -1,10 +1,6 @@
 apiVersion: v1
-labels:
-  grafana_dashboard: "true"
-annotations:
-  grafana-folder: /grafana-dashboard-definitions/Insights
 data:
-  crcrhosakdash.json: |-
+  crcrhosakdash.json: |
     {
       "__inputs": [
         {
@@ -84,7 +80,7 @@ data:
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
       "id": null,
-      "iteration": 1666720715212,
+      "iteration": 1666722323843,
       "links": [],
       "liveNow": false,
       "panels": [
@@ -474,7 +470,7 @@ data:
           "type": "row"
         },
         {
-          "collapsed": false,
+          "collapsed": true,
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -482,150 +478,6 @@ data:
             "y": 1
           },
           "id": 7,
-          "panels": [],
-          "title": "Broker (Kafka Server) Metrics",
-          "type": "row"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [],
-              "max": 1,
-              "min": 0,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "percentunit"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 24,
-            "x": 0,
-            "y": 2
-          },
-          "id": 14,
-          "options": {
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showThresholdLabels": false,
-            "showThresholdMarkers": true
-          },
-          "pluginVersion": "9.0.3",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
-              },
-              "editorMode": "code",
-              "expr": "kafka_broker_quota_totalstorageusedbytes{job=~\"$Cluster\"}/kafka_broker_quota_softlimitbytes{job=~\"$Cluster\"}",
-              "legendFormat": "{{statefulset_kubernetes_io_pod_name}}",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Storage Quota Used",
-          "type": "gauge"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 24,
-            "x": 0,
-            "y": 10
-          },
-          "id": 16,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "center",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "textMode": "auto"
-          },
-          "pluginVersion": "9.0.3",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
-              },
-              "editorMode": "code",
-              "expr": "kafka_controller_kafkacontroller_offline_partitions_count{job=~\"$Cluster\"}",
-              "legendFormat": "{{ statefulset_kubernetes_io_pod_name}}",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Offline Partitions",
-          "type": "stat"
-        },
-        {
-          "collapsed": true,
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 18
-          },
-          "id": 18,
           "panels": [
             {
               "datasource": {
@@ -635,43 +487,16 @@ data:
               "fieldConfig": {
                 "defaults": {
                   "color": {
-                    "mode": "palette-classic"
-                  },
-                  "custom": {
-                    "axisLabel": "",
-                    "axisPlacement": "auto",
-                    "barAlignment": 0,
-                    "drawStyle": "line",
-                    "fillOpacity": 0,
-                    "gradientMode": "none",
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "lineInterpolation": "linear",
-                    "lineWidth": 1,
-                    "pointSize": 5,
-                    "scaleDistribution": {
-                      "type": "linear"
-                    },
-                    "showPoints": "never",
-                    "spanNulls": 3600000,
-                    "stacking": {
-                      "group": "A",
-                      "mode": "none"
-                    },
-                    "thresholdsStyle": {
-                      "mode": "off"
-                    }
+                    "mode": "thresholds"
                   },
                   "mappings": [],
+                  "max": 1,
+                  "min": 0,
                   "thresholds": {
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -679,32 +504,30 @@ data:
                       }
                     ]
                   },
-                  "unit": "binBps"
+                  "unit": "percentunit"
                 },
                 "overrides": []
               },
               "gridPos": {
-                "h": 11,
+                "h": 8,
                 "w": 24,
                 "x": 0,
-                "y": 3
+                "y": 2
               },
-              "id": 22,
+              "id": 14,
               "options": {
-                "legend": {
+                "orientation": "auto",
+                "reduceOptions": {
                   "calcs": [
                     "lastNotNull"
                   ],
-                  "displayMode": "table",
-                  "placement": "right",
-                  "sortBy": "Last *",
-                  "sortDesc": true
+                  "fields": "",
+                  "values": false
                 },
-                "tooltip": {
-                  "mode": "single",
-                  "sort": "none"
-                }
+                "showThresholdLabels": false,
+                "showThresholdMarkers": true
               },
+              "pluginVersion": "9.0.3",
               "targets": [
                 {
                   "datasource": {
@@ -712,15 +535,14 @@ data:
                     "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
                   },
                   "editorMode": "code",
-                  "exemplar": false,
-                  "expr": "kafka_topic:kafka_server_brokertopicmetrics_bytes_in_total:rate5m{topic=~\"$Topic\", job=~\"$Cluster\"}",
-                  "legendFormat": "{{topic}}",
+                  "expr": "kafka_broker_quota_totalstorageusedbytes{job=~\"$Cluster\"}/kafka_broker_quota_softlimitbytes{job=~\"$Cluster\"}",
+                  "legendFormat": "{{statefulset_kubernetes_io_pod_name}}",
                   "range": true,
                   "refId": "A"
                 }
               ],
-              "title": "Incoming Data Per Topic",
-              "type": "timeseries"
+              "title": "Storage Quota Used",
+              "type": "gauge"
             },
             {
               "datasource": {
@@ -730,76 +552,46 @@ data:
               "fieldConfig": {
                 "defaults": {
                   "color": {
-                    "mode": "palette-classic"
-                  },
-                  "custom": {
-                    "axisLabel": "",
-                    "axisPlacement": "auto",
-                    "barAlignment": 0,
-                    "drawStyle": "line",
-                    "fillOpacity": 0,
-                    "gradientMode": "none",
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "lineInterpolation": "linear",
-                    "lineWidth": 1,
-                    "pointSize": 5,
-                    "scaleDistribution": {
-                      "type": "linear"
-                    },
-                    "showPoints": "never",
-                    "spanNulls": 3600000,
-                    "stacking": {
-                      "group": "A",
-                      "mode": "none"
-                    },
-                    "thresholdsStyle": {
-                      "mode": "off"
-                    }
+                    "mode": "thresholds"
                   },
                   "mappings": [],
                   "thresholds": {
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
                         "value": 80
                       }
                     ]
-                  },
-                  "unit": "binBps"
+                  }
                 },
                 "overrides": []
               },
               "gridPos": {
-                "h": 11,
+                "h": 8,
                 "w": 24,
                 "x": 0,
-                "y": 14
+                "y": 10
               },
-              "id": 23,
+              "id": 16,
               "options": {
-                "legend": {
+                "colorMode": "value",
+                "graphMode": "none",
+                "justifyMode": "center",
+                "orientation": "auto",
+                "reduceOptions": {
                   "calcs": [
                     "lastNotNull"
                   ],
-                  "displayMode": "table",
-                  "placement": "right",
-                  "sortBy": "Last *",
-                  "sortDesc": true
+                  "fields": "",
+                  "values": false
                 },
-                "tooltip": {
-                  "mode": "single",
-                  "sort": "none"
-                }
+                "textMode": "auto"
               },
+              "pluginVersion": "9.0.3",
               "targets": [
                 {
                   "datasource": {
@@ -807,113 +599,17 @@ data:
                     "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
                   },
                   "editorMode": "code",
-                  "exemplar": false,
-                  "expr": "kafka_topic:kafka_server_brokertopicmetrics_bytes_out_total:rate5m{topic=~\"$Topic\", job=~\"$Cluster\"}",
-                  "legendFormat": "{{topic}}",
+                  "expr": "kafka_controller_kafkacontroller_offline_partitions_count{job=~\"$Cluster\"}",
+                  "legendFormat": "{{ statefulset_kubernetes_io_pod_name}}",
                   "range": true,
                   "refId": "A"
                 }
               ],
-              "title": "Outgoing Data Per Topic",
-              "type": "timeseries"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "palette-classic"
-                  },
-                  "custom": {
-                    "axisLabel": "",
-                    "axisPlacement": "auto",
-                    "barAlignment": 0,
-                    "drawStyle": "line",
-                    "fillOpacity": 0,
-                    "gradientMode": "none",
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "lineInterpolation": "linear",
-                    "lineWidth": 1,
-                    "pointSize": 5,
-                    "scaleDistribution": {
-                      "type": "linear"
-                    },
-                    "showPoints": "never",
-                    "spanNulls": 3600000,
-                    "stacking": {
-                      "group": "A",
-                      "mode": "none"
-                    },
-                    "thresholdsStyle": {
-                      "mode": "off"
-                    }
-                  },
-                  "mappings": [],
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": null
-                      },
-                      {
-                        "color": "red",
-                        "value": 80
-                      }
-                    ]
-                  },
-                  "unit": "ops"
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 11,
-                "w": 24,
-                "x": 0,
-                "y": 25
-              },
-              "id": 24,
-              "options": {
-                "legend": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "displayMode": "table",
-                  "placement": "right",
-                  "sortBy": "Last *",
-                  "sortDesc": true
-                },
-                "tooltip": {
-                  "mode": "single",
-                  "sort": "none"
-                }
-              },
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
-                  },
-                  "editorMode": "code",
-                  "exemplar": false,
-                  "expr": "kafka_topic:kafka_server_brokertopicmetrics_messages_in_total:rate5m{topic=~\"$Topic\", job=~\"$Cluster\"}",
-                  "legendFormat": "{{topic}}",
-                  "range": true,
-                  "refId": "A"
-                }
-              ],
-              "title": "Incoming Messages Per Topic",
-              "type": "timeseries"
+              "title": "Offline Partitions",
+              "type": "stat"
             }
           ],
-          "title": "Topic Metrics",
+          "title": "Broker (Kafka Server) Metrics",
           "type": "row"
         },
         {
@@ -922,7 +618,304 @@ data:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 19
+            "y": 2
+          },
+          "id": 18,
+          "panels": [],
+          "title": "Topic Metrics",
+          "type": "row"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "spanNulls": 3600000,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "binBps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 11,
+            "w": 24,
+            "x": 0,
+            "y": 3
+          },
+          "id": 22,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "sortBy": "Last *",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "kafka_topic:kafka_server_brokertopicmetrics_bytes_in_total:rate5m{topic=~\"$Topic\", job=~\"$Cluster\"}",
+              "legendFormat": "{{topic}}",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Incoming Data Per Topic",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "spanNulls": 3600000,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "binBps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 11,
+            "w": 24,
+            "x": 0,
+            "y": 14
+          },
+          "id": 23,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "sortBy": "Last *",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "kafka_topic:kafka_server_brokertopicmetrics_bytes_out_total:rate5m{topic=~\"$Topic\", job=~\"$Cluster\"}",
+              "legendFormat": "{{topic}}",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Outgoing Data Per Topic",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "spanNulls": 3600000,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ops"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 11,
+            "w": 24,
+            "x": 0,
+            "y": 25
+          },
+          "id": 24,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "sortBy": "Last *",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "kafka_topic:kafka_server_brokertopicmetrics_messages_in_total:rate5m{topic=~\"$Topic\", job=~\"$Cluster\"}",
+              "legendFormat": "{{topic}}",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Incoming Messages Per Topic",
+          "type": "timeseries"
+        },
+        {
+          "collapsed": false,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 36
           },
           "id": 26,
           "panels": [],
@@ -972,8 +965,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -988,7 +980,7 @@ data:
             "h": 10,
             "w": 24,
             "x": 0,
-            "y": 20
+            "y": 37
           },
           "id": 28,
           "options": {
@@ -1096,7 +1088,7 @@ data:
         ]
       },
       "time": {
-        "from": "now-5m",
+        "from": "now-1h",
         "to": "now"
       },
       "timepicker": {},
@@ -1106,3 +1098,11 @@ data:
       "version": 1,
       "weekStart": ""
     }
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: grafana-dashboard-consoledot-rhosak
+  labels:
+    grafana_dashboard: "true"
+  annotations:
+    grafana-folder: /grafana-dashboard-definitions/Insights
