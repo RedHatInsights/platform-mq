@@ -97,7 +97,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "fieldConfig": {
                 "defaults": {
@@ -142,7 +142,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                    "uid": "${datasource}"
                   },
                   "editorMode": "code",
                   "expr": "kafka_topic:kafka_topic_partitions:count{job=~\"$Cluster\"}",
@@ -157,7 +157,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "fieldConfig": {
                 "defaults": {
@@ -231,7 +231,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                    "uid": "${datasource}"
                   },
                   "editorMode": "code",
                   "expr": "kafka_namespace:haproxy_server_bytes_in_total:rate5m{job=~\"$Cluster\"}",
@@ -242,7 +242,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                    "uid": "${datasource}"
                   },
                   "editorMode": "code",
                   "exemplar": false,
@@ -259,7 +259,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "fieldConfig": {
                 "defaults": {
@@ -304,7 +304,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                    "uid": "${datasource}"
                   },
                   "editorMode": "code",
                   "expr": "kafka_topic:kafka_topic_partitions:sum{job=~\"$Cluster\"}",
@@ -319,7 +319,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "fieldConfig": {
                 "defaults": {
@@ -364,7 +364,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                    "uid": "${datasource}"
                   },
                   "editorMode": "builder",
                   "expr": "kafka_namespace:kafka_server_socket_server_metrics_connection_count:sum",
@@ -379,7 +379,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "fieldConfig": {
                 "defaults": {
@@ -453,7 +453,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                    "uid": "${datasource}"
                   },
                   "editorMode": "code",
                   "expr": "kafka_namespace:kafka_server_socket_server_metrics_connection_creation_rate:sum{job=~\"$Cluster\"}",
@@ -482,7 +482,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "fieldConfig": {
                 "defaults": {
@@ -532,7 +532,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                    "uid": "${datasource}"
                   },
                   "editorMode": "code",
                   "expr": "kafka_broker_quota_totalstorageusedbytes{job=~\"$Cluster\"}/kafka_broker_quota_softlimitbytes{job=~\"$Cluster\"}",
@@ -547,7 +547,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "fieldConfig": {
                 "defaults": {
@@ -596,7 +596,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                    "uid": "${datasource}"
                   },
                   "editorMode": "code",
                   "expr": "kafka_controller_kafkacontroller_offline_partitions_count{job=~\"$Cluster\"}",
@@ -628,7 +628,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -707,7 +707,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -723,7 +723,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -802,7 +802,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -818,7 +818,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -896,7 +896,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -1027,7 +1027,7 @@ data:
             "current": {},
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+              "uid": "${datasource}"
             },
             "definition": "query_result(kafka_topic:kafka_log_log_size:sum)",
             "hide": 0,
@@ -1049,7 +1049,7 @@ data:
             "current": {},
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+              "uid": "${datasource}"
             },
             "definition": "query_result(kafka_namespace:haproxy_server_bytes_in_total:rate5m)",
             "hide": 0,
