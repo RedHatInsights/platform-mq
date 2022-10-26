@@ -28,6 +28,14 @@ objects:
           kafka.server<type=(.+), name=(.+), clientId=(.+), brokerHost=(.+),
           brokerPort=(.+)><>Value
         type: GAUGE
+      - pattern: kafka.server<type=(.+), clientSoftwareName=(.+), clientSoftwareVersion=(.+), listener=(.+), networkProcessor=(.+)><>connections
+        name: kafka_server_$1_connections_software
+        type: GAUGE
+        labels:
+          clientSoftwareName: "$2"
+          clientSoftwareVersion: "$3"
+          listener: "$4"
+          networkProcessor: "$5" 
       - name: kafka_coordinator_$1_$2_$3
         pattern: 'kafka.coordinator.(\w+)<type=(.+), name=(.+)><>Value'
         type: GAUGE
