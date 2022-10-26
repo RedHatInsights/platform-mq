@@ -74,8 +74,8 @@ objects:
         config.providers.file.class: org.apache.kafka.common.config.provider.FileConfigProvider
     connectCluster: ${TGT_CLUSTER_ALIAS}
     mirrors:
-    - sourceCluster: ${TGT_CLUSTER_ALIAS}
-      targetCluster: ${SRC_CLUSTER_ALIAS}
+    - sourceCluster: ${SRC_CLUSTER_ALIAS}
+      targetCluster: ${TGT_CLUSTER_ALIAS}
       checkpointConnector:
         config:
           checkpoints.topic.replication.factor: 3
