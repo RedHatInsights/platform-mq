@@ -7,6 +7,8 @@ parameters:
   value: stage
 - name: REPLICAS
   value: "1"
+- name: JAVA_OPTS
+  value: "-Xms64m -Xmx256m"
 
 objects:
 - apiVersion: apps/v1
@@ -58,6 +60,9 @@ objects:
         - image: quay.io/app-sre/lightbend-lag-exporter:0.6.2
           imagePullPolicy: IfNotPresent
           name: lightbend-lag-exporter
+          env:
+          - name: JAVA_OPTS
+            value: ${JAVA_OPTS}
           ports:
           - containerPort: 8000
             name: port-8000
