@@ -535,5 +535,10 @@
     "TOPIC_NAME": "platform.edge.fleetmgmt.device-update",
     "PARTITIONS": 3,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.platform.content-sources.introspect",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
 }
 ]
