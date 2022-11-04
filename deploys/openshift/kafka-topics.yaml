@@ -321,97 +321,6 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
-    name: platform.topological-inventory.event-stream
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.topological-inventory.event-stream
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.topological-inventory.operations-amazon
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.topological-inventory.operations-amazon
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.topological-inventory.operations-azure
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.topological-inventory.operations-azure
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.topological-inventory.operations-ansible-tower
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.topological-inventory.operations-ansible-tower
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.topological-inventory.collector-ansible-tower
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.topological-inventory.collector-ansible-tower
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.topological-inventory.operations-google
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.topological-inventory.operations-google
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.topological-inventory.operations-openshift
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.topological-inventory.operations-openshift
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
     name: platform.topological-inventory.operations-satellite
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
@@ -419,46 +328,6 @@ objects:
     partitions: 3
     replicas: 3
     topicName: platform.topological-inventory.operations-satellite
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.topological-inventory.persister
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 10
-    replicas: 3
-    topicName: platform.topological-inventory.persister
-    config:
-      min.insync.replicas: 2
-      retention.ms: "86400000"
-      retention.bytes: "500000000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.topological-inventory.persister-output-stream
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.topological-inventory.persister-output-stream
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.topological-inventory.task-output-stream
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.topological-inventory.task-output-stream
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
@@ -745,19 +614,6 @@ objects:
     partitions: 10
     replicas: 3
     topicName: platform.upload.tower
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.topological-inventory
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.topological-inventory
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
