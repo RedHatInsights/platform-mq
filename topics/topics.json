@@ -408,6 +408,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "platform.export.requests",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.rhsm-subscriptions.tasks",
     "PARTITIONS": 24,
     "REPLICAS": 3
