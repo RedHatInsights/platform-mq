@@ -151,58 +151,7 @@
     "REPLICAS": 3
 },
 {
-    "TOPIC_NAME": "platform.topological-inventory.event-stream",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.topological-inventory.operations-amazon",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.topological-inventory.operations-azure",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.topological-inventory.operations-ansible-tower",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.topological-inventory.operations-google",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.topological-inventory.operations-openshift",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.topological-inventory.collector-ansible-tower",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{
     "TOPIC_NAME": "platform.topological-inventory.operations-satellite",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.topological-inventory.persister",
-    "PARTITIONS": 10,
-    "REPLICAS": 3,
-    "TOPIC_CONFIGS": "retention.ms: 86400000\nretention.bytes: 500000000"
-},
-{
-    "TOPIC_NAME": "platform.topological-inventory.persister-output-stream",
-    "PARTITIONS": 3,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.topological-inventory.task-output-stream",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },
@@ -314,11 +263,6 @@
 {
     "TOPIC_NAME": "platform.upload.playbook",
     "PARTITIONS": 16,
-    "REPLICAS": 3
-},
-{
-    "TOPIC_NAME": "platform.upload.topological-inventory",
-    "PARTITIONS": 3,
     "REPLICAS": 3
 },
 {
