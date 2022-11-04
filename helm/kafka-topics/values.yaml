@@ -253,6 +253,9 @@ topics:
 - topic_name: patchman.evaluator.recalc
   partitions: 64
   replicas: 3
+- topic_name: platform.export.requests
+  partitions: 3
+  replicas: 3
 - topic_name: platform.rhsm-subscriptions.tasks
   partitions: 24
   replicas: 3
