@@ -489,5 +489,10 @@
     "TOPIC_NAME": "platform.platform.content-sources.introspect",
     "PARTITIONS": 3,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.provisioning.internal.availability-check",
+    "PARTITIONS": 1,
+    "REPLICAS": 3
 }
 ]
