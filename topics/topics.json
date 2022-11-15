@@ -486,7 +486,7 @@
     "REPLICAS": 3
 },
 {
-    "TOPIC_NAME": "platform.platform.content-sources.introspect",
+    "TOPIC_NAME": "platform.content-sources.introspect",
     "PARTITIONS": 3,
     "REPLICAS": 3
 }
