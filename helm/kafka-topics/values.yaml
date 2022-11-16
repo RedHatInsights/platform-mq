@@ -54,6 +54,9 @@ topics:
 - topic_name: platform.policies.history
   partitions: 2
   replicas: 3
+- topic_name: platform.provisioning.internal.availability-check
+  partitions: 1
+  replicas: 3
 - topic_name: platform.engine.results
   partitions: 6
   replicas: 3
