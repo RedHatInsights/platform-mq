@@ -3,8 +3,13 @@ from requests_oauthlib import OAuth2Session
 from oauthlib.oauth2 import BackendApplicationClient
 import ssl
 import argparse
+import logging
+
+#logging.basicConfig(level=logging.DEBUG)
 
 parser = argparse.ArgumentParser()
+opt = parser.add_argument_group('optional')
+opt.add_argument('--from-beginning', action='store_true')
 reqd = parser.add_argument_group('required arguments')
 reqd.add_argument('-b','--bootstrap_servers', nargs='+', required=True)
 reqd.add_argument('-u', '--client_id', required=True)
@@ -22,11 +27,12 @@ consumer = KafkaConsumer(
     sasl_plain_password = args.client_secret,
     ssl_check_hostname=False,
     auto_offset_reset='earliest',
-    ssl_context=ssl.create_default_context(),
     enable_auto_commit=True,
     )
 
 consumer.subscribe(topics=args.topics)
+if args.from_beginning:
+    consumer.seek_to_beginning()
 while True:
     msgs = consumer.poll()
     if msgs:
