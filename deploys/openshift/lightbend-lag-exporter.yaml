@@ -17,6 +17,8 @@ objects:
     labels:
       app: lightbend-lag-exporter
     name: lightbend-lag-exporter
+    annotations:
+      kube-linter.io/ignore-all: "no checks needed"
   spec:
     minReadySeconds: 15
     progressDeadlineSeconds: 600
