@@ -1026,6 +1026,22 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: platform.playbook-dispatcher.run_hosts
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 16
+    replicas: 3
+    topicName: platform.playbook-dispatcher.run_hosts
+    config:
+      min.insync.replicas: 2
+      cleanup.policy: "compact,delete"
+      min.compaction.lag.ms: "3600000"
+      retention.bytes: "1073741824"
+      retention.ms: "2678400000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: platform.rhsm-subscriptions.metering-tasks
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
