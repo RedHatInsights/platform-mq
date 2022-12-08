@@ -414,6 +414,12 @@
     "TOPIC_CONFIGS": "cleanup.policy: compact,delete\nmin.compaction.lag.ms: 3600000\nretention.bytes: 1073741824\nretention.ms: 2678400000"
 },
 {
+    "TOPIC_NAME": "platform.playbook-dispatcher.run_hosts",
+    "PARTITIONS": 16,
+    "REPLICAS": 3,
+    "TOPIC_CONFIGS": "cleanup.policy: compact,delete\nmin.compaction.lag.ms: 3600000\nretention.bytes: 1073741824\nretention.ms: 2678400000"
+},
+{
     "TOPIC_NAME": "platform.rhsm-subscriptions.metering-tasks",
     "PARTITIONS": 24,
     "REPLICAS": 3

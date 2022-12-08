@@ -310,6 +310,18 @@ topics:
     value: '1073741824'
   - name: retention.ms
     value: '2678400000'
+- topic_name: platform.playbook-dispatcher.run_hosts
+  partitions: 16
+  replicas: 3
+  topic_configs:
+  - name: cleanup.policy
+    value: 'compact,delete'
+  - name: min.compaction.lag.ms
+    value: '3600000'
+  - name: retention.bytes
+    value: '1073741824'
+  - name: retention.ms
+    value: '2678400000'
 - topic_name: platform.rhsm-subscriptions.metering-tasks
   partitions: 24
   replicas: 3
