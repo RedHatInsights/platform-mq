@@ -504,7 +504,7 @@
 },
 {
     "TOPIC_NAME": "platform.rbac.sync",
-    "PARTITIONS": 3,
+    "PARTITIONS": 10,
     "REPLICAS": 3
 }
 ]

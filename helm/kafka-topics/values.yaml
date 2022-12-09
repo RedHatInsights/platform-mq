@@ -407,5 +407,5 @@ topics:
   partitions: 3
   replicas: 3
 - topic_name: platform.rbac.sync
-  partitions: 1
+  partitions: 10
   replicas: 3
