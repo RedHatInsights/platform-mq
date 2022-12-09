@@ -1026,13 +1026,13 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
-    name: platform.playbook-dispatcher.run_hosts
+    name: platform.playbook-dispatcher.run-hosts
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
     partitions: 16
     replicas: 3
-    topicName: platform.playbook-dispatcher.run_hosts
+    topicName: platform.playbook-dispatcher.run-hosts
     config:
       min.insync.replicas: 2
       cleanup.policy: "compact,delete"
