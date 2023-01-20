@@ -506,5 +506,10 @@
     "TOPIC_NAME": "platform.rbac.sync",
     "PARTITIONS": 10,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.chrome",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
 }
 ]
