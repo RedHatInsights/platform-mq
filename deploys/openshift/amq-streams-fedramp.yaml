@@ -44,8 +44,36 @@ parameters:
   value: '10'
 - name: READY_THRESHOLD
   value: '3'
+- name: AUTH_TYPE
+  value: 'scram-sha-512'
 
 objects:
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaUser
+  metadata:
+    labels:
+      app: platform-mq
+      strimzi.io/cluster: platform-mq
+  name: foo
+  spec:
+    authentication:
+      type: ${AUTH_TYPE} 
+    authorization:
+      acls:
+        - host: '*'
+          operation: All
+          resource:
+            name: '*'
+            patternType: literal
+            type: topic
+        - host: '*'
+          operation: All
+          resource:
+            name: '*'
+            patternType: literal
+            type: group
+      type: simple
+
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: Kafka
   metadata:
