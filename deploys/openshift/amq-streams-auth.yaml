@@ -121,6 +121,8 @@ objects:
             memory: 512Mi
     kafka:
       version: ${KAFKA_VERSION}
+      authorization:
+        type: simple
       config:
         auto.create.topics.enable: false
         log.retention.hours: 24
