@@ -54,7 +54,7 @@ objects:
     labels:
       app: platform-mq
       strimzi.io/cluster: platform-mq
-  name: kafka-user-all 
+    name: kafka-user-all 
   spec:
     authentication:
       type: ${AUTH_TYPE} 
