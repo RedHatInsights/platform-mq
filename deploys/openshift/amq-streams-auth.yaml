@@ -58,6 +58,11 @@ objects:
   spec:
     authentication:
       type: ${AUTH_TYPE} 
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: kafka-user-all
+            key: password
     authorization:
       acls:
         - host: '*'
