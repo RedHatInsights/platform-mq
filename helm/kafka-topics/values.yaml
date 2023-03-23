@@ -418,3 +418,6 @@ topics:
 - topic_name: hccm.ros.events
   partitions: 3
   replicas: 3
+- topic_name: this.time.good
+  partitions: 3
+  replicas: 3
