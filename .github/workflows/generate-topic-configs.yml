@@ -1,10 +1,9 @@
 name: generate-topic-configs
 run-name: Generating topic configs for ${{github.ref_name}}
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
+  push:
+    branches:
+      - master
     paths:
       - 'helm/kafka-topics/values.yaml'
 jobs:
@@ -12,14 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.ref_name }}
       - name: Check helm template
         run: helm lint ./helm/kafka-topics/
       - name: Generate kafka-topics.yaml
         run: helm template ./helm/kafka-topics -f ./helm/kafka-topics/values.yaml > ./deploys/openshift/kafka-topics.yaml
       - name: Commit generated kafka-topics.yaml and push
-        
         run: |
           git config user.name github-actions
           git config user.email github-actions
