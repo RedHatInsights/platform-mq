@@ -421,3 +421,6 @@ topics:
 - topic_name: rosocp.kruize.experiments
   partitions: 3
   replicas: 3
+- topic_name: platform.upload.runtimes-java-general
+  partitions: 3
+  replicas: 3
