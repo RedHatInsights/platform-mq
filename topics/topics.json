@@ -521,5 +521,10 @@
     "TOPIC_NAME": "hccm.ros.events",
     "PARTITIONS": 3,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.upload.runtimes-java-general",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
 }
 ]
