@@ -1,0 +1,71 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: kafka-connect
+parameters:
+- name: KAFKA_CONNECT_IMAGE
+  description: Image for kafka connect instance
+  value: quay.io/cloudservices/kafka-connect
+- name: KAFKA_CONNECT_VERSION
+  description: Version of the kafka-connect service
+  value: 2.7.0
+- name: KAFKA_CONNECT_REPLICAS
+  description: Number of connect instances to run
+  value: "1"
+- name: BOOTSTRAP_CONFIG_PROVIDER
+  value: ${secrets:platform-mq-stage/kafka:bootstrap_server_host}
+- name: MANAGED_KAFKA_AUTH_ENDPOINT
+  value: "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
+- name: AUTH_SECRET_NAME
+  value: "kafka"
+- name: AUTH_SECRET_KEY
+  value: "client_secret"
+- name: AUTH_CONFIG_PROVIDER_ID
+  value: ${secrets:platform-mq-stage/kafka:client_id}
+objects:
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaConnect
+  metadata:
+    name: platform-kafka-connect
+    labels:
+      app: platform-mq
+    annotations:
+      strimzi.io/use-connector-resources: "true"
+  spec:
+    image: ${KAFKA_CONNECT_IMAGE}
+    version: ${KAFKA_CONNECT_VERSION}
+    replicas: ${{KAFKA_CONNECT_REPLICAS}}
+    resources:
+      limits:
+        cpu: "1"
+        memory: 4Gi
+      requests:
+        cpu: 500m
+        memory: 1Gi
+    bootstrapServers: ${{BOOTSTRAP_CONFIG_PROVIDER}}
+    tls:
+      trustedCertificates: []
+    authentication:
+      type: oauth
+      tokenEndpointUri: ${MANAGED_KAFKA_AUTH_ENDPOINT}
+      clientId: ${{AUTH_CONFIG_PROVIDER_ID}}
+      clientSecret:
+        secretName: ${AUTH_SECRET_NAME}
+        key: ${AUTH_SECRET_KEY}
+    externalConfiguration:
+      env:
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: strimzi-bucket-read-write
+              key: aws_access_key_id
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: strimzi-bucket-read-write
+              key: aws_secret_access_key
+    config:
+      group.id: connect-cluster
+      offset.storage.topic: connect-cluster-offsets
+      config.storage.topic: connect-cluster-configs
+      status.storage.topic: connect-cluster-status
