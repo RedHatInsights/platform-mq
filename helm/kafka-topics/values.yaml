@@ -182,6 +182,12 @@ topics:
 - topic_name: vulnerability.evaluator.results
   partitions: 24
   replicas: 3
+- topic_name: vulnerability.grouper.inventory.upload
+  partitions: 24
+  replicas: 3
+- topic_name: vulnerability.grouper.advisor.upload
+  partitions: 24
+  replicas: 3
 - topic_name: platform.upload.announce
   partitions: 64
   replicas: 3
