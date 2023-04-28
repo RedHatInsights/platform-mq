@@ -698,6 +698,32 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: vulnerability.grouper.inventory.upload
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: vulnerability.grouper.inventory.upload
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: vulnerability.grouper.advisor.upload
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: vulnerability.grouper.advisor.upload
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: platform.upload.announce
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}

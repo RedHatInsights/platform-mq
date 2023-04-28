@@ -291,6 +291,16 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "vulnerability.grouper.inventory.upload",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "vulnerability.grouper.advisor.upload",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.inventory.events",
     "PARTITIONS": 64,
     "REPLICAS": 3,
