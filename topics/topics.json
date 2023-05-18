@@ -291,6 +291,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "vulnerability.listener.ingress",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "vulnerability.grouper.inventory.upload",
     "PARTITIONS": 24,
     "REPLICAS": 3
