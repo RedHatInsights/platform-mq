@@ -9,7 +9,7 @@ parameters:
   value: "1"
 - name: SRC_CLUSTER_ALIAS
   value: "source-kafka-cluster"
-- name: SRC_CLUSTER_BOOTSTRAP
+- name: TGT_CLUSTER_BOOTSTRAP
   required: true
 - name: TGT_CLUSTER_ALIAS
   value: "target-kafka-cluster"
@@ -38,7 +38,7 @@ parameters:
 - name: MM2_MAX_TASKS
   value: "3"
 - name: KAFKA_MM2_VERSION
-  value: 2.8.0
+  value: 3.1.0
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaMirrorMaker2
@@ -46,13 +46,13 @@ objects:
     name: ${MM2_CLUSTER_NAME}
   spec:
     clusters:
-    - alias: ${SRC_CLUSTER_ALIAS}
-      bootstrapServers: ${SRC_CLUSTER_BOOTSTRAP}
+    - alias: ${TGT_CLUSTER_ALIAS}
+      bootstrapServers: ${TGT_CLUSTER_BOOTSTRAP}
       tls:
         trustedCertificates:
           - secretName: platform-mq-cluster-ca-cert
             certificate: ca.crt
-    - alias: ${TGT_CLUSTER_ALIAS}
+    - alias: ${SRC_CLUSTER_ALIAS}
       bootstrapServers: ${{BOOTSTRAP_CONFIG_PROVIDER}}
       tls:
         trustedCertificates: []
@@ -84,6 +84,7 @@ objects:
           sync.group.offsets.enabled: true
           sync.group.offsets.interval.seconds: 60
           replication.factor: 3
+          replication.policy.class: "org.apache.kafka.connect.mirror.IdentityReplicationPolicy"
       groupsPattern: ".*"
       sourceConnector:
         tasksMax: ${{MM2_MAX_TASKS}}
@@ -92,6 +93,7 @@ objects:
           refresh.topics.interval.seconds: 60
           replication.factor: 3
           sync.topic.acls.enabled: false
+          replication.policy.class: "org.apache.kafka.connect.mirror.IdentityReplicationPolicy"
       topicsExcludePattern: ".*connect.*|^xjoin.*|consumer-offsets.*|^strimzi.*"
     replicas: ${{MM2_REPLICA_COUNT}}
     resources:
