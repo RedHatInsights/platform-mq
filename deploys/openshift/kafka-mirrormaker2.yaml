@@ -46,7 +46,7 @@ objects:
     name: ${MM2_CLUSTER_NAME}
   spec:
     clusters:
-    - alias: ${TGT_CLUSTER_ALIAS}
+    - alias: ""
       bootstrapServers: ${TGT_CLUSTER_BOOTSTRAP}
       tls:
         trustedCertificates:
@@ -84,7 +84,7 @@ objects:
           sync.group.offsets.enabled: true
           sync.group.offsets.interval.seconds: 60
           replication.factor: 3
-          replication.policy.class: "org.apache.kafka.connect.mirror.IdentityReplicationPolicy"
+          replication.policy.separator: ""
       groupsPattern: ".*"
       sourceConnector:
         tasksMax: ${{MM2_MAX_TASKS}}
@@ -93,7 +93,6 @@ objects:
           refresh.topics.interval.seconds: 60
           replication.factor: 3
           sync.topic.acls.enabled: false
-          replication.policy.class: "org.apache.kafka.connect.mirror.IdentityReplicationPolicy"
       topicsExcludePattern: ".*connect.*|^xjoin.*|consumer-offsets.*|^strimzi.*"
     replicas: ${{MM2_REPLICA_COUNT}}
     resources:
