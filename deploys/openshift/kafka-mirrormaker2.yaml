@@ -53,7 +53,7 @@ objects:
           - secretName: platform-mq-cluster-ca-cert
             certificate: ca.crt
     - alias: ${SRC_CLUSTER_ALIAS}
-      bootstrapServers: ${BOOTSTRAP_CONFIG_PROVIDER}
+      bootstrapServers: ${{BOOTSTRAP_CONFIG_PROVIDER}}
       tls:
         trustedCertificates: []
       authentication:
