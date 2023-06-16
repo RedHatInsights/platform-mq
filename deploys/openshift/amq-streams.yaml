@@ -90,11 +90,13 @@ objects:
       version: ${KAFKA_VERSION}
       config:
         auto.create.topics.enable: false
+        default.replication.factor: 3
         log.retention.hours: 24
+        min.insync.replicas: 2
+        num.recovery.threads.per.data.dir: 3
         offsets.topic.replication.factor: 3
         transaction.state.log.min.isr: 2
         transaction.state.log.replication.factor: 3
-        num.recovery.threads.per.data.dir: 3
       jvmOptions:
         -Xms: ${KAFKA_HEAP_OPTS_XMS}
         -Xmx: ${KAFKA_HEAP_OPTS_XMX}
