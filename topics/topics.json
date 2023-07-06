@@ -543,7 +543,7 @@
     "REPLICAS": 3
 },
 {
-    "TOPIC_NAME": "hccm.subs.events",
+    "TOPIC_NAME": "platform.rhsm-subscriptions.events-ingress",
     "PARTITIONS": 3,
     "REPLICAS": 3
 }
