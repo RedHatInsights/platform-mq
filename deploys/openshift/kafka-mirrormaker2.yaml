@@ -43,7 +43,11 @@ objects:
   spec:
     clusters:
     - alias: ${TGT_CLUSTER_ALIAS}
-      bootstrapServers: ${{TGT_CLUSTER_BOOTSTRAP}}
+      bootstrapServers:
+        valueFrom:
+          secretKeyRef:
+            name: ${TGT_CLUSTER_BOOTSTRAP_SECRET}
+            key: bootstrap_brokers_sasl_scram
       tls:
         trustedCertificates: []
       authentication:
