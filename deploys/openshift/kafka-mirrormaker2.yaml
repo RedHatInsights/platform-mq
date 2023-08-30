@@ -39,7 +39,7 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaMirrorMaker2
   metadata:
-    name: ${MM2_CLUSTER_NAME}
+    name: ${MM2_INSTANCE_NAME}
   spec:
     clusters:
     - alias: ${TGT_CLUSTER_ALIAS}
