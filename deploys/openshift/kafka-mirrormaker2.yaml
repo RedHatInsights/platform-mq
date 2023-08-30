@@ -3,12 +3,14 @@ kind: Template
 metadata:
   name: platform-kafka-mm2
 parameters:
-- name: MM2_CLUSTER_NAME
+- name: MM2_INSTANCE_NAME
   value: platform-kafka-mm2
 - name: MM2_REPLICA_COUNT
   value: "1"
 - name: SRC_CLUSTER_ALIAS
   value: "source-kafka-cluster"
+- name: SRC_CLUSTER_BOOTSTRAP
+  required: true
 - name: TGT_CLUSTER_BOOTSTRAP
   required: true
 - name: TGT_CLUSTER_ALIAS
@@ -23,22 +25,16 @@ parameters:
   value: 500m
 - name: MM2_MEM_REQ
   value: 1Gi
-- name: MANAGED_KAFKA_AUTH_ENDPOINT
-  value: "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
-- name: MANAGED_KAFKA_CLIENT_ID
-  value: "sample-client"
-- name: AUTH_SECRET_NAME
+- name: AUTH_CLIENT_SECRET_NAME
   value: "kafka"
-- name: AUTH_SECRET_KEY
+- name: AUTH_CLIENT_SECRET_KEY
   value: "client_secret"
-- name: AUTH_CONFIG_PROVIDER_ID
+- name: AUTH_CLIENT_ID_CONFIG_PROVIDER
   value: ${secrets:platform-mq-stage/kafka:client_id}
-- name: BOOTSTRAP_CONFIG_PROVIDER
-  value: ${secrets:platform-mq-stage/kafka:bootstrap_server_host}
 - name: MM2_MAX_TASKS
   value: "3"
 - name: KAFKA_MM2_VERSION
-  value: 3.1.0
+  value: 3.2.3
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaMirrorMaker2
@@ -47,22 +43,21 @@ objects:
   spec:
     clusters:
     - alias: ${TGT_CLUSTER_ALIAS}
-      bootstrapServers: ${TGT_CLUSTER_BOOTSTRAP}
+      bootstrapServers: ${{TGT_CLUSTER_BOOTSTRAP}}
+      tls:
+        trustedCertificates: []
+      authentication:
+        type: scram-sha-512
+        username: ${{AUTH_CLIENT_ID_CONFIG_PROVIDER}}
+        passwordSecret:
+          secretName: ${AUTH_CLIENT_SECRET_NAME}
+          password: ${AUTH_CLIENT_SECRET_KEY}
+    - alias: ${SRC_CLUSTER_ALIAS}
+      bootstrapServers: ${{SRC_CLUSTER_BOOTSTRAP}}
       tls:
         trustedCertificates:
           - secretName: platform-mq-cluster-ca-cert
             certificate: ca.crt
-    - alias: ${SRC_CLUSTER_ALIAS}
-      bootstrapServers: ${{BOOTSTRAP_CONFIG_PROVIDER}}
-      tls:
-        trustedCertificates: []
-      authentication:
-        type: oauth
-        tokenEndpointUri: ${MANAGED_KAFKA_AUTH_ENDPOINT}
-        clientId: ${{AUTH_CONFIG_PROVIDER_ID}}
-        clientSecret:
-          secretName: ${AUTH_SECRET_NAME}
-          key: ${AUTH_SECRET_KEY}
       config:
         config.storage.replication.factor: 3
         offset.storage.replication.factor: 3
