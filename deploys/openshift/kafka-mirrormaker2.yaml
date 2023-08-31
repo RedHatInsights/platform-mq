@@ -11,7 +11,7 @@ parameters:
   value: "source-kafka-cluster"
 - name: SRC_CLUSTER_BOOTSTRAP
   required: true
-- name: TGT_CLUSTER_BOOTSTRAP
+- name: TGT_CLUSTER_BOOTSTRAP_SECRET
   required: true
 - name: TGT_CLUSTER_ALIAS
   value: "target-kafka-cluster"
