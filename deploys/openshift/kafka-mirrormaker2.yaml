@@ -11,7 +11,7 @@ parameters:
   value: "source-kafka-cluster"
 - name: SRC_CLUSTER_BOOTSTRAP
   required: true
-- name: TGT_CLUSTER_BOOTSTRAP_SECRET
+- name: TGT_CLUSTER_BOOTSTRAP
   required: true
 - name: TGT_CLUSTER_ALIAS
   value: "target-kafka-cluster"
@@ -29,8 +29,8 @@ parameters:
   value: "kafka"
 - name: AUTH_CLIENT_SECRET_KEY
   value: "client_secret"
-- name: AUTH_CLIENT_ID_CONFIG_PROVIDER
-  value: ${secrets:platform-mq-stage/kafka:client_id}
+- name: AUTH_CLIENT_ID
+  value: "client_id"
 - name: MM2_MAX_TASKS
   value: "3"
 - name: KAFKA_MM2_VERSION
@@ -43,21 +43,17 @@ objects:
   spec:
     clusters:
     - alias: ${TGT_CLUSTER_ALIAS}
-      bootstrapServers:
-        valueFrom:
-          secretKeyRef:
-            name: ${TGT_CLUSTER_BOOTSTRAP_SECRET}
-            key: bootstrap_brokers_sasl_scram
+      bootstrapServers: ${TGT_CLUSTER_BOOTSTRAP}
       tls:
         trustedCertificates: []
       authentication:
         type: scram-sha-512
-        username: ${{AUTH_CLIENT_ID_CONFIG_PROVIDER}}
+        username: ${AUTH_CLIENT_ID}
         passwordSecret:
           secretName: ${AUTH_CLIENT_SECRET_NAME}
           password: ${AUTH_CLIENT_SECRET_KEY}
     - alias: ${SRC_CLUSTER_ALIAS}
-      bootstrapServers: ${{SRC_CLUSTER_BOOTSTRAP}}
+      bootstrapServers: ${SRC_CLUSTER_BOOTSTRAP}
       tls:
         trustedCertificates:
           - secretName: platform-mq-cluster-ca-cert
