@@ -424,6 +424,11 @@ topics:
 - topic_name: hccm.ros.events
   partitions: 3
   replicas: 3
+  topic_configs:
+  - name: retention.ms
+    value: '604800000'
+  - name: retention.bytes
+    value: '1073741824'
 - topic_name: rosocp.kruize.experiments
   partitions: 3
   replicas: 3
