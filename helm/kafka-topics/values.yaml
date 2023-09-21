@@ -334,6 +334,9 @@ topics:
 - topic_name: platform.rhsm-subscriptions.metering-tasks
   partitions: 24
   replicas: 3
+- topic_name: platform.rhsm-subscriptions.metering-rhel-tasks
+  partitions: 24
+  replicas: 3
 - topic_name: platform.rhsm-subscriptions.openshift-metering-tasks
   partitions: 24
   replicas: 3

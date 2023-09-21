@@ -728,7 +728,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3 
+    partitions: 3
     replicas: 3
     topicName: vulnerability.listener.ingress
     config:
@@ -1088,6 +1088,19 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-subscriptions.metering-tasks
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.rhsm-subscriptions.metering-rhel-tasks
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.metering-rhel-tasks
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
