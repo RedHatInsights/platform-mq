@@ -425,7 +425,7 @@ topics:
   partitions: 10
   replicas: 3
 - topic_name: hccm.ros.events
-  partitions: 10
+  partitions: 30
   replicas: 3
   topic_configs:
   - name: retention.ms
