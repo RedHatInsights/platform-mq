@@ -1428,7 +1428,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 10
+    partitions: 30
     replicas: 3
     topicName: hccm.ros.events
     config:
