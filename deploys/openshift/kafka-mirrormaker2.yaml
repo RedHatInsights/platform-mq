@@ -89,7 +89,7 @@ objects:
           replication.factor: 3
           sync.topic.acls.enabled: false
           replication.policy.class: "org.apache.kafka.connect.mirror.IdentityReplicationPolicy"
-      topicsExcludePattern: ".*connect.*|^xjoin.*|consumer-offsets.*|^strimzi.*"
+      topicsExcludePattern: ".*connect.*|consumer-offsets.*|^strimzi.*"
     replicas: ${{MM2_REPLICA_COUNT}}
     resources:
       limits:
