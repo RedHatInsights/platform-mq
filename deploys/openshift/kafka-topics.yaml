@@ -1477,13 +1477,13 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
-    name: platform.rhsm-subscriptions.service-instance-ingress.DLT
+    name: platform.rhsm-subscriptions.service-instance-ingress.dlt
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
     partitions: 24
     replicas: 3
-    topicName: platform.rhsm-subscriptions.service-instance-ingress.DLT
+    topicName: platform.rhsm-subscriptions.service-instance-ingress.dlt
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
