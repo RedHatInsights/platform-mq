@@ -22,16 +22,15 @@ parameters:
   value: 'true'
 - name: STRIMZI_SASL_ENABLED
   value: 'true'
-- name: STRIMZI_SASL_USERNAME
-  valueFrom:
-    secretKeyRef:
-      name: msk-credentials
-      key: username
+- name: STRIMZI_SASL_NAME
+  value: 'PLACEHOLDER'
+  required: true
+- name: STRIMZI_SASL_KEY
+  value: 'PLACEHOLDER'
+  required: true
 - name: STRIMZI_SASL_PASSWORD
-  valueFrom:
-    secretKeyRef:
-      name: msk-credentials
-      key: password
+  value: 'PLACEHOLDER'
+  required: true
 - name: STRIMZI_SASL_MECHANISM
   value: scram-sha-512
 - name: STRIMZI_SECURITY_PROTOCOL
@@ -122,13 +121,13 @@ objects:
               - name: STRIMZI_SASL_USERNAME
                 valueFrom:
                   secretKeyRef:
-                    name: msk-credentials
-                    key: username
+                    name: ${STRIMZI_SASL_NAME}
+                    key: ${STRIMZI_SASL_KEY}
               - name: STRIMZI_SASL_PASSWORD
                 valueFrom:
                   secretKeyRef:
-                    name: msk-credentials
-                    key: password
+                    name: ${STRIMZI_SASL_NAME}
+                    key: ${STRIMZI_SASL_PASSWORD}
               - name: STRIMZI_SASL_MECHANISM
                 value: ${STRIMZI_SASL_MECHANISM}
               - name: STRIMZI_SECURITY_PROTOCOL
