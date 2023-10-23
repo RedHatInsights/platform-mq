@@ -1,2 +1,157 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Template
+metadata:
+  name: kafka-topic-operator-template
+parameters:
+- name: STRIMZI_KAFKA_BOOTSTRAP_SERVER_NAMES
+  value: 'PLACEHOLDER'
+  required: true
+- name: STRIMZI_RESOURCE_LABELS
+  value: strimzi.io/cluster=mc-kafka-cluster
+- name: STRIMZI_FULL_RECONCILIATION_INTERVAL_MS
+  value: '120000'
+- name: STRIMZI_LOG_LEVEL
+  value: INFO
+- name: STRIMZI_TLS_ENABLED
+  value: 'true'
+- name: STRIMZI_TLS_AUTH_ENABLED
+  value: 'false'
+- name: STRIMZI_JAVA_OPTS
+  value: '-Xmx512M -Xms256M'
+- name: STRIMZI_PUBLIC_CA
+  value: 'true'
+- name: STRIMZI_SASL_ENABLED
+  value: 'true'
+- name: STRIMZI_SASL_USERNAME
+  valueFrom:
+    secretKeyRef:
+      name: msk-credentials
+      key: username
+- name: STRIMZI_SASL_PASSWORD
+  valueFrom:
+    secretKeyRef:
+      name: msk-credentials
+      key: password
+- name: STRIMZI_SASL_MECHANISM
+  value: scram-sha-512
+- name: STRIMZI_SECURITY_PROTOCOL
+  value: SASL_SSL
+- name: STRIMZI_USE_FINALIZERS
+  value: 'true'
+
+objects:
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: strimzi-topic-operator
+    annotations:
+      deployment.kubernetes.io/revision: '1'
+    generation: 1
+    namespace: kafka-topics
+    labels:
+      app: strimzi
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        name: strimzi-topic-operator
+    template:
+      metadata:
+        labels:
+          name: strimzi-topic-operator
+      spec:
+        restartPolicy: Always
+        serviceAccountName: strimzi-topic-operator
+        schedulerName: default-scheduler
+        terminationGracePeriodSeconds: 30
+        securityContext: {}
+        containers:
+          - resources:
+              limits:
+                cpu: 500m
+                memory: 256Mi
+              requests:
+                cpu: 100m
+                memory: 256Mi
+            readinessProbe:
+              httpGet:
+                path: /ready
+                port: 8080
+                scheme: HTTP
+              initialDelaySeconds: 10
+              timeoutSeconds: 1
+              periodSeconds: 30
+              successThreshold: 1
+              failureThreshold: 3
+            terminationMessagePath: /dev/termination-log
+            name: strimzi-topic-operator
+            livenessProbe:
+              httpGet:
+                path: /healthy
+                port: 8080
+                scheme: HTTP
+              initialDelaySeconds: 10
+              timeoutSeconds: 1
+              periodSeconds: 30
+              successThreshold: 1
+              failureThreshold: 3
+            env:
+              - name: STRIMZI_NAMESPACE
+                valueFrom:
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+              - name: STRIMZI_RESOURCE_LABELS
+                value: strimzi.io/cluster=mc-kafka-cluster
+              - name: STRIMZI_KAFKA_BOOTSTRAP_SERVER_NAME
+                value: ${STRIMZI_KAFKA_BOOTSTRAP_SERVER_VALUES}
+              - name: STRIMZI_FULL_RECONCILIATION_INTERVAL_MS
+                value: ${STRIMZI_FULL_RECONCILIATION_INTERVAL_MS}
+              - name: STRIMZI_LOG_LEVEL
+                value: ${STRIMZI_LOG_LEVEL}
+              - name: STRIMZI_TLS_ENABLED
+                value: ${STRIMZI_TLS_ENABLED}
+              - name: STRIMZI_TLS_AUTH_ENABLED
+                value: ${STRIMZI_TLS_AUTH_ENABLED}
+              - name: STRIMZI_JAVA_OPTS
+                value: ${STRIMZI_JAVA_OPTS}
+              - name: STRIMZI_PUBLIC_CA
+                value: ${STRIMZI_PUBLIC_CA}
+              - name: STRIMZI_SASL_ENABLED
+                value: ${STRIMZI_SASL_ENABLED}
+              - name: STRIMZI_SASL_USERNAME
+                valueFrom:
+                  secretKeyRef:
+                    name: msk-credentials
+                    key: username
+              - name: STRIMZI_SASL_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: msk-credentials
+                    key: password
+              - name: STRIMZI_SASL_MECHANISM
+                value: ${STRIMZI_SASL_MECHANISM}
+              - name: STRIMZI_SECURITY_PROTOCOL
+                value: ${STRIMZI_SECURITY_PROTOCOL}
+              - name: STRIMZI_USE_FINALIZERS
+                value: ${STRIMZI_USE_FINALIZERS}
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+              - name: strimzi-tmp
+                mountPath: /tmp
+            terminationMessagePolicy: File
+            image: >-
+              registry.redhat.io/amq-streams/strimzi-rhel8-operator@sha256:abdf1ca15c55860e7962057fcb84d2eef800996fcbc3f9f80eeb7efa79dbafcc
+            args:
+              - /opt/strimzi/bin/topic_operator_run.sh
+        serviceAccount: strimzi-topic-operator
+        volumes:
+          - name: strimzi-tmp
+            emptyDir:
+              medium: Memory
+              sizeLimit: 5Mi
+        dnsPolicy: ClusterFirst
+    strategy:
+      type: Recreate
+    revisionHistoryLimit: 10
+    progressDeadlineSeconds: 600
