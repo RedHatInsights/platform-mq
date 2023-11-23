@@ -33,6 +33,12 @@ topics:
   topic_configs:
   - name: retention.ms
     value: '259200000'
+- topic_name: ccx.dvo.results
+  partitions: 1
+  replicas: 3
+  topic_configs:
+  - name: retention.ms
+    value: '259200000'
 - topic_name: hooks.outbox
   partitions: 6
   replicas: 3
