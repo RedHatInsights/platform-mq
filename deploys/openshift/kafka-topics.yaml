@@ -774,7 +774,7 @@ objects:
       min.insync.replicas: 2
       cleanup.policy: "compact,delete"
       min.compaction.lag.ms: "3600000"
-      retention.bytes: "5368709120"
+      retention.bytes: "6442450944"
       retention.ms: "2678400000"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
