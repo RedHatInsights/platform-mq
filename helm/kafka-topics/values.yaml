@@ -209,7 +209,7 @@ topics:
   - name: min.compaction.lag.ms
     value: '3600000'
   - name: retention.bytes
-    value: '5368709120'
+    value: '6442450944'
   - name: retention.ms
     value: '2678400000'
 - topic_name: platform.inventory.events-test-synchronizer
