@@ -135,7 +135,7 @@ objects:
                   mountPath: /tmp
               terminationMessagePolicy: File
               image: >-
-                quay.io/cloudservices/strimzi-rhel8-operator@sha256:abdf1ca15c55860e7962057fcb84d2eef800996fcbc3f9f80eeb7efa79dbafcc
+                quay.io/cloudservices/strimzi-rhel8-operator:2.5.0
               args:
                 - /opt/strimzi/bin/topic_operator_run.sh
           serviceAccount: strimzi-topic-operator
