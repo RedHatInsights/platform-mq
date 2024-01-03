@@ -1451,6 +1451,19 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: rosocp.kruize.recommendations
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: rosocp.kruize.recommendations
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: rosocp.kruize.experiments
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}

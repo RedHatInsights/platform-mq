@@ -543,6 +543,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "rosocp.kruize.recommendations",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "platform.upload.runtimes-java-general",
     "PARTITIONS": 3,
     "REPLICAS": 3
