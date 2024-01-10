@@ -92,7 +92,7 @@ objects:
         terminationGracePeriodSeconds: 30
         volumes:
         - secret:
-            secretName: lag-exporter-config
+            secretName: msk-lag-exporter-config
           name: exporter-config
 
 - apiVersion: v1
