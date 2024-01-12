@@ -9,6 +9,14 @@ parameters:
   value: "1"
 - name: JAVA_OPTS
   value: "-Xms64m -Xmx256m"
+- name: LAG_EXPORTER_CPU_LIMIT
+  value: 500m
+- name: LAG_EXPORTER_MEM_LIMIT
+  value: 750Mi
+- name: LAG_EXPORTER_CPU_REQ
+  value: 250m
+- name: LAG_EXPORTER_MEM_REQ
+  value: 250Mi
 
 objects:
 - apiVersion: apps/v1
@@ -71,11 +79,11 @@ objects:
             protocol: TCP
           resources:
             limits:
-              cpu: 500m
-              memory: 750Mi
+              cpu: ${LAG_EXPORTER_CPU_LIMIT}
+              memory: ${LAG_EXPORTER_MEM_LIMIT}
             requests:
-              cpu: 250m
-              memory: 250Mi
+              cpu: ${LAG_EXPORTER_CPU_REQ}
+              memory: ${LAG_EXPORTER_MEM_REQ}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
