@@ -27,6 +27,12 @@ topics:
   topic_configs:
   - name: retention.ms
     value: '259200000'
+- topic_name: ccx.dvo.extractor.dead.letter.queue
+  partitions: 1
+  replicas: 3
+  topic_configs:
+  - name: retention.ms
+    value: '259200000'
 - topic_name: ccx.image.sha.results
   partitions: 2
   replicas: 3
