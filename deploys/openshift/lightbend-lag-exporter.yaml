@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: lightbend-lag-exporter
+  name: kafka-lag-exporter
 parameters:
 - name: APPSRE_ENV
   value: stage
@@ -23,8 +23,8 @@ objects:
   kind: Deployment
   metadata:
     labels:
-      app: lightbend-lag-exporter
-    name: lightbend-lag-exporter
+      app: kafka-lag-exporter
+    name: kafka-lag-exporter
     annotations:
       kube-linter.io/ignore-all: "no checks needed"
   spec:
@@ -34,7 +34,7 @@ objects:
     revisionHistoryLimit: 9
     selector:
       matchLabels:
-        app: lightbend-lag-exporter
+        app: kafka-lag-exporter
     strategy:
       rollingUpdate:
         maxSurge: 1
@@ -43,7 +43,7 @@ objects:
     template:
       metadata:
         labels:
-          app: lightbend-lag-exporter
+          app: kafka-lag-exporter
       spec:
         affinity:
           podAntiAffinity:
@@ -54,7 +54,7 @@ objects:
                   - key: app
                     operator: In
                     values:
-                    - lightbend-lag-exporter
+                    - kafka-lag-exporter
                 topologyKey: failure-domain.beta.kubernetes.io/zone
               weight: 100
             - podAffinityTerm:
@@ -63,13 +63,13 @@ objects:
                   - key: app
                     operator: In
                     values:
-                    - lightbend-lag-exporter
+                    - kafka-lag-exporter
                 topologyKey: kubernetes.io/hostname
               weight: 99
         containers:
         - image: quay.io/cloudservices/kafka-lag-exporter:latest
           imagePullPolicy: IfNotPresent
-          name: lightbend-lag-exporter
+          name: kafka-lag-exporter
           env:
           - name: JAVA_OPTS
             value: ${JAVA_OPTS}
@@ -93,6 +93,7 @@ objects:
         imagePullSecrets:
         - name: quay-cloudservices-pull
         - name: rh-registry-pull
+        - name: quay.io
         restartPolicy: Always
         schedulerName: default-scheduler
         securityContext: {}
@@ -106,10 +107,10 @@ objects:
   kind: Service
   metadata:
     labels:
-      app: lightbend-lag-exporter
+      app: kafka-lag-exporter
       strimzi.io/discovery: "true"
       strimzi.io/cluster: platform-mq
-    name: lightbend-lag-exporter
+    name: kafka-lag-exporter
     annotations:
       prometheus.io/path: /metrics
       prometheus.io/port: "9404" 
@@ -121,6 +122,6 @@ objects:
         protocol: TCP
         targetPort: 8000
     selector:
-      app: lightbend-lag-exporter
+      app: kafka-lag-exporter
     sessionAffinity: None
     type: ClusterIP
