@@ -67,7 +67,7 @@ objects:
                 topologyKey: kubernetes.io/hostname
               weight: 99
         containers:
-        - image: quay.io/app-sre/lightbend-lag-exporter:0.6.8
+        - image: quay.io/cloudservices/kafka-lag-exporter:0.8.2
           imagePullPolicy: IfNotPresent
           name: lightbend-lag-exporter
           env:
