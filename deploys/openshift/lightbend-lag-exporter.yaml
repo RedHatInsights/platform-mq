@@ -67,7 +67,8 @@ objects:
                 topologyKey: kubernetes.io/hostname
               weight: 99
         containers:
-        - image: quay.io/cloudservices/kafka-lag-exporter:0.8.2
+        - image: >-
+            quay.io/cloudservices/kafka-lag-exporter:0.8.2
           imagePullPolicy: IfNotPresent
           name: lightbend-lag-exporter
           env:
@@ -93,7 +94,6 @@ objects:
         imagePullSecrets:
         - name: quay-cloudservices-pull
         - name: rh-registry-pull
-        - name: quay.io
         restartPolicy: Always
         schedulerName: default-scheduler
         securityContext: {}
