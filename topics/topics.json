@@ -571,5 +571,10 @@
     "TOPIC_NAME": "platform.rhsm-subscriptions.service-instance-ingress.dlt",
     "PARTITIONS": 24,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.rhsm-subscriptions.billable-usage.dlt",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
 }
 ]
