@@ -459,3 +459,6 @@ topics:
 - topic_name: platform.rhsm-subscriptions.service-instance-ingress.dlt
   partitions: 24
   replicas: 3
+- topic_name: platform.rhsm-subscriptions.billable-usage.dlt
+  partitions: 24
+  replicas: 3
