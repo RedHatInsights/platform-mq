@@ -436,6 +436,9 @@ topics:
 - topic_name: platform.content-sources.introspect
   partitions: 3
   replicas: 3
+- topic_name: platform.content-sources.template
+  partitions: 3
+  replicas: 3
 - topic_name: platform.rbac.sync
   partitions: 10
   replicas: 3
