@@ -1437,6 +1437,18 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: platform.content-sources.template
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.content-sources.template
+    config:
+      min.insync.replicas: 2
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: platform.rbac.sync
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
