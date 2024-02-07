@@ -1446,6 +1446,7 @@ objects:
     topicName: platform.content-sources.template
     config:
       min.insync.replicas: 2
+      retention.ms: "259200000"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
