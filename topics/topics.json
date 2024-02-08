@@ -14,6 +14,11 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "ccx.dvowriter.dead.letter.queue",
+    "PARTITIONS": 1,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "ccx.data.pipeline.dead.letter.queue",
     "PARTITIONS": 1,
     "REPLICAS": 3
@@ -524,6 +529,11 @@
 {
 
     "TOPIC_NAME": "platform.content-sources.introspect",
+    "PARTITIONS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.content-sources.template",
     "PARTITIONS": 3,
     "REPLICAS": 3
 },

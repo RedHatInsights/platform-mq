@@ -47,6 +47,19 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: ccx.dvowriter.dead.letter.queue
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: ccx.dvowriter.dead.letter.queue
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: ccx.data.pipeline.dead.letter.queue
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
@@ -73,6 +86,19 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: ccx.dvo.extractor.dead.letter.queue
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: ccx.dvo.extractor.dead.letter.queue
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: ccx.image.sha.results
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
@@ -93,19 +119,6 @@ objects:
     partitions: 1
     replicas: 3
     topicName: ccx.dvo.results
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: ccx.dvo.extractor.dead.letter.queue
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 1
-    replicas: 3
-    topicName: ccx.dvo.extractor.dead.letter.queue
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
@@ -1424,6 +1437,19 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: platform.content-sources.template
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.content-sources.template
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: platform.rbac.sync
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
@@ -1473,6 +1499,7 @@ objects:
     topicName: rosocp.kruize.recommendations
     config:
       min.insync.replicas: 2
+      retention.ms: "259200000"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:

@@ -15,6 +15,12 @@ topics:
   topic_configs:
   - name: retention.ms
     value: '259200000'
+- topic_name: ccx.dvowriter.dead.letter.queue
+  partitions: 1
+  replicas: 3
+  topic_configs:
+  - name: retention.ms
+    value: '259200000'
 - topic_name: ccx.data.pipeline.dead.letter.queue
   partitions: 1
   replicas: 3
@@ -428,6 +434,9 @@ topics:
   partitions: 1
   replicas: 3
 - topic_name: platform.content-sources.introspect
+  partitions: 3
+  replicas: 3
+- topic_name: platform.content-sources.template
   partitions: 3
   replicas: 3
 - topic_name: platform.rbac.sync
