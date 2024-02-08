@@ -471,3 +471,20 @@ topics:
 - topic_name: platform.rhsm-subscriptions.billable-usage.dlt
   partitions: 24
   replicas: 3
+- topic_name: platform.rhsm-subscriptions.swatch-billable-usage-aggregator-billable-usage-store-repartition
+  partitions: 24
+  replicas: 3
+  topic_configs:
+  - name: retention.ms
+    value: '-1'
+- topic_name: platform.rhsm-subscriptions.swatch-billable-usage-aggregator-billable-usage-suppress-store-changelog
+  partitions: 24
+  replicas: 3
+  topic_configs:
+  - name: cleanup.policy
+    value: 'compact,delete'
+  - name: retention.ms
+    value: '93600000'
+- topic_name: platform.rhsm-subscriptions.billable-usage-hourly-aggregate
+  partitions: 24
+  replicas: 3
