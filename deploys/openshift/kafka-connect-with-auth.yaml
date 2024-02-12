@@ -6,22 +6,21 @@ parameters:
 - name: KAFKA_CONNECT_IMAGE
   description: Image for kafka connect instance
   value: quay.io/cloudservices/kafka-connect
+- name: IMAGE_TAG
+  description: Tag to use for this deploy of kafka connect
+  value: latest
 - name: KAFKA_CONNECT_VERSION
   description: Version of the kafka-connect service
   value: 2.7.0
 - name: KAFKA_CONNECT_REPLICAS
   description: Number of connect instances to run
   value: "1"
-- name: BOOTSTRAP_CONFIG_PROVIDER
-  value: ${secrets:platform-mq-stage/kafka:bootstrap_server_host}
-- name: MANAGED_KAFKA_AUTH_ENDPOINT
-  value: "https://identity.api.openshift.com/auth/realms/rhoas/protocol/openid-connect/token"
+- name: AUTH_CLIENT_ID
+  value: "username"
 - name: AUTH_SECRET_NAME
   value: "kafka"
 - name: AUTH_SECRET_KEY
   value: "client_secret"
-- name: AUTH_CONFIG_PROVIDER_ID
-  value: ${secrets:platform-mq-stage/kafka:client_id}
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaConnect
@@ -32,7 +31,7 @@ objects:
     annotations:
       strimzi.io/use-connector-resources: "true"
   spec:
-    image: ${KAFKA_CONNECT_IMAGE}
+    image: ${KAFKA_CONNECT_IMAGE}:${IMAGE_TAG}
     version: ${KAFKA_CONNECT_VERSION}
     replicas: ${{KAFKA_CONNECT_REPLICAS}}
     resources:
@@ -46,12 +45,11 @@ objects:
     tls:
       trustedCertificates: []
     authentication:
-      type: oauth
-      tokenEndpointUri: ${MANAGED_KAFKA_AUTH_ENDPOINT}
-      clientId: ${{AUTH_CONFIG_PROVIDER_ID}}
-      clientSecret:
-        secretName: ${AUTH_SECRET_NAME}
-        key: ${AUTH_SECRET_KEY}
+      type: scram-sha-512
+      username: ${AUTH_CLIENT_ID}
+      passwordSecret:
+        secretName: ${AUTH_CLIENT_SECRET_NAME}
+        key: ${AUTH_CLIENT_SECRET_KEY}
     externalConfiguration:
       env:
         - name: AWS_ACCESS_KEY_ID
