@@ -15,6 +15,8 @@ parameters:
 - name: KAFKA_CONNECT_REPLICAS
   description: Number of connect instances to run
   value: "1"
+- name: BOOTSTRAP_SERVERS
+  required: true
 - name: AUTH_CLIENT_ID
   value: "username"
 - name: AUTH_SECRET_NAME
@@ -41,7 +43,7 @@ objects:
       requests:
         cpu: 500m
         memory: 1Gi
-    bootstrapServers: ${{BOOTSTRAP_CONFIG_PROVIDER}}
+    bootstrapServers: ${BOOTSTRAP_SERVERS}
     tls:
       trustedCertificates: []
     authentication:
