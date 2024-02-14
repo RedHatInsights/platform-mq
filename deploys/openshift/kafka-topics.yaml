@@ -1590,8 +1590,8 @@ objects:
     topicName: platform.rhsm-subscriptions.swatch-billable-usage-aggregator-billable-usage-suppress-store-changelog
     config:
       min.insync.replicas: 2
-      retention.ms: "93600000"
       cleanup.policy: "compact,delete"
+      retention.ms: "93600000"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
