@@ -1565,6 +1565,46 @@ objects:
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.rhsm-subscriptions.swatch-billable-usage-aggregator-billable-usage-store-repartition
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.swatch-billable-usage-aggregator-billable-usage-store-repartition
+    config:
+      min.insync.replicas: 2
+      retention.ms: "-1"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.rhsm-subscriptions.swatch-billable-usage-aggregator-billable-usage-suppress-store-changelog
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.swatch-billable-usage-aggregator-billable-usage-suppress-store-changelog
+    config:
+      min.insync.replicas: 2
+      retention.ms: "93600000"
+      cleanup.policy: "compact,delete"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: platform.rhsm-subscriptions.billable-usage-hourly-aggregate
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.billable-usage-hourly-aggregate
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
 parameters:
 # Needed for processing by app-interface but not used.
 - name: IMAGE_TAG

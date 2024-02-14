@@ -581,5 +581,22 @@
     "TOPIC_NAME": "platform.rhsm-subscriptions.billable-usage.dlt",
     "PARTITIONS": 24,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.rhsm-subscriptions.swatch-billable-usage-aggregator-billable-usage-store-repartition",
+    "PARTITIONS": 24,
+    "REPLICAS": 3,
+    "TOPIC_CONFIGS": "retention.ms: -1"
+},
+{
+    "TOPIC_NAME": "platform.rhsm-subscriptions.swatch-billable-usage-aggregator-billable-usage-suppress-store-changelog",
+    "PARTITIONS": 24,
+    "REPLICAS": 3,
+    "TOPIC_CONFIGS": "cleanup.policy: compact,delete\nretention.ms: 93600000"
+},
+{
+    "TOPIC_NAME": "platform.rhsm-subscriptions.billable-usage-hourly-aggregate",
+    "PARTITIONS": 24,
+    "REPLICAS": 3,
 }
 ]
