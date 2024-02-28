@@ -240,10 +240,10 @@ topics:
   partitions: 1
   replicas: 3
   topic_configs:
-    - name: retention.bytes
-      value: '5368709120'
-    - name: retention.ms
-      value: '2678400000'
+  - name: retention.bytes
+    value: '5368709120'
+  - name: retention.ms
+    value: '2678400000'
 - topic_name: platform.rhsm-conduit.tasks
   partitions: 24
   replicas: 3
@@ -443,6 +443,9 @@ topics:
   partitions: 10
   replicas: 3
 - topic_name: platform.chrome
+  partitions: 10
+  replicas: 3
+- topic_name: pdf-generator.updated.report
   partitions: 10
   replicas: 3
 - topic_name: hccm.ros.events

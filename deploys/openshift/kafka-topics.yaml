@@ -1476,6 +1476,19 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: pdf-generator.updated.report
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 10
+    replicas: 3
+    topicName: pdf-generator.updated.report
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: hccm.ros.events
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
