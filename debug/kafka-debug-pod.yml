@@ -1,0 +1,83 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: kafka-debug
+objects:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      ignore-check.kube-linter.io/minimum-three-replicas: "skip"
+    labels:
+      app: strimzi
+    name: kafka-debug
+  spec:
+    replicas: 1
+    revisionHistoryLimit: 2
+    selector:
+      matchLabels:
+        app: kafka-debug
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxUnavailable: 0
+        maxSurge: 1
+    template:
+      metadata:
+        labels:
+          app: kafka-debug
+      spec:
+        imagePullSecrets:
+          - name: quay-cloudservices-pull
+          - name: rh-registry-pull
+          - name: quay.io
+        containers:
+        - image: ${IMAGE}:${IMAGE_TAG}
+          name: kafka-debug
+          resources:
+            limits:
+              cpu: ${{CPU_LIMIT}}
+              memory: ${{MEMORY_LIMIT}}
+            requests:
+              cpu: ${{CPU_REQUEST}}
+              memory: ${{MEMORY_REQUEST}}
+          env:
+          - name: BOOTSTRAP_SERVERS
+            valueFrom:
+              secretKeyRef:
+                name: ${{KAFKA_ACCESS_SECRET_NAME}}
+                key: "bootstrap_brokers_sasl_scram"
+                optional: true
+          - name: KAFKA_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: ${{KAFKA_AUTH_SECRET_NAME}}
+                key: "username"
+                optional: true
+          - name: KAFKA_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: ${{KAFKA_AUTH_SECRET_NAME}}
+                key: "password"
+                optional: true
+parameters:
+- name: IMAGE
+  value: quay.io/cloudservices/kafka-debug
+- name: IMAGE_TAG
+  value: latest
+- name: KAFKA_ACCESS_SECRET_NAME
+  value: "empty"
+- name: KAFKA_AUTH_SECRET_NAME
+  value: "empty"
+- name: CPU_REQUEST
+  value: "100m"
+  required: false
+- name: MEMORY_REQUEST
+  value: "128Mi"
+  required: false
+- name: MEMORY_LIMIT
+  value: "1Gi"
+  required: false
+- name: CPU_LIMIT
+  value: "1000m"
+  required: false
