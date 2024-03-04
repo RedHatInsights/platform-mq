@@ -15,13 +15,21 @@ parameters:
 - name: KAFKA_CONNECT_REPLICAS
   description: Number of connect instances to run
   value: "1"
+- name: KAFKA_CONNECT_CPU_LIMIT
+  value: "1"
+- name: KAFKA_CONNECT_MEM_LIMIT
+  value: 4Gi
+- name: KAFKA_CONNECT_CPU_REQUEST
+  value: 500m
+- name: KAFKA_CONNECT_MEM_REQUEST
+  value: 1Gi
 - name: BOOTSTRAP_SERVERS
   required: true
 - name: AUTH_CLIENT_ID
   value: "username"
-- name: AUTH_SECRET_NAME
+- name: AUTH_CLIENT_SECRET_NAME
   value: "kafka"
-- name: AUTH_SECRET_KEY
+- name: AUTH_CLIENT_SECRET_KEY
   value: "client_secret"
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
@@ -38,11 +46,11 @@ objects:
     replicas: ${{KAFKA_CONNECT_REPLICAS}}
     resources:
       limits:
-        cpu: "1"
-        memory: 4Gi
+        cpu: ${KAFKA_CONNECT_CPU_LIMIT}
+        memory: ${KAFKA_CONNECT_MEM_LIMIT}
       requests:
-        cpu: 500m
-        memory: 1Gi
+        cpu: ${KAFKA_CONNECT_CPU_REQUEST}
+        memory: ${KAFKA_CONNECT_MEM_REQUEST}
     bootstrapServers: ${BOOTSTRAP_SERVERS}
     tls:
       trustedCertificates: []
@@ -51,7 +59,7 @@ objects:
       username: ${AUTH_CLIENT_ID}
       passwordSecret:
         secretName: ${AUTH_CLIENT_SECRET_NAME}
-        key: ${AUTH_CLIENT_SECRET_KEY}
+        password: ${AUTH_CLIENT_SECRET_KEY}
     externalConfiguration:
       env:
         - name: AWS_ACCESS_KEY_ID
