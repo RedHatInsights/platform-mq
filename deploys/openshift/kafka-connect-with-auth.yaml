@@ -35,7 +35,7 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaConnect
   metadata:
-    name: platform-kafka-connect
+    name: msk-connect
     labels:
       app: platform-mq
     annotations:
