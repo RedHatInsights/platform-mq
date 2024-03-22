@@ -289,6 +289,15 @@ topics:
 - topic_name: platform.rhsm-subscriptions.tasks
   partitions: 24
   replicas: 3
+- topic_name: platform.rhsm-subscriptions.enabled-orgs-for-tasks
+  partitions: 24
+  replicas: 3
+- topic_name: platform.rhsm-subscriptions.subscription-prune-task
+  partitions: 24
+  replicas: 3
+- topic_name: platform.rhsm-subscriptions.subscription-sync-task
+  partitions: 24
+  replicas: 3
 - topic_name: platform.remediation-updates.advisor
   partitions: 6
   replicas: 3

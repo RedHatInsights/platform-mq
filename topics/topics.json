@@ -602,6 +602,21 @@
 {
     "TOPIC_NAME": "platform.rhsm-subscriptions.billable-usage-hourly-aggregate",
     "PARTITIONS": 24,
-    "REPLICAS": 3,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.rhsm-subscriptions.enabled-orgs-for-tasks",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.rhsm-subscriptions.subscription-prune-task",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.rhsm-subscriptions.subscription-sync-task",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
 }
 ]
