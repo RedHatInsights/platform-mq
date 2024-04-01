@@ -466,7 +466,7 @@ topics:
   - name: retention.bytes
     value: '1073741824'
 - topic_name: rosocp.kruize.recommendations
-  partitions: 3
+  partitions: 10
   replicas: 3
 - topic_name: rosocp.kruize.experiments
   partitions: 3
