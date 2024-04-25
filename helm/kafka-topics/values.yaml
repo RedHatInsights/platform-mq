@@ -57,9 +57,6 @@ topics:
 - topic_name: platform.approval
   partitions: 3
   replicas: 3
-- topic_name: platform.notifications.aggregation
-  partitions: 2
-  replicas: 3
 - topic_name: platform.notifications.ingress
   partitions: 6
   replicas: 3
@@ -86,110 +83,23 @@ topics:
 - topic_name: platform.insights.rule-hits
   partitions: 50
   replicas: 3
-- topic_name: platform.logging.logs
-  partitions: 2
-  replicas: 3
 - topic_name: platform.payload-status
   partitions: 8
-  replicas: 3
-- topic_name: platform.receptor-controller.responses
-  partitions: 3
   replicas: 3
 - topic_name: platform.service-portal
   partitions: 3
   replicas: 3
-- topic_name: platform.system-profile
-  partitions: 32
-  replicas: 3
-  topic_configs:
-  - name: retention.ms
-    value: '86400000'
 - topic_name: platform.sources.event-stream
   partitions: 6
   replicas: 3
 - topic_name: platform.sources.status
   partitions: 3
   replicas: 3
-- topic_name: platform.sources.operations-ansible-tower
-  partitions: 3
-  replicas: 3
-- topic_name: platform.sources.operations-satellite
-  partitions: 3
-  replicas: 3
 - topic_name: platform.topological-inventory.operations-satellite
   partitions: 3
   replicas: 3
-- topic_name: platform.tower-analytics.data-exporter
-  partitions: 10
-  replicas: 3
-- topic_name: platform.upload.advisor
-  partitions: 64
-  replicas: 3
-- topic_name: platform.upload.catalog
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.xavier
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.advisor-pup
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.aiops-idle-cost-savings
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.aiops-insights-clustering
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.aiops-outlier-detection
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.aiops-volume-type-validation
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.aiops-instance-type-validation
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.available
-  partitions: 64
-  replicas: 3
-- topic_name: platform.upload.buckit
-  partitions: 16
-  replicas: 3
-- topic_name: platform.upload.compliance
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.hccm
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.leapp-reporting
-  partitions: 2
-  replicas: 3
-- topic_name: platform.upload.mkt
-  partitions: 10
-  replicas: 3
-- topic_name: platform.upload.pinakes
-  partitions: 10
-  replicas: 3
-- topic_name: platform.upload.qpc
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.resource-optimization
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.rhv
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.testareno
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.tower
-  partitions: 10
-  replicas: 3
 - topic_name: platform.upload.validation
   partitions: 24
-  replicas: 3
-- topic_name: platform.upload.malware-detection
-  partitions: 3
   replicas: 3
 - topic_name: vulnerability.evaluator.upload
   partitions: 24
@@ -205,9 +115,6 @@ topics:
   replicas: 3
 - topic_name: vulnerability.grouper.advisor.upload
   partitions: 24
-  replicas: 3
-- topic_name: vulnerability.listener.ingress
-  partitions: 3
   replicas: 3
 - topic_name: platform.upload.announce
   partitions: 64
@@ -316,9 +223,6 @@ topics:
 - topic_name: platform.catalog-inventory.task-output-stream
   partitions: 3
   replicas: 3
-- topic_name: platform.upload.playbook
-  partitions: 16
-  replicas: 3
 - topic_name: ccx.ocp.dlq
   partitions: 1
   replicas: 3
@@ -362,9 +266,6 @@ topics:
   partitions: 24
   replicas: 3
 - topic_name: platform.rhsm-subscriptions.metering-rhel-tasks
-  partitions: 24
-  replicas: 3
-- topic_name: platform.rhsm-subscriptions.openshift-metering-tasks
   partitions: 24
   replicas: 3
 - topic_name: platform.rhsm-subscriptions.tally
@@ -439,12 +340,6 @@ topics:
   topic_configs:
   - name: cleanup.policy
     value: 'compact'
-- topic_name: source-kafka-cluster.checkpoints.internal
-  partitions: 1
-  replicas: 3
-- topic_name: platform.content-sources.introspect
-  partitions: 3
-  replicas: 3
 - topic_name: platform.content-sources.template
   partitions: 3
   replicas: 3
@@ -467,12 +362,6 @@ topics:
     value: '1073741824'
 - topic_name: rosocp.kruize.recommendations
   partitions: 10
-  replicas: 3
-- topic_name: rosocp.kruize.experiments
-  partitions: 3
-  replicas: 3
-- topic_name: platform.upload.runtimes-java-general
-  partitions: 3
   replicas: 3
 - topic_name: platform.rhsm-subscriptions.service-instance-ingress
   partitions: 24
