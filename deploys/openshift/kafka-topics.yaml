@@ -151,19 +151,6 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
-    name: platform.notifications.aggregation
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 2
-    replicas: 3
-    topicName: platform.notifications.aggregation
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
     name: platform.notifications.ingress
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
@@ -256,19 +243,6 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
-    name: platform.logging.logs
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 2
-    replicas: 3
-    topicName: platform.logging.logs
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
     name: platform.payload-status
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
@@ -276,19 +250,6 @@ objects:
     partitions: 8
     replicas: 3
     topicName: platform.payload-status
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.receptor-controller.responses
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.receptor-controller.responses
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
@@ -305,19 +266,6 @@ objects:
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.system-profile
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 32
-    replicas: 3
-    topicName: platform.system-profile
-    config:
-      min.insync.replicas: 2
-      retention.ms: "86400000"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -347,32 +295,6 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
-    name: platform.sources.operations-ansible-tower
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.sources.operations-ansible-tower
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.sources.operations-satellite
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.sources.operations-satellite
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
     name: platform.topological-inventory.operations-satellite
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
@@ -386,292 +308,6 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
-    name: platform.tower-analytics.data-exporter
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 10
-    replicas: 3
-    topicName: platform.tower-analytics.data-exporter
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.advisor
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 64
-    replicas: 3
-    topicName: platform.upload.advisor
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.catalog
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.catalog
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.xavier
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.xavier
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.advisor-pup
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.advisor-pup
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.aiops-idle-cost-savings
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.aiops-idle-cost-savings
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.aiops-insights-clustering
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.aiops-insights-clustering
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.aiops-outlier-detection
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.aiops-outlier-detection
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.aiops-volume-type-validation
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.aiops-volume-type-validation
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.aiops-instance-type-validation
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.aiops-instance-type-validation
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.available
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 64
-    replicas: 3
-    topicName: platform.upload.available
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.buckit
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 16
-    replicas: 3
-    topicName: platform.upload.buckit
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.compliance
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.compliance
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.hccm
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.hccm
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.leapp-reporting
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 2
-    replicas: 3
-    topicName: platform.upload.leapp-reporting
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.mkt
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 10
-    replicas: 3
-    topicName: platform.upload.mkt
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.pinakes
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 10
-    replicas: 3
-    topicName: platform.upload.pinakes
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.qpc
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.qpc
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.resource-optimization
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.resource-optimization
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.rhv
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.rhv
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.testareno
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.testareno
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.tower
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 10
-    replicas: 3
-    topicName: platform.upload.tower
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
     name: platform.upload.validation
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
@@ -679,19 +315,6 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.upload.validation
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.malware-detection
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.malware-detection
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
@@ -757,19 +380,6 @@ objects:
     partitions: 24
     replicas: 3
     topicName: vulnerability.grouper.advisor.upload
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: vulnerability.listener.ingress
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: vulnerability.listener.ingress
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
@@ -1085,19 +695,6 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
-    name: platform.upload.playbook
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 16
-    replicas: 3
-    topicName: platform.upload.playbook
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
     name: ccx.ocp.dlq
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
@@ -1179,19 +776,6 @@ objects:
     partitions: 24
     replicas: 3
     topicName: platform.rhsm-subscriptions.metering-rhel-tasks
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.rhsm-subscriptions.openshift-metering-tasks
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 24
-    replicas: 3
-    topicName: platform.rhsm-subscriptions.openshift-metering-tasks
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
@@ -1450,32 +1034,6 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
-    name: source-kafka-cluster.checkpoints.internal
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 1
-    replicas: 3
-    topicName: source-kafka-cluster.checkpoints.internal
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.content-sources.introspect
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.content-sources.introspect
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
     name: platform.content-sources.template
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
@@ -1549,32 +1107,6 @@ objects:
     partitions: 10
     replicas: 3
     topicName: rosocp.kruize.recommendations
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: rosocp.kruize.experiments
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: rosocp.kruize.experiments
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
-    name: platform.upload.runtimes-java-general
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 3
-    replicas: 3
-    topicName: platform.upload.runtimes-java-general
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
