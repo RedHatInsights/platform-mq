@@ -116,6 +116,9 @@ topics:
 - topic_name: vulnerability.grouper.advisor.upload
   partitions: 24
   replicas: 3
+- topic_name: platform.upload.compliance
+  partitions: 3
+  replicas: 3
 - topic_name: platform.upload.announce
   partitions: 64
   replicas: 3
