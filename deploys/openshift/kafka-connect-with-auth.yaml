@@ -42,6 +42,8 @@ objects:
       strimzi.io/use-connector-resources: "true"
   spec:
     image: ${KAFKA_CONNECT_IMAGE}:${IMAGE_TAG}
+    imagePullSecrets:
+      - quay-cloudservices-pull
     version: ${KAFKA_CONNECT_VERSION}
     replicas: ${{KAFKA_CONNECT_REPLICAS}}
     resources:

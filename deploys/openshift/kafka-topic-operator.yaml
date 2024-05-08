@@ -135,6 +135,8 @@ objects:
                   mountPath: /tmp
               terminationMessagePolicy: File
               image: registry.redhat.io/amq-streams/strimzi-rhel8-operator:2.5.1-12
+              imagePullSecrets:
+                - registry-redhat-pull
               args:
                 - /opt/strimzi/bin/topic_operator_run.sh
           serviceAccount: strimzi-topic-operator
