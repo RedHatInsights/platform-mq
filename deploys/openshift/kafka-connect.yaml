@@ -32,6 +32,11 @@ objects:
       - name: rh-registry-pull
       - name: quay.io
     image: ${KAFKA_CONNECT_IMAGE}:${IMAGE_TAG}
+    template:
+      pod:
+        imagePullSecrets:
+          - name: quay-cloudservices-pull
+          - name: rh-registry-pull
     version: ${KAFKA_CONNECT_VERSION}
     replicas: ${{KAFKA_CONNECT_REPLICAS}}
     resources:
