@@ -358,6 +358,9 @@ topics:
 - topic_name: pdf-generator.updated.report
   partitions: 10
   replicas: 3
+  topic_configs:
+  - name: retention.ms
+    value: '28800000'
 - topic_name: hccm.ros.events
   partitions: 30
   replicas: 3

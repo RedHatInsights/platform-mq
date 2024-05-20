@@ -555,7 +555,8 @@
 {
     "TOPIC_NAME": "pdf-generator.updated.report",
     "PARTITIONS": 10,
-    "REPLICAS": 3
+    "REPLICAS": 3,
+    "TOPIC_CONFIGS": "retention.ms: 28800000"
 },
 {
     "TOPIC_NAME": "hccm.ros.events",
