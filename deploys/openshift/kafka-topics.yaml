@@ -1108,7 +1108,7 @@ objects:
     topicName: pdf-generator.updated.report
     config:
       min.insync.replicas: 2
-      retention.ms: "259200000"
+      retention.ms: "28800000"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
