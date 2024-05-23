@@ -1,0 +1,106 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: platform-kafka-mm2
+parameters:
+- name: MM2_INSTANCE_NAME
+  value: platform-kafka-mm2
+- name: MM2_REPLICA_COUNT
+  value: "1"
+- name: SRC_CLUSTER_ALIAS
+  value: "source-kafka-cluster"
+- name: SRC_CLUSTER_BOOTSTRAP
+  required: true
+- name: TGT_CLUSTER_BOOTSTRAP
+  required: true
+- name: TGT_CLUSTER_ALIAS
+  value: "target-kafka-cluster"
+- name: REPLICATION_FACTOR
+  value: "3"
+- name: MM2_CPU_LIMIT
+  value: "1"
+- name: MM2_MEM_LIMIT
+  value: 4Gi
+- name: MM2_CPU_REQ
+  value: 500m
+- name: MM2_MEM_REQ
+  value: 1Gi
+- name: AUTH_CLIENT_SECRET_NAME
+  value: "kafka"
+- name: AUTH_CLIENT_SECRET_KEY
+  value: "client_secret"
+- name: AUTH_CLIENT_ID
+  value: "client_id"
+- name: MM2_MAX_TASKS
+  value: "3"
+- name: KAFKA_MM2_VERSION
+  value: 3.2.3
+- name: TOPIC_EXCLUDE_PATTERN
+  value: "consumer-offsets.*|^strimzi.*|connect-.*"
+
+objects:
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaMirrorMaker2
+  metadata:
+    name: ${MM2_INSTANCE_NAME}
+  spec:
+    clusters:
+    - alias: ${TGT_CLUSTER_ALIAS}
+      bootstrapServers: ${TGT_CLUSTER_BOOTSTRAP}
+      tls:
+        trustedCertificates: []
+      authentication:
+        type: scram-sha-512
+        username: ${AUTH_CLIENT_ID}
+        passwordSecret:
+          secretName: ${AUTH_CLIENT_SECRET_NAME}
+          password: ${AUTH_CLIENT_SECRET_KEY}
+        config:
+          producer.compression.type: snappy
+    - alias: ${SRC_CLUSTER_ALIAS}
+      bootstrapServers: ${SRC_CLUSTER_BOOTSTRAP}
+      tls:
+        trustedCertificates:
+          - secretName: platform-mq-cluster-ca-cert
+            certificate: ca.crt
+      config:
+        config.storage.replication.factor: 3
+        offset.storage.replication.factor: 3
+        status.storage.replication.factor: 3
+        config.properties.exclude:  "follower.replication.throttled.replicas, leader.replication.throttled.replicas, message.timestamp.difference.max.ms, message.timestamp.type, unclean.leader.election.enable"
+        config.providers: secrets,configmaps,file
+        config.providers.secrets.class: io.strimzi.kafka.KubernetesSecretConfigProvider
+        config.providers.configmaps.class: io.strimzi.kafka.KubernetesConfigMapConfigProvider
+        config.providers.file.class: org.apache.kafka.common.config.provider.FileConfigProvider
+    connectCluster: ${TGT_CLUSTER_ALIAS}
+    mirrors:
+    - sourceCluster: ${SRC_CLUSTER_ALIAS}
+      targetCluster: ${TGT_CLUSTER_ALIAS}
+      checkpointConnector:
+        config:
+          checkpoints.topic.replication.factor: 3
+          emit.checkpoints.interval.seconds: 60
+          refresh.groups.interval.seconds: 60
+          sync.group.offsets.enabled: true
+          sync.group.offsets.interval.seconds: 60
+          replication.factor: 3
+          replication.policy.class: "org.apache.kafka.connect.mirror.IdentityReplicationPolicy"
+      groupsPattern: ".*"
+      sourceConnector:
+        tasksMax: ${{MM2_MAX_TASKS}}
+        config:
+          offset-syncs.topic.replication.factor: 3
+          refresh.topics.interval.seconds: 60
+          replication.factor: 3
+          sync.topic.acls.enabled: false
+          replication.policy.class: "org.apache.kafka.connect.mirror.IdentityReplicationPolicy"
+      topicsExcludePattern: ${TOPIC_EXCLUDE_PATTERN}
+    replicas: ${{MM2_REPLICA_COUNT}}
+    resources:
+      limits:
+        cpu: ${MM2_CPU_LIMIT}
+        memory: ${MM2_MEM_LIMIT}
+      requests:
+        cpu: ${MM2_CPU_REQ}
+        memory: ${MM2_MEM_REQ}
+    version: ${KAFKA_MM2_VERSION}
