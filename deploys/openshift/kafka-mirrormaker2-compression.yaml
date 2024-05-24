@@ -35,8 +35,8 @@ parameters:
   value: "3"
 - name: KAFKA_MM2_VERSION
   value: 3.2.3
-- name: TOPIC_EXCLUDE_PATTERN
-  value: "consumer-offsets.*|^strimzi.*|connect-.*"
+- name: TOPICS_PATTERN
+  value: ".*"
 
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
@@ -94,7 +94,7 @@ objects:
           replication.factor: 3
           sync.topic.acls.enabled: false
           replication.policy.class: "org.apache.kafka.connect.mirror.IdentityReplicationPolicy"
-      topicsExcludePattern: ${TOPIC_EXCLUDE_PATTERN}
+      topicsPattern: ${TOPICS_PATTERN}
     replicas: ${{MM2_REPLICA_COUNT}}
     resources:
       limits:
