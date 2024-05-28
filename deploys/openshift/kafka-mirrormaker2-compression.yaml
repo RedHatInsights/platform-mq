@@ -56,6 +56,7 @@ objects:
           secretName: ${AUTH_CLIENT_SECRET_NAME}
           password: ${AUTH_CLIENT_SECRET_KEY}
       config:
+        group.id: compressed-mm2-cluster
         producer.compression.type: snappy
         config.storage.topic: compressed-mm2-connect-config
         config.storage.replication.factor: 3
