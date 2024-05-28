@@ -64,8 +64,11 @@ objects:
           - secretName: platform-mq-cluster-ca-cert
             certificate: ca.crt
       config:
+        config.storate.topic: compressed-mm2-connect-config
         config.storage.replication.factor: 3
+        offset.storage.topic: compressed-mm2-connect-offset
         offset.storage.replication.factor: 3
+        status.storage.topic: compressed-mm2-connect-status
         status.storage.replication.factor: 3
         config.properties.exclude:  "follower.replication.throttled.replicas, leader.replication.throttled.replicas, message.timestamp.difference.max.ms, message.timestamp.type, unclean.leader.election.enable"
         config.providers: secrets,configmaps,file
