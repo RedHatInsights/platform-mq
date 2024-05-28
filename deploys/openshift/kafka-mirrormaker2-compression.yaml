@@ -4,7 +4,7 @@ metadata:
   name: platform-kafka-mm2-compression
 parameters:
 - name: MM2_INSTANCE_NAME
-  value: platform-kafka-mm2
+  value: platform-kafka-mm2-compression
 - name: MM2_REPLICA_COUNT
   value: "1"
 - name: SRC_CLUSTER_ALIAS
