@@ -55,26 +55,20 @@ objects:
         passwordSecret:
           secretName: ${AUTH_CLIENT_SECRET_NAME}
           password: ${AUTH_CLIENT_SECRET_KEY}
-        config:
-          producer.compression.type: snappy
-    - alias: ${SRC_CLUSTER_ALIAS}
-      bootstrapServers: ${SRC_CLUSTER_BOOTSTRAP}
-      tls:
-        trustedCertificates:
-          - secretName: platform-mq-cluster-ca-cert
-            certificate: ca.crt
       config:
+        producer.compression.type: snappy
         config.storage.topic: compressed-mm2-connect-config
         config.storage.replication.factor: 3
         offset.storage.topic: compressed-mm2-connect-offset
         offset.storage.replication.factor: 3
         status.storage.topic: compressed-mm2-connect-status
         status.storage.replication.factor: 3
-        config.properties.exclude:  "follower.replication.throttled.replicas, leader.replication.throttled.replicas, message.timestamp.difference.max.ms, message.timestamp.type, unclean.leader.election.enable"
-        config.providers: secrets,configmaps,file
-        config.providers.secrets.class: io.strimzi.kafka.KubernetesSecretConfigProvider
-        config.providers.configmaps.class: io.strimzi.kafka.KubernetesConfigMapConfigProvider
-        config.providers.file.class: org.apache.kafka.common.config.provider.FileConfigProvider
+    - alias: ${SRC_CLUSTER_ALIAS}
+      bootstrapServers: ${SRC_CLUSTER_BOOTSTRAP}
+      tls:
+        trustedCertificates:
+          - secretName: platform-mq-cluster-ca-cert
+            certificate: ca.crt
     connectCluster: ${TGT_CLUSTER_ALIAS}
     mirrors:
     - sourceCluster: ${SRC_CLUSTER_ALIAS}
@@ -93,12 +87,6 @@ objects:
         tasksMax: ${{MM2_MAX_TASKS}}
         config:
           offset-syncs.topic.replication.factor: 3
-          config.storage.topic: compressed-mm2-connect-config
-          config.storage.replication.factor: 3
-          offset.storage.topic: compressed-mm2-connect-offset
-          offset.storage.replication.factor: 3
-          status.storage.topic: compressed-mm2-connect-status
-          status.storage.replication.factor: 3
           refresh.topics.interval.seconds: 60
           replication.factor: 3
           sync.topic.acls.enabled: false
