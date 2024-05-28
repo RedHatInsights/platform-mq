@@ -624,5 +624,10 @@
     "TOPIC_NAME": "platform.rhsm-subscriptions.remittances-purge-task",
     "PARTITIONS": 24,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "platform.rhsm-subscriptions.billable-usage.status",
+    "PARTITIONS": 24,
+    "REPLICAS": 3
 }
 ]

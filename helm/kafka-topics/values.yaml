@@ -398,3 +398,7 @@ topics:
 - topic_name: platform.rhsm-subscriptions.billable-usage-hourly-aggregate
   partitions: 24
   replicas: 3
+- topic_name: platform.rhsm-subscriptions.billable-usage.status
+  partitions: 24
+  replicas: 3
+  
