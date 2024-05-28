@@ -93,6 +93,12 @@ objects:
         tasksMax: ${{MM2_MAX_TASKS}}
         config:
           offset-syncs.topic.replication.factor: 3
+          config.storage.topic: compressed-mm2-connect-config
+          config.storage.replication.factor: 3
+          offset.storage.topic: compressed-mm2-connect-offset
+          offset.storage.replication.factor: 3
+          status.storage.topic: compressed-mm2-connect-status
+          status.storage.replication.factor: 3
           refresh.topics.interval.seconds: 60
           replication.factor: 3
           sync.topic.acls.enabled: false
