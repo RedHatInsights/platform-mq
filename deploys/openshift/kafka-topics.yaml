@@ -1130,7 +1130,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 10
+    partitions: 20
     replicas: 3
     topicName: rosocp.kruize.recommendations
     config:
