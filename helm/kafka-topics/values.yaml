@@ -370,7 +370,7 @@ topics:
   - name: retention.bytes
     value: '1073741824'
 - topic_name: rosocp.kruize.recommendations
-  partitions: 10
+  partitions: 20
   replicas: 3
 - topic_name: platform.rhsm-subscriptions.service-instance-ingress
   partitions: 24
