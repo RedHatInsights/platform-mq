@@ -1,0 +1,1797 @@
+apiVersion: v1
+data:
+  ConsoleDotMSKv3.json: |-
+    {
+      "__inputs": [
+        {
+          "name": "DS_APPSREP07UE1-PROMETHEUS",
+          "label": "appsrep07ue1-prometheus",
+          "description": "",
+          "type": "datasource",
+          "pluginId": "prometheus",
+          "pluginName": "Prometheus"
+        },
+        {
+          "name": "DS_CRCP01UE1-PROMETHEUS",
+          "label": "crcp01ue1-prometheus",
+          "description": "",
+          "type": "datasource",
+          "pluginId": "prometheus",
+          "pluginName": "Prometheus"
+        }
+      ],
+      "__elements": {},
+      "__requires": [
+        {
+          "type": "grafana",
+          "id": "grafana",
+          "name": "Grafana",
+          "version": "10.4.1"
+        },
+        {
+          "type": "datasource",
+          "id": "prometheus",
+          "name": "Prometheus",
+          "version": "1.0.0"
+        },
+        {
+          "type": "panel",
+          "id": "stat",
+          "name": "Stat",
+          "version": ""
+        },
+        {
+          "type": "panel",
+          "id": "timeseries",
+          "name": "Time series",
+          "version": ""
+        }
+      ],
+      "annotations": {
+        "list": [
+          {
+            "builtIn": 1,
+            "datasource": {
+              "type": "grafana",
+              "uid": "-- Grafana --"
+            },
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "target": {
+              "limit": 100,
+              "matchAny": false,
+              "tags": [],
+              "type": "dashboard"
+            },
+            "type": "dashboard"
+          }
+        ]
+      },
+      "editable": true,
+      "fiscalYearStartMonth": 0,
+      "graphTooltip": 0,
+      "id": null,
+      "links": [],
+      "liveNow": false,
+      "panels": [
+        {
+          "collapsed": false,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 0
+          },
+          "id": 8,
+          "panels": [],
+          "title": "Health Stats",
+          "type": "row"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 1
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 2
+                  },
+                  {
+                    "color": "green",
+                    "value": 3
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 0,
+            "y": 1
+          },
+          "id": 2,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "10.4.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+              },
+              "dimensions": {},
+              "editorMode": "code",
+              "expr": "count(aws_kafka_kafka_data_logs_disk_used_average{cluster_name=\"$cluster\"})",
+              "expression": "",
+              "id": "",
+              "label": "",
+              "legendFormat": "__auto",
+              "logGroups": [],
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "",
+              "metricQueryType": 1,
+              "namespace": "AWS/Kafka",
+              "period": "",
+              "queryMode": "Metrics",
+              "range": true,
+              "refId": "A",
+              "region": "us-east-1",
+              "sql": {
+                "from": {
+                  "property": {
+                    "name": "AWS/Kafka",
+                    "type": "string"
+                  },
+                  "type": "property"
+                },
+                "select": {
+                  "name": "COUNT",
+                  "parameters": [
+                    {
+                      "name": "ActiveControllerCount",
+                      "type": "functionParameter"
+                    }
+                  ],
+                  "type": "function"
+                }
+              },
+              "sqlExpression": "SELECT COUNT(ActiveControllerCount) FROM \"AWS/Kafka\"",
+              "statistic": "Average"
+            }
+          ],
+          "title": "Brokers Online",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 1
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 2
+                  },
+                  {
+                    "color": "green",
+                    "value": 3
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 4,
+            "y": 1
+          },
+          "id": 4,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "10.4.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+              },
+              "dimensions": {},
+              "editorMode": "code",
+              "expr": "aws_kafka_global_partition_count_sum{cluster_name=\"$cluster\"}",
+              "expression": "",
+              "id": "",
+              "label": "",
+              "legendFormat": "__auto",
+              "logGroups": [],
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "PartitionCount",
+              "metricQueryType": 1,
+              "namespace": "AWS/Kafka",
+              "period": "",
+              "queryMode": "Metrics",
+              "range": true,
+              "refId": "A",
+              "region": "us-east-1",
+              "sql": {
+                "from": {
+                  "property": {
+                    "name": "AWS/Kafka",
+                    "type": "string"
+                  },
+                  "type": "property"
+                },
+                "select": {
+                  "name": "AVG",
+                  "parameters": [
+                    {
+                      "name": "PartitionCount",
+                      "type": "functionParameter"
+                    }
+                  ],
+                  "type": "function"
+                }
+              },
+              "sqlExpression": "SELECT AVG(PartitionCount) FROM \"AWS/Kafka\"",
+              "statistic": "Average"
+            }
+          ],
+          "title": "Online Partitions",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 1
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 2
+                  },
+                  {
+                    "color": "green",
+                    "value": 3
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 8,
+            "y": 1
+          },
+          "id": 5,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "10.4.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+              },
+              "dimensions": {},
+              "editorMode": "code",
+              "expr": "sum(aws_kafka_under_replicated_partitions_sum{cluster_name=\"$cluster\"})",
+              "expression": "",
+              "id": "",
+              "label": "",
+              "legendFormat": "__auto",
+              "logGroups": [],
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "",
+              "metricQueryType": 1,
+              "namespace": "AWS/Kafka",
+              "period": "",
+              "queryMode": "Metrics",
+              "range": true,
+              "refId": "A",
+              "region": "us-east-1",
+              "sql": {
+                "from": {
+                  "property": {
+                    "name": "AWS/Kafka",
+                    "type": "string"
+                  },
+                  "type": "property"
+                },
+                "select": {
+                  "name": "AVG",
+                  "parameters": [
+                    {
+                      "name": "UnderReplicatedPartitions",
+                      "type": "functionParameter"
+                    }
+                  ],
+                  "type": "function"
+                }
+              },
+              "sqlExpression": "SELECT AVG(UnderReplicatedPartitions) FROM \"AWS/Kafka\"",
+              "statistic": "Average"
+            }
+          ],
+          "title": "Under Replicated Partitions",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 1
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 2
+                  },
+                  {
+                    "color": "green",
+                    "value": 3
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 12,
+            "y": 1
+          },
+          "id": 6,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "10.4.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+              },
+              "dimensions": {},
+              "editorMode": "code",
+              "expr": "aws_kafka_offline_partitions_count_sum{cluster_name=\"$cluster\"}",
+              "expression": "",
+              "id": "",
+              "label": "",
+              "legendFormat": "__auto",
+              "logGroups": [],
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "",
+              "metricQueryType": 1,
+              "namespace": "AWS/Kafka",
+              "period": "",
+              "queryMode": "Metrics",
+              "range": true,
+              "refId": "A",
+              "region": "us-east-1",
+              "sql": {
+                "from": {
+                  "property": {
+                    "name": "AWS/Kafka",
+                    "type": "string"
+                  },
+                  "type": "property"
+                },
+                "select": {
+                  "name": "AVG",
+                  "parameters": [
+                    {
+                      "name": "OfflinePartitionsCount",
+                      "type": "functionParameter"
+                    }
+                  ],
+                  "type": "function"
+                }
+              },
+              "sqlExpression": "SELECT AVG(OfflinePartitionsCount) FROM \"AWS/Kafka\"",
+              "statistic": "Average"
+            }
+          ],
+          "title": "Partitions Offline",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 16,
+            "y": 1
+          },
+          "id": 26,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "10.4.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+              },
+              "editorMode": "code",
+              "expr": "sum(aws_kafka_client_connection_count_maximum{cluster_name=\"$cluster\"})",
+              "instant": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Connection Count",
+          "type": "stat"
+        },
+        {
+          "collapsed": true,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 6
+          },
+          "id": 10,
+          "panels": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 0,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "percent"
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 7
+              },
+              "id": 12,
+              "options": {
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "targets": [
+                {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+                  },
+                  "dimensions": {},
+                  "editorMode": "code",
+                  "expr": "aws_kafka_heap_memory_after_gc_average{cluster_name=\"$cluster\"}",
+                  "expression": "",
+                  "id": "",
+                  "label": "Broker",
+                  "legendFormat": "Broker {{broker_id}}",
+                  "logGroups": [],
+                  "matchExact": true,
+                  "metricEditorMode": 0,
+                  "metricName": "",
+                  "metricQueryType": 1,
+                  "namespace": "AWS/Kafka",
+                  "period": "",
+                  "queryMode": "Metrics",
+                  "range": true,
+                  "refId": "A",
+                  "region": "us-east-1",
+                  "sql": {
+                    "from": {
+                      "property": {
+                        "name": "AWS/Kafka",
+                        "type": "string"
+                      },
+                      "type": "property"
+                    },
+                    "groupBy": {
+                      "expressions": [
+                        {
+                          "property": {
+                            "name": "Broker ID",
+                            "type": "string"
+                          },
+                          "type": "groupBy"
+                        }
+                      ],
+                      "type": "and"
+                    },
+                    "select": {
+                      "name": "AVG",
+                      "parameters": [
+                        {
+                          "name": "MemoryUsed",
+                          "type": "functionParameter"
+                        }
+                      ],
+                      "type": "function"
+                    }
+                  },
+                  "sqlExpression": "SELECT AVG(MemoryUsed) FROM \"AWS/Kafka\" GROUP BY \"Broker ID\"",
+                  "statistic": "Average"
+                }
+              ],
+              "title": "Heap Memory After GC",
+              "type": "timeseries"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 0,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "percent"
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 7
+              },
+              "id": 13,
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "displayMode": "table",
+                  "placement": "right",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "targets": [
+                {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+                  },
+                  "dimensions": {},
+                  "editorMode": "code",
+                  "expr": "aws_kafka_cpu_system_maximum{cluster_name=\"$cluster\"}",
+                  "expression": "",
+                  "id": "",
+                  "label": "CPU User on Broker",
+                  "legendFormat": "Broker {{broker_id}} %System",
+                  "logGroups": [],
+                  "matchExact": true,
+                  "metricEditorMode": 0,
+                  "metricName": "",
+                  "metricQueryType": 1,
+                  "namespace": "AWS/Kafka",
+                  "period": "",
+                  "queryMode": "Metrics",
+                  "range": true,
+                  "refId": "A",
+                  "region": "us-east-1",
+                  "sql": {
+                    "from": {
+                      "property": {
+                        "name": "AWS/Kafka",
+                        "type": "string"
+                      },
+                      "type": "property"
+                    },
+                    "groupBy": {
+                      "expressions": [
+                        {
+                          "property": {
+                            "name": "Broker ID",
+                            "type": "string"
+                          },
+                          "type": "groupBy"
+                        }
+                      ],
+                      "type": "and"
+                    },
+                    "select": {
+                      "name": "AVG",
+                      "parameters": [
+                        {
+                          "name": "CpuUser",
+                          "type": "functionParameter"
+                        }
+                      ],
+                      "type": "function"
+                    }
+                  },
+                  "sqlExpression": "SELECT AVG(CpuUser) FROM \"AWS/Kafka\" GROUP BY \"Broker ID\"",
+                  "statistic": "Average"
+                },
+                {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+                  },
+                  "editorMode": "code",
+                  "expr": "aws_kafka_cpu_user_maximum{cluster_name=\"$cluster\"}",
+                  "hide": false,
+                  "instant": false,
+                  "legendFormat": "Broker {{broker_id}} %User",
+                  "range": true,
+                  "refId": "B"
+                }
+              ],
+              "title": "CPU per Broker",
+              "type": "timeseries"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 0,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "percent"
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 15
+              },
+              "id": 14,
+              "options": {
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "targets": [
+                {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+                  },
+                  "dimensions": {},
+                  "editorMode": "code",
+                  "expr": "aws_kafka_kafka_data_logs_disk_used_sum{cluster_name=\"$cluster\"}",
+                  "expression": "",
+                  "id": "",
+                  "label": "Broker",
+                  "legendFormat": "Logs Dir Used Broker {{broker_id}}",
+                  "logGroups": [],
+                  "matchExact": true,
+                  "metricEditorMode": 0,
+                  "metricName": "",
+                  "metricQueryType": 1,
+                  "namespace": "AWS/Kafka",
+                  "period": "",
+                  "queryMode": "Metrics",
+                  "range": true,
+                  "refId": "A",
+                  "region": "us-east-1",
+                  "sql": {
+                    "from": {
+                      "property": {
+                        "name": "AWS/Kafka",
+                        "type": "string"
+                      },
+                      "type": "property"
+                    },
+                    "groupBy": {
+                      "expressions": [
+                        {
+                          "property": {
+                            "name": "Broker ID",
+                            "type": "string"
+                          },
+                          "type": "groupBy"
+                        }
+                      ],
+                      "type": "and"
+                    },
+                    "select": {
+                      "name": "AVG",
+                      "parameters": [
+                        {
+                          "name": "KafkaDataLogsDiskUsed",
+                          "type": "functionParameter"
+                        }
+                      ],
+                      "type": "function"
+                    }
+                  },
+                  "sqlExpression": "SELECT AVG(KafkaDataLogsDiskUsed) FROM \"AWS/Kafka\" GROUP BY \"Broker ID\"",
+                  "statistic": "Average"
+                }
+              ],
+              "title": "Disk Usage per Broker",
+              "type": "timeseries"
+            }
+          ],
+          "title": "Resource Use",
+          "type": "row"
+        },
+        {
+          "collapsed": false,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 7
+          },
+          "id": 16,
+          "panels": [],
+          "title": "Network Stats",
+          "type": "row"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "binBps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 8
+          },
+          "id": 20,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+              },
+              "editorMode": "code",
+              "expr": "sum(aws_kafka_bytes_in_per_sec_average{cluster_name=\"$cluster\"}) by (broker_id)",
+              "instant": false,
+              "legendFormat": "Broker {{broker_id}}",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Bytes In",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "binBps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 8
+          },
+          "id": 24,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+              },
+              "editorMode": "code",
+              "expr": "sum(aws_kafka_bytes_out_per_sec_average{cluster_name=\"$cluster\"}) by (broker_id)",
+              "instant": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Bytes Out",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": " Clients"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Other Clients"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 16
+          },
+          "id": 25,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum(aws_kafka_connection_count_maximum{cluster_name=\"$cluster\"})",
+              "hide": false,
+              "instant": false,
+              "legendFormat": "Total Connection Count",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+              },
+              "editorMode": "code",
+              "expr": "sum(aws_kafka_client_connection_count_maximum{cluster_name=\"$cluster\"}) by (client_authentication, broker_id)",
+              "hide": false,
+              "instant": false,
+              "legendFormat": "{{client_authentication}} Broker {{broker_id}}",
+              "range": true,
+              "refId": "C"
+            }
+          ],
+          "title": "Connection Counts",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ms"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 16
+          },
+          "id": 21,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+              },
+              "dimensions": {},
+              "editorMode": "code",
+              "expr": "aws_kafka_zoo_keeper_request_latency_ms_mean_sum{cluster_name=\"$cluster\"}",
+              "expression": "",
+              "id": "",
+              "label": "Broker",
+              "legendFormat": "Broker {{broker_id}}",
+              "logGroups": [],
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "",
+              "metricQueryType": 1,
+              "namespace": "AWS/Kafka",
+              "period": "",
+              "queryMode": "Metrics",
+              "range": true,
+              "refId": "A",
+              "region": "us-east-1",
+              "sql": {
+                "from": {
+                  "property": {
+                    "name": "AWS/Kafka",
+                    "type": "string"
+                  },
+                  "type": "property"
+                },
+                "groupBy": {
+                  "expressions": [
+                    {
+                      "property": {
+                        "name": "Broker ID",
+                        "type": "string"
+                      },
+                      "type": "groupBy"
+                    }
+                  ],
+                  "type": "and"
+                },
+                "select": {
+                  "name": "AVG",
+                  "parameters": [
+                    {
+                      "name": "ZooKeeperRequestLatencyMsMean",
+                      "type": "functionParameter"
+                    }
+                  ],
+                  "type": "function"
+                }
+              },
+              "sqlExpression": "SELECT AVG(ZooKeeperRequestLatencyMsMean) FROM \"AWS/Kafka\" GROUP BY \"Broker ID\"",
+              "statistic": "Average"
+            }
+          ],
+          "title": "Zookeeper Request Latency",
+          "type": "timeseries"
+        },
+        {
+          "collapsed": true,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 24
+          },
+          "id": 18,
+          "panels": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 0,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  }
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 12,
+                "w": 24,
+                "x": 0,
+                "y": 25
+              },
+              "id": 23,
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "displayMode": "table",
+                  "placement": "right",
+                  "showLegend": true,
+                  "sortBy": "Last *",
+                  "sortDesc": true
+                },
+                "tooltip": {
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "targets": [
+                {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+                  },
+                  "dimensions": {},
+                  "editorMode": "code",
+                  "exemplar": false,
+                  "expr": "sum(kafka_consumergroup_group_lag{}) by (topic, group)",
+                  "expression": "",
+                  "format": "time_series",
+                  "id": "",
+                  "instant": false,
+                  "label": "",
+                  "legendFormat": "Group: {{group}} Topic: {{topic}}",
+                  "logGroups": [],
+                  "matchExact": true,
+                  "metricEditorMode": 0,
+                  "metricName": "",
+                  "metricQueryType": 1,
+                  "namespace": "AWS/Kafka",
+                  "period": "",
+                  "queryMode": "Metrics",
+                  "range": true,
+                  "refId": "A",
+                  "region": "us-east-1",
+                  "sql": {
+                    "from": {
+                      "property": {
+                        "name": "AWS/Kafka",
+                        "type": "string"
+                      },
+                      "type": "property"
+                    },
+                    "groupBy": {
+                      "expressions": [
+                        {
+                          "property": {
+                            "name": "Consumer Group",
+                            "type": "string"
+                          },
+                          "type": "groupBy"
+                        }
+                      ],
+                      "type": "and"
+                    },
+                    "select": {
+                      "name": "AVG",
+                      "parameters": [
+                        {
+                          "name": "SumOffsetLag",
+                          "type": "functionParameter"
+                        }
+                      ],
+                      "type": "function"
+                    }
+                  },
+                  "sqlExpression": "SELECT AVG(SumOffsetLag) FROM \"AWS/Kafka\" GROUP BY \"Consumer Group\"",
+                  "statistic": "Average"
+                }
+              ],
+              "title": "Consumer Lag by Group",
+              "type": "timeseries"
+            }
+          ],
+          "title": "Lag Metrics",
+          "type": "row"
+        }
+      ],
+      "refresh": "",
+      "schemaVersion": 39,
+      "tags": [],
+      "templating": {
+        "list": [
+          {
+            "current": {
+              "selected": true,
+              "text": "prod",
+              "value": "p"
+            },
+            "hide": 0,
+            "includeAll": false,
+            "multi": false,
+            "name": "Environment",
+            "options": [
+              {
+                "selected": false,
+                "text": "stage",
+                "value": "s"
+              },
+              {
+                "selected": true,
+                "text": "prod",
+                "value": "p"
+              }
+            ],
+            "query": "stage : s, prod : p",
+            "queryValue": "",
+            "skipUrlSync": false,
+            "type": "custom"
+          },
+          {
+            "current": {
+              "selected": false,
+              "text": "appsrep07ue1-prometheus",
+              "value": "P7E8E1698DF0AC988"
+            },
+            "hide": 2,
+            "includeAll": false,
+            "multi": false,
+            "name": "datasource",
+            "options": [],
+            "query": "prometheus",
+            "queryValue": "",
+            "refresh": 1,
+            "regex": "/^.*appsre$Environment.*07.*1-prometheus$/",
+            "skipUrlSync": false,
+            "type": "datasource"
+          },
+          {
+            "current": {},
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${DS_APPSREP07UE1-PROMETHEUS}"
+            },
+            "definition": "label_values(aws_kafka_bytes_in_per_sec_average,cluster_name)",
+            "hide": 2,
+            "includeAll": false,
+            "multi": false,
+            "name": "cluster",
+            "options": [],
+            "query": {
+              "qryType": 1,
+              "query": "label_values(aws_kafka_bytes_in_per_sec_average,cluster_name)",
+              "refId": "PrometheusVariableQueryEditor-VariableQuery"
+            },
+            "refresh": 1,
+            "regex": "/consoledot.*/",
+            "skipUrlSync": false,
+            "sort": 0,
+            "type": "query"
+          },
+          {
+            "current": {
+              "selected": false,
+              "text": "crcp01ue1-prometheus",
+              "value": "PC1EAC84DCBBF0697"
+            },
+            "hide": 2,
+            "includeAll": false,
+            "multi": false,
+            "name": "lag_datasource",
+            "options": [],
+            "query": "prometheus",
+            "queryValue": "",
+            "refresh": 1,
+            "regex": "/.*crc$Environment.*1-prometheus/",
+            "skipUrlSync": false,
+            "type": "datasource"
+          }
+        ]
+      },
+      "time": {
+        "from": "now-3h",
+        "to": "now"
+      },
+      "timepicker": {},
+      "timezone": "",
+      "title": "ConsoleDot MSK",
+      "uid": "adqkf8ktn86wwa",
+      "version": 1,
+      "weekStart": ""
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: grafana-dashboard-consoledot-msk
