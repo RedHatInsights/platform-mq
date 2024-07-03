@@ -1553,7 +1553,7 @@ data:
     "timezone": "",
     "title": "ConsoleDot MSK Stage",
     "uid": "adqkf8ktn86wwa",
-    "version": 1,
+    "version": 2,
     "weekStart": ""
     }
 kind: ConfigMap
