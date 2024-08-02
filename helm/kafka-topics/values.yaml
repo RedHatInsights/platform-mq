@@ -319,11 +319,14 @@ topics:
 - topic_name: platform.edge.fleetmgmt.device-update
   partitions: 3
   replicas: 3
+- topic_name: platform.notifications.connector.email.high.volume
+  partitions: 6
+  replicas: 3
 - topic_name: platform.notifications.tocamel
   partitions: 3
   replicas: 3
 - topic_name: platform.notifications.fromcamel
-  partitions: 3
+  partitions: 6
   replicas: 3
 - topic_name: heartbeats
   partitions: 1
