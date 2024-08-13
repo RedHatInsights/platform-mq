@@ -28,7 +28,7 @@ parameters:
   value: debezium-connector-postgres
   description: Unique prefix for topics created by KafkaConnect for this Connector resource
 - name: TABLE_LIST
-  value: 
+  value: inventory*
   description: The list of tables from which the connector captures change events. 
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
