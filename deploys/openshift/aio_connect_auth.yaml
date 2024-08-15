@@ -1,0 +1,110 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: kafka-connect
+parameters:
+- name: KAFKA_CONNECT_IMAGE
+  description: Image for kafka connect instance
+  value: quay.io/cloudservices/kafka-connect
+- name: IMAGE_TAG
+  description: Tag to use for this deploy of kafka connect
+  value: latest
+- name: KAFKA_CONNECT_VERSION
+  description: Version of the kafka-connect service
+  value: 3.6.0
+- name: KAFKA_CONNECT_REPLICAS
+  description: Number of connect instances to run
+  value: "1"
+- name: KAFKA_CONNECT_CPU_LIMIT
+  value: "1"
+- name: KAFKA_CONNECT_MEM_LIMIT
+  value: 4Gi
+- name: KAFKA_CONNECT_CPU_REQUEST
+  value: 500m
+- name: KAFKA_CONNECT_MEM_REQUEST
+  value: 1Gi
+- name: BOOTSTRAP_SERVERS
+  required: true
+- name: AUTH_CLIENT_ID
+  value: "username"
+- name: AUTH_CLIENT_SECRET_NAME
+  value: "kafka"
+- name: AUTH_CLIENT_SECRET_KEY
+  value: "client_secret"
+objects:
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaConnect
+  metadata:
+    name: platform-kafka-connect
+    labels:
+      app: platform-mq
+    annotations:
+      strimzi.io/use-connector-resources: "true"
+  spec:
+    build:
+      output:
+        type: docker
+        image: ${KAFKA_CONNECT_IMAGE}:${IMAGE_TAG}
+        pushSecret: kafkaconnect-push-secret
+      plugins:
+          - name: debezium-postgres-connector
+            artifacts:
+              - type: zip
+                url: https://maven.repository.redhat.com/ga/io/debezium/debezium-connector-postgres/2.5.4.Final-redhat-00001/debezium-connector-postgres-2.5.4.Final-redhat-00001-plugin.zip
+              - type: zip
+                url: https://maven.repository.redhat.com/ga/io/debezium/debezium-scripting/2.5.4.Final-redhat-00001/debezium-scripting-2.5.4.Final-redhat-00001.zip
+              - type: jar
+                url: https://repo1.maven.org/maven2/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar
+              - type: jar
+                url: https://repo1.maven.org/maven2/org/apache/groovy/groovy-jsr223/4.0.22/groovy-jsr223-4.0.22.jar
+              - type: jar
+                url: https://repo1.maven.org/maven2/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar
+          - name: camel-apache-s3-connector
+            artifacts:
+              - type: zip
+                url: https://maven.repository.redhat.com/ga/org/apache/camel/kafkaconnector/camel-aws-s3-kafka-connector/0.7.1.fuse-800004-redhat-00001/camel-aws-s3-kafka-connector-0.7.1.fuse-800004-redhat-00001-package.zip
+          - name: camel-elasticsearch-rest-connector
+            artifacts:
+              - type: zip
+                url: https://maven.repository.redhat.com/ga/org/apache/camel/kafkaconnector/camel-elasticsearch-rest-kafka-connector/0.7.1.fuse-800004-redhat-00001/camel-elasticsearch-rest-kafka-connector-0.7.1.fuse-800004-redhat-00001-package.zip
+    template:
+      pod:
+        imagePullSecrets:
+          - name: quay-cloudservices-pull
+          - name: rh-registry-pull
+          - name: quay.io
+    version: ${KAFKA_CONNECT_VERSION}
+    replicas: ${{KAFKA_CONNECT_REPLICAS}}
+    resources:
+      limits:
+        cpu: ${KAFKA_CONNECT_CPU_LIMIT}
+        memory: ${KAFKA_CONNECT_MEM_LIMIT}
+      requests:
+        cpu: ${KAFKA_CONNECT_CPU_REQUEST}
+        memory: ${KAFKA_CONNECT_MEM_REQUEST}
+    bootstrapServers: ${BOOTSTRAP_SERVERS}
+    externalConfiguration:
+      env:
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: strimzi-bucket-read-write
+              key: aws_access_key_id
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: strimzi-bucket-read-write
+              key: aws_secret_access_key
+    tls:
+      trustedCertificates: []
+    authentication:
+      type: scram-sha-512
+      username: ${AUTH_CLIENT_ID}
+      passwordSecret:
+        secretName: ${AUTH_CLIENT_SECRET_NAME}
+        password: ${AUTH_CLIENT_SECRET_KEY}
+    config:
+      group.id: connect-cluster
+      offset.storage.topic: platform-connect-cluster-offsets
+      config.storage.topic: platform-connect-cluster-configs
+      status.storage.topic: platform-connect-cluster-status
