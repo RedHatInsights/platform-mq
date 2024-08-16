@@ -59,10 +59,10 @@ objects:
                 url: https://repo1.maven.org/maven2/org/apache/groovy/groovy-jsr223/4.0.22/groovy-jsr223-4.0.22.jar
               - type: jar
                 url: https://repo1.maven.org/maven2/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar
-          - name: camel-apache-s3-connector
+          - name: camel-aws2-s3-connector
             artifacts:
               - type: zip
-                url: https://maven.repository.redhat.com/ga/org/apache/camel/kafkaconnector/camel-aws-s3-kafka-connector/0.7.1.fuse-800004-redhat-00001/camel-aws-s3-kafka-connector-0.7.1.fuse-800004-redhat-00001-package.zip
+                url: https://maven.repository.redhat.com/ga/org/apache/camel/kafkaconnector/camel-aws2-s3-kafka-connector/0.7.1.fuse-800004-redhat-00001/camel-aws2-s3-kafka-connector-0.7.1.fuse-800004-redhat-00001-package.zip
           - name: camel-elasticsearch-rest-connector
             artifacts:
               - type: zip
