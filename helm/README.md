@@ -36,5 +36,5 @@ Add new connector configuration to [values.yaml](kafka-connectors/values.yaml) a
 Run following command to generate the OpenShift template to create Kafka Connectors.
 
 ```sh
-$ helm template ./helm/kafka-connectors -f helm/kafka-connectors/values.yaml > deploys/openshift/kafka-connectors.yaml
+$ helm template ./helm/kafka-connectors -f helm/kafka-connectors/values.yaml > deploys/openshift/connectors/kafka-connectors.yaml
 ```
