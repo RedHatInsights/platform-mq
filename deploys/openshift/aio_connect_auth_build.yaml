@@ -41,6 +41,32 @@ objects:
     annotations:
       strimzi.io/use-connector-resources: "true"
   spec:
+    build:
+      output:
+        type: docker
+        image: ${KAFKA_CONNECT_IMAGE}:${IMAGE_TAG}
+        pushSecret: kafkaconnect-push-secret
+      plugins:
+          - name: debezium-postgres-connector
+            artifacts:
+              - type: zip
+                url: https://maven.repository.redhat.com/ga/io/debezium/debezium-connector-postgres/2.5.4.Final-redhat-00001/debezium-connector-postgres-2.5.4.Final-redhat-00001-plugin.zip
+              - type: zip
+                url: https://maven.repository.redhat.com/ga/io/debezium/debezium-scripting/2.5.4.Final-redhat-00001/debezium-scripting-2.5.4.Final-redhat-00001.zip
+              - type: jar
+                url: https://repo1.maven.org/maven2/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar
+              - type: jar
+                url: https://repo1.maven.org/maven2/org/apache/groovy/groovy-jsr223/4.0.22/groovy-jsr223-4.0.22.jar
+              - type: jar
+                url: https://repo1.maven.org/maven2/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar
+          - name: camel-aws2-s3-connector
+            artifacts:
+              - type: zip
+                url: https://maven.repository.redhat.com/ga/org/apache/camel/kafkaconnector/camel-aws2-s3-kafka-connector/0.7.1.fuse-800004-redhat-00001/camel-aws2-s3-kafka-connector-0.7.1.fuse-800004-redhat-00001-package.zip
+          - name: camel-elasticsearch-rest-connector
+            artifacts:
+              - type: zip
+                url: https://maven.repository.redhat.com/ga/org/apache/camel/kafkaconnector/camel-elasticsearch-rest-kafka-connector/0.7.1.fuse-800004-redhat-00001/camel-elasticsearch-rest-kafka-connector-0.7.1.fuse-800004-redhat-00001-package.zip
     template:
       pod:
         imagePullSecrets:
