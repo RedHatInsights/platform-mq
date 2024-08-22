@@ -63,6 +63,8 @@ objects:
             artifacts:
               - type: jar
                 url: https://packages.confluent.io/maven/io/confluent/kafka-connect-s3/10.5.8/kafka-connect-s3-10.5.8.jar
+              - type: jar
+                url: https://packages.confluent.io/maven/io/confluent/kafka-connect-storage-common/11.2.9/kafka-connect-storage-common-11.2.9.jar
           - name: camel-elasticsearch-rest-connector
             artifacts:
               - type: zip
