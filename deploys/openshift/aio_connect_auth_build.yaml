@@ -49,30 +49,25 @@ objects:
       plugins:
           - name: debezium-postgres-connector
             artifacts:
-              - type: zip
-                url: https://maven.repository.redhat.com/ga/io/debezium/debezium-connector-postgres/2.5.4.Final-redhat-00001/debezium-connector-postgres-2.5.4.Final-redhat-00001-plugin.zip
-              - type: zip
-                url: https://maven.repository.redhat.com/ga/io/debezium/debezium-scripting/2.5.4.Final-redhat-00001/debezium-scripting-2.5.4.Final-redhat-00001.zip
-              - type: jar
-                url: https://repo1.maven.org/maven2/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar
-              - type: jar
-                url: https://repo1.maven.org/maven2/org/apache/groovy/groovy-jsr223/4.0.22/groovy-jsr223-4.0.22.jar
-              - type: jar
-                url: https://repo1.maven.org/maven2/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar
+              - type: maven
+                repository: https://maven.repository.redhat.com/ga/
+                group: io.debezium
+                artifact: debezium-connector-postgres
+                version: 2.5.4.Final-redhat-00001
           - name: confluent-s3-sink
             artifacts:
-              - type: jar
-                url: https://packages.confluent.io/maven/io/confluent/kafka-connect-s3/10.5.8/kafka-connect-s3-10.5.8.jar
-              - type: jar
-                url: https://packages.confluent.io/maven/io/confluent/kafka-connect-storage-common/11.2.9/kafka-connect-storage-common-11.2.9.jar
-              - type: jar
-                url: https://packages.confluent.io/maven/io/confluent/kafka-connect-storage-core/11.2.9/kafka-connect-storage-core-11.2.9.jar
-              - type: jar
-                url: https://packages.confluent.io/maven/io/confluent/kafka-connect-storage-partitioner/11.2.9/kafka-connect-storage-partitioner-11.2.9.jar
+              - type: maven
+                repository: https://packages.confluent.io/maven
+                group: io.confluent
+                artifact: kafka-connect-storage-cloud
+                version: 10.5.9
           - name: camel-elasticsearch-rest-connector
             artifacts:
-              - type: zip
-                url: https://maven.repository.redhat.com/ga/org/apache/camel/kafkaconnector/camel-elasticsearch-rest-kafka-connector/0.7.1.fuse-800004-redhat-00001/camel-elasticsearch-rest-kafka-connector-0.7.1.fuse-800004-redhat-00001-package.zip
+              - type: maven
+                repository: https://maven/repository.redhat.com/ga/
+                group: org.apache.camel.kafkaconnector
+                artifact: camel-elasticsearch-rest-kafkaconnector
+                version: 0.7.1.fuse-800004-redhat-00001
     template:
       pod:
         imagePullSecrets:
