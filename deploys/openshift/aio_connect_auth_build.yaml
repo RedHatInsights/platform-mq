@@ -57,6 +57,7 @@ objects:
           - name: confluent-s3-sink
             artifacts:
               - type: maven
+                repository: https://packages.confluent.io/maven/
                 group: io.confluent
                 artifact: kafka-connect-s3
                 version: 10.5.9
