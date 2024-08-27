@@ -60,11 +60,8 @@ objects:
                 version: 10.5.9
           - name: camel-elasticsearch-rest-connector
             artifacts:
-              - type: maven
-                repository: https://maven/repository.redhat.com/ga/
-                group: org.apache.camel.kafkaconnector
-                artifact: camel-elasticsearch-rest-kafkaconnector
-                version: 0.7.1.fuse-800004-redhat-00001
+              - type: zip
+                url: https://maven.repository.redhat.com/ga/org/apache/camel/kafkaconnector/camel-elasticsearch-rest-kafka-connector/0.7.1.fuse-800004-redhat-00001/camel-elasticsearch-rest-kafka-connector-0.7.1.fuse-800004-redhat-00001-package.zip
     template:
       pod:
         imagePullSecrets:
