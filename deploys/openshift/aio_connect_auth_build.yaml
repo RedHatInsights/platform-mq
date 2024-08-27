@@ -49,11 +49,8 @@ objects:
       plugins:
           - name: debezium-postgres-connector
             artifacts:
-              - type: maven
-                repository: https://maven.repository.redhat.com/ga/
-                group: io.debezium
-                artifact: debezium-connector-postgres
-                version: 2.5.4.Final-redhat-00001
+              - type: zip
+                url: https://maven.repository.redhat.com/ga/io/debezium/debezium-connector-postgres/2.5.4.Final-redhat-00001/debezium-connector-postgres-2.5.4.Final-redhat-00001-plugin.zip
           - name: confluent-s3-sink
             artifacts:
               - type: maven
