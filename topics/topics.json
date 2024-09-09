@@ -121,7 +121,7 @@
 },
 {
     "TOPIC_NAME": "platform.payload-status",
-    "PARTITIONS": 8,
+    "PARTITIONS": 20,
     "REPLICAS": 3
 },
 {
