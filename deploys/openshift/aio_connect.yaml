@@ -72,6 +72,8 @@ objects:
     tls:
       trustedCertificates: []
     config:
+      config.providers: secrets
+      config.providers.secrets.class: io.strimzi.kafka.KubernetesSecretConfigProvider
       group.id: connect-cluster
       offset.storage.topic: platform-connect-cluster-offsets
       config.storage.topic: platform-connect-cluster-configs
