@@ -70,6 +70,13 @@ objects:
             artifacts:
               - type: zip
                 url: https://maven.repository.redhat.com/ga/org/apache/camel/kafkaconnector/camel-elasticsearch-rest-kafka-connector/0.7.1.fuse-800004-redhat-00001/camel-elasticsearch-rest-kafka-connector-0.7.1.fuse-800004-redhat-00001-package.zip
+          - name: kafka-relations-sink
+            artifacts:
+              - type: maven
+                repository: https://repo1.maven.org/maven2
+                group: org.project-kessel
+                artifact: kafka-relations-sink
+                version: "0.1"
     template:
       pod:
         imagePullSecrets:
