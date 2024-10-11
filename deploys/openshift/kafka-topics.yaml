@@ -1241,6 +1241,19 @@ objects:
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: outbox.event.RelationReplicationEvent
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: outbox.event.RelationReplicationEvent
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
 parameters:
 # Needed for processing by app-interface but not used.
 - name: IMAGE_TAG
