@@ -83,3 +83,5 @@ objects:
       offset.storage.topic: connect-cluster-offsets
       config.storage.topic: connect-cluster-configs
       status.storage.topic: connect-cluster-status
+      config.providers: secrets
+      config.providers.secrets.class: io.strimzi.kafka.KubernetesSecretConfigProvider
