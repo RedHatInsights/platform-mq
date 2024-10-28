@@ -85,6 +85,12 @@ objects:
           - name: quay.io
     version: ${KAFKA_CONNECT_VERSION}
     replicas: ${{KAFKA_CONNECT_REPLICAS}}
+    metricsConfig:
+      type: jmxPrometheusExporter
+      valueFrom:
+        configMapKeyRef:
+          name: kafka-connect-metrics
+          key: metrics-config.yml
     resources:
       limits:
         cpu: ${KAFKA_CONNECT_CPU_LIMIT}
