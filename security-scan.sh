@@ -9,8 +9,8 @@
 
 set -exv
 
-IMAGE_NAME="platform-mq"
-DOCKERFILE_LOCATION="$PWD/resources/"
+IMAGE_NAME="kafka-connect"
+DOCKERFILE_LOCATION="$PWD/Connect/"
 
 # (Severity Options: negligible, low, medium, high, critical)
 FAIL_ON_SEVERITY="high"
@@ -19,7 +19,7 @@ FAIL_ON_SEVERITY="high"
 PODMAN_OR_DOCKER="docker"
 
 # Dockerfile Name
-DOCKERFILE_NAME="$PWD/resources/Dockerfile"
+DOCKERFILE_NAME="$PWD/Connect/Dockerfile"
 
 curl -sSL https://raw.githubusercontent.com/RedHatInsights/platform-security-gh-workflow/master/jenkins/security-scan.sh | \
     sh -s "${IMAGE_NAME}" "${DOCKERFILE_LOCATION}" "${FAIL_ON_SEVERITY}" "${PODMAN_OR_DOCKER}" "${DOCKERFILE_NAME}"
