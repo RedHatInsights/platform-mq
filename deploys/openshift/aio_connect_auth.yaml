@@ -41,6 +41,7 @@ objects:
     annotations:
       strimzi.io/use-connector-resources: "true"
   spec:
+    image: ${KAFKA_CONNECT_IMAGE}:${IMAGE_TAG}
     template:
       pod:
         imagePullSecrets:
@@ -88,3 +89,5 @@ objects:
       offset.storage.topic: platform-connect-cluster-offsets
       config.storage.topic: platform-connect-cluster-configs
       status.storage.topic: platform-connect-cluster-status
+      config.providers: secrets
+      config.providers.secrets.class: io.strimzi.kafka.KubernetesSecretConfigProvider
