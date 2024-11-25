@@ -1,5 +1,7 @@
 apiVersion: v1
+{
 data:
+  "annotations": {
   ConsoleDotMSKv3.json: |-
     {
       "annotations": {
@@ -47,7 +49,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${aws_datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -109,7 +111,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${aws_datasource}"
               },
               "dimensions": {},
               "editorMode": "code",
@@ -158,7 +160,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${aws_datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -220,7 +222,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${aws_datasource}"
               },
               "dimensions": {},
               "editorMode": "code",
@@ -269,7 +271,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${aws_datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -331,7 +333,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${aws_datasource}"
               },
               "dimensions": {},
               "editorMode": "code",
@@ -380,7 +382,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${aws_datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -442,7 +444,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${aws_datasource}"
               },
               "dimensions": {},
               "editorMode": "code",
@@ -491,7 +493,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${aws_datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -539,7 +541,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${aws_datasource}"
               },
               "editorMode": "code",
               "expr": "sum(aws_kafka_client_connection_count_maximum{cluster_name=\"$cluster\"})",
@@ -565,7 +567,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${aws_datasource}"
               },
               "fieldConfig": {
                 "defaults": {
@@ -645,7 +647,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${datasource}"
+                    "uid": "${aws_datasource}"
                   },
                   "dimensions": {},
                   "editorMode": "code",
@@ -706,7 +708,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${aws_datasource}"
               },
               "fieldConfig": {
                 "defaults": {
@@ -788,7 +790,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${datasource}"
+                    "uid": "${aws_datasource}"
                   },
                   "dimensions": {},
                   "editorMode": "code",
@@ -845,7 +847,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${datasource}"
+                    "uid": "${aws_datasource}"
                   },
                   "editorMode": "code",
                   "expr": "aws_kafka_cpu_user_maximum{cluster_name=\"$cluster\"}",
@@ -862,7 +864,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${aws_datasource}"
               },
               "fieldConfig": {
                 "defaults": {
@@ -942,7 +944,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${datasource}"
+                    "uid": "${aws_datasource}"
                   },
                   "dimensions": {},
                   "editorMode": "code",
@@ -1005,7 +1007,7 @@ data:
           "type": "row"
         },
         {
-          "collapsed": false,
+          "collapsed": true,
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -1013,472 +1015,473 @@ data:
             "y": 7
           },
           "id": 16,
-          "panels": [],
-          "title": "Network Stats",
-          "type": "row"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
+          "panels": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${aws_datasource}"
               },
-              "custom": {
-                "axisBorderShow": false,
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 0,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "binBps"
                 },
-                "insertNulls": false,
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 8
+              },
+              "id": 20,
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "displayMode": "table",
+                  "placement": "right",
+                  "showLegend": true
                 },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
+                "tooltip": {
+                  "mode": "single",
+                  "sort": "none"
                 }
               },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
+              "targets": [
+                {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "${aws_datasource}"
                   },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "binBps"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 8
-          },
-          "id": 20,
-          "options": {
-            "legend": {
-              "calcs": [
-                "lastNotNull"
+                  "editorMode": "code",
+                  "expr": "sum(aws_kafka_bytes_in_per_sec_average{cluster_name=\"$cluster\"}) by (broker_id)",
+                  "instant": false,
+                  "legendFormat": "Broker {{broker_id}}",
+                  "range": true,
+                  "refId": "A"
+                }
               ],
-              "displayMode": "table",
-              "placement": "right",
-              "showLegend": true
+              "title": "Bytes In",
+              "type": "timeseries"
             },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${aws_datasource}"
               },
-              "editorMode": "code",
-              "expr": "sum(aws_kafka_bytes_in_per_sec_average{cluster_name=\"$cluster\"}) by (broker_id)",
-              "instant": false,
-              "legendFormat": "Broker {{broker_id}}",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Bytes In",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 0,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "binBps"
+                },
+                "overrides": []
               },
-              "custom": {
-                "axisBorderShow": false,
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
+              "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 8
+              },
+              "id": 24,
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "displayMode": "table",
+                  "placement": "right",
+                  "showLegend": true
                 },
-                "insertNulls": false,
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
+                "tooltip": {
+                  "mode": "single",
+                  "sort": "none"
                 }
               },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
+              "targets": [
+                {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "${aws_datasource}"
                   },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "binBps"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 8
-          },
-          "id": 24,
-          "options": {
-            "legend": {
-              "calcs": [
-                "lastNotNull"
+                  "editorMode": "code",
+                  "expr": "sum(aws_kafka_bytes_out_per_sec_average{cluster_name=\"$cluster\"}) by (broker_id)",
+                  "instant": false,
+                  "legendFormat": "__auto",
+                  "range": true,
+                  "refId": "A"
+                }
               ],
-              "displayMode": "table",
-              "placement": "right",
-              "showLegend": true
+              "title": "Bytes Out",
+              "type": "timeseries"
             },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${aws_datasource}"
               },
-              "editorMode": "code",
-              "expr": "sum(aws_kafka_bytes_out_per_sec_average{cluster_name=\"$cluster\"}) by (broker_id)",
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Bytes Out",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 0,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "none"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": " Clients"
+                    },
+                    "properties": [
+                      {
+                        "id": "displayName",
+                        "value": "Other Clients"
+                      }
+                    ]
+                  }
+                ]
               },
-              "custom": {
-                "axisBorderShow": false,
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
+              "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 16
+              },
+              "id": 25,
+              "options": {
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "right",
+                  "showLegend": true
                 },
-                "insertNulls": false,
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
+                "tooltip": {
+                  "mode": "single",
+                  "sort": "none"
                 }
               },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
+              "targets": [
+                {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "${aws_datasource}"
                   },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "none"
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": " Clients"
+                  "editorMode": "code",
+                  "exemplar": false,
+                  "expr": "sum(aws_kafka_connection_count_maximum{cluster_name=\"$cluster\"})",
+                  "hide": false,
+                  "instant": false,
+                  "legendFormat": "Total Connection Count",
+                  "range": true,
+                  "refId": "B"
                 },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Other Clients"
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 16
-          },
-          "id": 25,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "right",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "sum(aws_kafka_connection_count_maximum{cluster_name=\"$cluster\"})",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "Total Connection Count",
-              "range": true,
-              "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
-              "editorMode": "code",
-              "expr": "sum(aws_kafka_client_connection_count_maximum{cluster_name=\"$cluster\"}) by (client_authentication, broker_id)",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "{{client_authentication}} Broker {{broker_id}}",
-              "range": true,
-              "refId": "C"
-            }
-          ],
-          "title": "Connection Counts",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisBorderShow": false,
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "insertNulls": false,
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
+                {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "${aws_datasource}"
+                  },
+                  "editorMode": "code",
+                  "expr": "sum(aws_kafka_client_connection_count_maximum{cluster_name=\"$cluster\"}) by (client_authentication, broker_id)",
+                  "hide": false,
+                  "instant": false,
+                  "legendFormat": "{{client_authentication}} Broker {{broker_id}}",
+                  "range": true,
+                  "refId": "C"
                 }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "ms"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 16
-          },
-          "id": 21,
-          "options": {
-            "legend": {
-              "calcs": [
-                "lastNotNull"
               ],
-              "displayMode": "table",
-              "placement": "right",
-              "showLegend": true
+              "title": "Connection Counts",
+              "type": "timeseries"
             },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${aws_datasource}"
               },
-              "dimensions": {},
-              "editorMode": "code",
-              "expr": "aws_kafka_zoo_keeper_request_latency_ms_mean_sum{cluster_name=\"$cluster\"}",
-              "expression": "",
-              "id": "",
-              "label": "Broker",
-              "legendFormat": "Broker {{broker_id}}",
-              "logGroups": [],
-              "matchExact": true,
-              "metricEditorMode": 0,
-              "metricName": "",
-              "metricQueryType": 1,
-              "namespace": "AWS/Kafka",
-              "period": "",
-              "queryMode": "Metrics",
-              "range": true,
-              "refId": "A",
-              "region": "us-east-1",
-              "sql": {
-                "from": {
-                  "property": {
-                    "name": "AWS/Kafka",
-                    "type": "string"
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
                   },
-                  "type": "property"
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 0,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "ms"
                 },
-                "groupBy": {
-                  "expressions": [
-                    {
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 16
+              },
+              "id": 21,
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "displayMode": "table",
+                  "placement": "right",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "targets": [
+                {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "${aws_datasource}"
+                  },
+                  "dimensions": {},
+                  "editorMode": "code",
+                  "expr": "aws_kafka_zoo_keeper_request_latency_ms_mean_sum{cluster_name=\"$cluster\"}",
+                  "expression": "",
+                  "id": "",
+                  "label": "Broker",
+                  "legendFormat": "Broker {{broker_id}}",
+                  "logGroups": [],
+                  "matchExact": true,
+                  "metricEditorMode": 0,
+                  "metricName": "",
+                  "metricQueryType": 1,
+                  "namespace": "AWS/Kafka",
+                  "period": "",
+                  "queryMode": "Metrics",
+                  "range": true,
+                  "refId": "A",
+                  "region": "us-east-1",
+                  "sql": {
+                    "from": {
                       "property": {
-                        "name": "Broker ID",
+                        "name": "AWS/Kafka",
                         "type": "string"
                       },
-                      "type": "groupBy"
+                      "type": "property"
+                    },
+                    "groupBy": {
+                      "expressions": [
+                        {
+                          "property": {
+                            "name": "Broker ID",
+                            "type": "string"
+                          },
+                          "type": "groupBy"
+                        }
+                      ],
+                      "type": "and"
+                    },
+                    "select": {
+                      "name": "AVG",
+                      "parameters": [
+                        {
+                          "name": "ZooKeeperRequestLatencyMsMean",
+                          "type": "functionParameter"
+                        }
+                      ],
+                      "type": "function"
                     }
-                  ],
-                  "type": "and"
-                },
-                "select": {
-                  "name": "AVG",
-                  "parameters": [
-                    {
-                      "name": "ZooKeeperRequestLatencyMsMean",
-                      "type": "functionParameter"
-                    }
-                  ],
-                  "type": "function"
+                  },
+                  "sqlExpression": "SELECT AVG(ZooKeeperRequestLatencyMsMean) FROM \"AWS/Kafka\" GROUP BY \"Broker ID\"",
+                  "statistic": "Average"
                 }
-              },
-              "sqlExpression": "SELECT AVG(ZooKeeperRequestLatencyMsMean) FROM \"AWS/Kafka\" GROUP BY \"Broker ID\"",
-              "statistic": "Average"
+              ],
+              "title": "Zookeeper Request Latency",
+              "type": "timeseries"
             }
           ],
-          "title": "Zookeeper Request Latency",
-          "type": "timeseries"
+          "title": "Network Stats",
+          "type": "row"
         },
         {
           "collapsed": true,
@@ -1486,14 +1489,14 @@ data:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 24
+            "y": 8
           },
           "id": 18,
           "panels": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+                "uid": "${lag_datasource}"
               },
               "fieldConfig": {
                 "defaults": {
@@ -1553,7 +1556,7 @@ data:
                 "h": 12,
                 "w": 24,
                 "x": 0,
-                "y": 25
+                "y": 9
               },
               "id": 23,
               "options": {
@@ -1576,7 +1579,7 @@ data:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+                    "uid": "${lag_datasource}"
                   },
                   "dimensions": {},
                   "editorMode": "code",
@@ -1651,7 +1654,7 @@ data:
             "current": {
               "selected": true,
               "text": "prod",
-              "value": "p"
+              "value": "appsrep07ue1-prometheus"
             },
             "hide": 0,
             "includeAll": false,
@@ -1661,15 +1664,15 @@ data:
               {
                 "selected": false,
                 "text": "stage",
-                "value": "s"
+                "value": "appsres11ue1-prometheus"
               },
               {
                 "selected": true,
                 "text": "prod",
-                "value": "p"
+                "value": "appsrep07ue1-prometheus"
               }
             ],
-            "query": "stage : s, prod : p",
+            "query": "stage : appsres11ue1-prometheus, prod : appsrep07ue1-prometheus",
             "queryValue": "",
             "skipUrlSync": false,
             "type": "custom"
@@ -1683,24 +1686,29 @@ data:
             "hide": 2,
             "includeAll": false,
             "multi": false,
-            "name": "datasource",
+            "name": "aws_datasource",
             "options": [],
             "query": "prometheus",
             "queryValue": "",
             "refresh": 1,
-            "regex": "/^.*appsre$Environment.*07.*1-prometheus$/",
+            "regex": "/^$Environment$/",
             "skipUrlSync": false,
             "type": "datasource"
           },
           {
-            "current": {},
+            "current": {
+              "selected": false,
+              "text": "consoledot-prod",
+              "value": "consoledot-prod"
+            },
             "datasource": {
               "type": "prometheus",
-              "uid": "${datasource}"
+              "uid": "${aws_datasource}"
             },
             "definition": "label_values(aws_kafka_bytes_in_per_sec_average,cluster_name)",
             "hide": 2,
             "includeAll": false,
+            "label": "MSK Cluster",
             "multi": false,
             "name": "cluster",
             "options": [],
@@ -1710,7 +1718,7 @@ data:
               "refId": "PrometheusVariableQueryEditor-VariableQuery"
             },
             "refresh": 1,
-            "regex": "/consoledot.*/",
+            "regex": "/^consoledot.*/",
             "skipUrlSync": false,
             "sort": 0,
             "type": "query"
@@ -1718,8 +1726,8 @@ data:
           {
             "current": {
               "selected": false,
-              "text": "crcp01ue1-prometheus",
-              "value": "PC1EAC84DCBBF0697"
+              "text": "crcs02ue1-prometheus",
+              "value": "PDD8BE47D10408F45"
             },
             "hide": 2,
             "includeAll": false,
@@ -1729,14 +1737,41 @@ data:
             "query": "prometheus",
             "queryValue": "",
             "refresh": 1,
-            "regex": "/.*crc$Environment.*1-prometheus/",
+            "regex": "/$lag_environment/",
             "skipUrlSync": false,
             "type": "datasource"
+          },
+          {
+            "current": {
+              "selected": false,
+              "text": "stage",
+              "value": "crcs02ue1-prometheus"
+            },
+            "hide": 0,
+            "includeAll": false,
+            "label": "Lag Environment",
+            "multi": false,
+            "name": "lag_environment",
+            "options": [
+              {
+                "selected": true,
+                "text": "stage",
+                "value": "crcs02ue1-prometheus"
+              },
+              {
+                "selected": false,
+                "text": "prod",
+                "value": "crcp01ue1-prometheus"
+              }
+            ],
+            "query": "stage : crcs02ue1-prometheus, prod : crcp01ue1-prometheus",
+            "skipUrlSync": false,
+            "type": "custom"
           }
         ]
       },
       "time": {
-        "from": "now-3h",
+        "from": "now-1h",
         "to": "now"
       },
       "timepicker": {},
