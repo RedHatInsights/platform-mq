@@ -76,7 +76,7 @@ objects:
                 repository: https://repo1.maven.org/maven2
                 group: org.project-kessel
                 artifact: kafka-relations-sink
-                version: "0.1"
+                version: "0.4"
     template:
       pod:
         imagePullSecrets:
