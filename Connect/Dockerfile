@@ -6,7 +6,7 @@ ENV KAFKA_CONNECT_PLUGINS_DIR=/opt/kafka/plugins \
     EXTERNAL_LIBS_DIR=/opt/kafka/libs \
     DEBEZIUM_VERSION=2.7.3.Final \
     GROOVY_VERSION=4.0.22 \
-    RELATIONS_SINK_VERSION=0.3
+    RELATIONS_SINK_VERSION=0.4
 
 
 RUN curl -sfSL --output-dir /usr/local/bin -o docker-maven-download.sh https://raw.githubusercontent.com/debezium/container-images/refs/heads/main/connect-base/3.0/docker-maven-download.sh && \
