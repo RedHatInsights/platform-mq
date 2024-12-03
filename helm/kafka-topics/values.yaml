@@ -410,3 +410,6 @@ topics:
 - topic_name: debezium-heartbeat.rbac
   partitions: 1
   replicas: 3
+- topic_name: rbac.message
+  partitions: 1
+  replicas: 3
