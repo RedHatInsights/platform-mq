@@ -38,7 +38,7 @@ Errors and fault tolerance are largely handled via OpenShift and Strimzi.
 
 Containers determined to have failed (via the included health check endpoints)
 will be scaled/restarted by OpenShift and the default three-node Kafka cluster
-offers additional resiliance for failure/error scenarios.
+offers additional resilience for failure/error scenarios.
 
 ## Getting Started
 
