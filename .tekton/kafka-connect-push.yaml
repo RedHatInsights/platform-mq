@@ -24,7 +24,7 @@ spec:
   - name: output-image
     value: quay.io/redhat-user-workloads/hcm-eng-prod-tenant/kafka-connect/kafka-connect:{{revision}}
   - name: dockerfile
-    value: Dockerfile
+    value: Connect/Dockerfile
   - name: path-context
     value: .
   pipelineSpec:
