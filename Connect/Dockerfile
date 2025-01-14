@@ -1,4 +1,4 @@
-FROM registry.redhat.io/amq-streams/kafka-37-rhel9:2.8.0-4 AS build-image
+FROM quay.io/mirror/registry.redhat.io/amq-streams/kafka-37-rhel9:2.8.0-4 AS build-image
 
 USER root:root
 
