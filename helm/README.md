@@ -28,7 +28,6 @@ After making any changes that require generating an updated template, make a PR 
 # Creating Kafka Connectors Template
 
 ## Add New Connector Definition
-
 Add new connector configuration to [values.yaml](kafka-connectors/values.yaml) and then run the `helm` command below to generate an updated template.
 
 ## Generate Template
