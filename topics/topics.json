@@ -44,12 +44,12 @@
     "REPLICAS": 3
 },
 {
-    "TOPIC_NAME": "ccx.io.new.archive",
+    "TOPIC_NAME": "ccx.new.archive.io",
     "PARTITIONS": 8,
     "REPLICAS": 3
 },
 {
-    "TOPIC_NAME": "ccx.ols.new.archive",
+    "TOPIC_NAME": "ccx.new.archive.ols",
     "PARTITIONS": 2,
     "REPLICAS": 3
 },
