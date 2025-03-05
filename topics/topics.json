@@ -44,6 +44,31 @@
     "REPLICAS": 3
 },
 {
+    "TOPIC_NAME": "ccx.new.archive",
+    "PARTITIONS": 8,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "ccx.io.new.archive",
+    "PARTITIONS": 8,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "ccx.ols.new.archive",
+    "PARTITIONS": 2,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "ccx.archive.synced",
+    "PARTITIONS": 8,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "ccx.insights.rules.results",
+    "PARTITIONS": 2,
+    "REPLICAS": 3
+},
+{
     "TOPIC_NAME": "hooks.outbox",
     "PARTITIONS": 3,
     "REPLICAS": 3
