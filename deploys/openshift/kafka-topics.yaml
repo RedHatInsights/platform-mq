@@ -125,19 +125,6 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
-    name: ccx.new.archive
-    labels:
-      strimzi.io/cluster: ${KAFKA_CLUSTER}
-  spec:
-    partitions: 8
-    replicas: 3
-    topicName: ccx.new.archive
-    config:
-      min.insync.replicas: 2
-      retention.ms: "259200000"
-- apiVersion: kafka.strimzi.io/v1beta2
-  kind: KafkaTopic
-  metadata:
     name: ccx.io.new.archive
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}

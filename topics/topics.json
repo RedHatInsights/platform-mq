@@ -44,11 +44,6 @@
     "REPLICAS": 3
 },
 {
-    "TOPIC_NAME": "ccx.new.archive",
-    "PARTITIONS": 8,
-    "REPLICAS": 3
-},
-{
     "TOPIC_NAME": "ccx.io.new.archive",
     "PARTITIONS": 8,
     "REPLICAS": 3
