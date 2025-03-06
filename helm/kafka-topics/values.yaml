@@ -178,7 +178,7 @@ topics:
   - name: retention.bytes
     value: '2684354560'
 - topic_name: platform.inventory.host-ingress
-  partitions: 20
+  partitions: 30
   replicas: 3
   topic_configs:
   - name: retention.ms

@@ -541,7 +541,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 20
+    partitions: 30
     replicas: 3
     topicName: platform.inventory.host-ingress
     config:
