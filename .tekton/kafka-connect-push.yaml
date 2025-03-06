@@ -435,6 +435,8 @@ spec:
           value: quay.io/konflux-ci/tekton-catalog/task-sast-coverity-check:0.2@sha256:f366458c7b3d48593cc23380ad94355d5cf89865b763c485b9187915cdc71bec
         - name: kind
           value: task
+        - name: IMAGE
+          value: $(params.output-image)
         resolver: bundles
       when:
       - input: $(params.skip-checks)
