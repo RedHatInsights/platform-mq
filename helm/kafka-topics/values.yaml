@@ -425,3 +425,21 @@ topics:
 - topic_name: rbac.message
   partitions: 1
   replicas: 3
+- topic_name: outbox.event.kessel.tuples
+  partitions: 1
+  replicas: 3
+  topic_configs:
+  - name: retention.ms
+    value: '604800000'
+- topic_name: outbox.event.kessel.resources
+  partitions: 1
+  replicas: 3
+- topic_name: debezium-heartbeat.kessel-inventory
+  partitions: 1
+  replicas: 3
+  topic_configs:
+  - name: retention.ms
+    value: '43200000'
+- topic_name: kessel-inventory.message
+  partitions: 1
+  replicas: 3

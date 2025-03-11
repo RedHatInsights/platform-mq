@@ -649,5 +649,25 @@
     "TOPIC_NAME": "platform.rhsm-subscriptions.billable-usage.status",
     "PARTITIONS": 24,
     "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "outbox.event.kessel.tuples",
+    "PARTITIONS": 1,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "outbox.event.kessel.resources",
+    "PARTITIONS": 1,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "debezium-heartbeat.kessel-inventory",
+    "PARTITIONS": 1,
+    "REPLICAS": 3
+},
+{
+    "TOPIC_NAME": "kessel-inventory.message",
+    "PARTITIONS": 1,
+    "REPLICAS": 3
 }
 ]
