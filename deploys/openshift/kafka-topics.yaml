@@ -1332,6 +1332,58 @@ objects:
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: outbox.event.kessel.tuples
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: outbox.event.kessel.tuples
+    config:
+      min.insync.replicas: 2
+      retention.ms: "604800000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: outbox.event.kessel.resources
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: outbox.event.kessel.resources
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: debezium-heartbeat.kessel-inventory
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: debezium-heartbeat.kessel-inventory
+    config:
+      min.insync.replicas: 2
+      retention.ms: "43200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: kessel-inventory.message
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: kessel-inventory.message
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
 parameters:
 # Needed for processing by app-interface but not used.
 - name: IMAGE_TAG
