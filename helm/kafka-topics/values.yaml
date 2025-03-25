@@ -446,3 +446,6 @@ topics:
 - topic_name: kessel-inventory.message
   partitions: 1
   replicas: 3
+- topic_name: ros.events
+  partitions: 1
+  replicas: 3
