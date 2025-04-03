@@ -1,136 +1,89 @@
 # Insights Platform Messaging Service
 
-This Messaging Service is designed to work as the piping between Platform
-client services.
+Resources used in the deployment and maintenance of the Kafka instances used
+by Hybrid Cloud Management(HCM) environments.
 
 ## Details
 
-The Messaging Service backs the different components of Insights Platform to
-allow for cross-application and intra-application communication. This is
-achieved with an OpenShift based deployment of Apache's Kafka message queue as
-deployed and orchestrated by the forthcoming AMQ Streams Red Hat project.
+We deploy Kafka via AWS Managed Services for Apache Kafka (MSK) with one
+instance each for our Stage and Production environments. These Kafka clusters
+back the different components of HCM services to allow for inter- and intra-
+application communication.
 
-Currently we're running the upstream product for AMQ Streams, Strimzi, at
-version 0.7.0.
+Our MSK instances are created and managed via app-interface.
 
-The service runs entirely in Openshift Dedicated.
+For management of topics and additional resources, we also internally run Red
+Hat's own "Streams for Apache Kafka" OpenShift operator at version 2.8.0 in
+OpenShift Dedicated.
 
 ## How it Works
 
-The Messaging Service is a standard deployment of Apache Kafka orchestrated by
-Strimzi. Product documentation is available at:
+MSK itself is a standard managed deployment of Apache Kafka hosted by and on
+AWS resources. See Apache's Kafka documentation for further details of the
+technology's design and use:
 
-http://strimzi.io/docs/0.7.0/
+https://kafka.apache.org/38/documentation/
 
-Topics are created via KafkaTopic resoruces in the associated OpenShift
-Project, and the topics required for a baseline testing environment with the
-Platform Upload and Engine services can be created by editing the `topics.json`
-file in the topics directory to suit your environment and running the
-accompanying python script.
+Topics are created via KafkaTopic resources in environment specific OpenShift
+Projects, managed by the Streams for Apache Kafka Topic Operator defined in
+[this deployment file.](deploys/openshift/kafka-topic-operator.yaml)
 
-From that point the OpenShift jobs in the tests directory can be altered for
-your environment/project and run to ensure that messages are properly being
-passed through the Kafka nodes to subscribed Consumers.
+Additionally, we maintain a KafkaConnect instance and appropriate Connector
+resources for teams wishing to integrate with Kafka but not yet prepared to
+design and deploy their own client/consumer. 
 
 ### Errors
 
-Errors and fault tolerance are largely handled via OpenShift and Strimzi.
+Errors and fault tolerance are largely handled via OpenShift, Streams for
+Apache Kafka, and MSK.
 
-Containers determined to have failed (via the included health check endpoints)
-will be scaled/restarted by OpenShift and the default three-node Kafka cluster
-offers additional resilience for failure/error scenarios.
+Internal containers such as the Topic Operator and KafkaConnect instances
+determined to have failed (via the included health check endpoints)
+will be restarted by OpenShift.
 
-## Getting Started
+Within MSK we have multiple servers (brokers in Kafka-speak) across multiple
+availability zones to ensure resilience and fault tolerance.
 
-This Messaging Service, as primarily a deployment and configuration of an
-existing product, development is something of a different concept than in other
-Platform Services. The intent of this repository is to house the deployment,
-setup, and simplification scripts needed for recreating and/or testing the
-service as needed.
+## Contributing
 
-Propsed changes to the deployment scripts should be tested, where possible, in
-an OpenShift environment comprable to OSD or OpenShift online, then submitted
-as PRs.
+This repository is primarily for storage of various "configuration as code"
+pieces of our Kafka deployment and associated resources. As such, there's
+little in the way of "code contribution" and rather updates to existing
+resources or creation of templates for new resources.
+
+Changes made to known files here are immediately picked up by HCM Stage and
+can be tested nearly immediately there.
 
 ### Deployment
 
-Deployment of a test environment or redeployment is intended via the
-`strimzi-cluster-operator.yaml` and `platform-mq-<env>.yaml` files. With
-the `oc` command installed and working, the commands `oc apply -f
-strimzi-cluster-operator.yaml -n <namespace>` will create an operator tasked
-with watching for Strimzi `Kafka` resources. Following with `oc apply -f
-platform-mq-<env>.yaml -n <namespace>` will stand up a replica environment.
-Afterwards, running `create_topics.py -n <namespace>` in the
-`topics` directory will create the necessary testing topics in the new cluster
-environment. Following this the test jobs in the `tests` directory can be run
-to test message passing functionality.
+Deployment templates for various resources are present under the aptly named
+[deploys](deploys/) directory. These files are then picked up by app-interface
+under the insights/strimzi service and deployed via existing pipelines.
 
-### Topics and Topic Creation
+Of particular interest currently are:
 
-In our dev MQ instance, topics will be automatically created when produced to
-or consumed from. Given the potential for chaos that this could create in
-production, though, topic autocreation is locked down on non-dev MQ
-environments. For those environments topic creation is still possible, but must
-be done with intent via an administration interface. The simplest mechanism for
-this will be to create a PR adding the new topic configuration to the
-`topics.json` file. Once merged, a user with access to the OpenShift MQ projects
-can use the `create_topics.py` script to sync the topic configs.
+  - [Our KafkaConnect deployment](deploys/openshift/aio_connect_auth.yaml)
+  - [Our Streams for Apache Kafka Topic Operator Standalone Deployment](deploys/openshift/kafka-topic-operator.yaml)
+  - [Our KafkaTopic resource definitions](deploys/openshift/kafka-topics.yaml)
 
-The following document contains the current and future plans for topics:
+### Topic Creation and Management
 
-https://docs.google.com/spreadsheets/d/1xx_Zu7fnE8qEtd46vTohR5pyVibRD1-IRDWyj2tZnM0
+Kafka operates over various Topics in what is effectively a
+publisher/subscriber model. Producer applications add data to a given Topic
+and Consumer applications subscribe to pertinent Topics and receive produced
+messages as they are added to their subscribed Topics.
 
-**Note:** In addition to adding Kafka topics to the `topics.json` file, please follow instructions in [README](helm/README.md) to add topics to [values.yaml](helm/kafka-topics/values.yaml) and update the OpenShift [template](deploys/openshift/kafa-topics.yaml).
+We manage all of our Topics via resources watched by the Streams for Apache
+Kafka Topic Operator. They are all defined in the deployment template
+[here](deploys/openshift/kafka-topics.yaml), which is generated by github
+actions running the Helm chart [here](helm/kafka-topics).
 
-## Additional Resources
+In order to add, update, or remove topics, please follow the documentation in
+[this README](helm/README.md) to add a Topic configuration to [values.yaml](helm/kafka-topics/values.yaml)
+which will then update the [OpenShift template](deploys/openshift/kafa-topics.yaml).
+
 
 ### Kafka Connect
 
-    - **WIP**
-
-### Avro Schema Registry
-
-Alongside the Kafka deployment we have an Avro Schema Registry deployed. This
-will allow us to have versioning and verifying of messages placed on the
-associated topics. Some information on API calls for registering schemas
-(written in JSON) to the registry is available at:
-
-https://github.com/confluentinc/schema-registry
-
-Generally, Avro/Schema Registry aware libraries must be used for
-producing/consuming messages that adhere to a registered Avro schema. This may
-require some additional code, but as we're using Confluent's Avro Schema
-Registry image, their libraries should by and large be able to handle those
-connections:
-
-https://docs.confluent.io/current/clients/index.html
-
-#### Avro Template/Schema Workflow
-
-    1. Define topic schema (See sample in schemas subdir)
-    2. Register schema with Avro Registry (see above docs or register_schema
-       script in schemas subdir)
-    3. Configure your producer to use an Avro serializer
-        - **NB:** The schema is considered part and parcel to the message with
-          Avro. This means you'll need the schema definition in your producer
-          code somewhere.
-    4. Move your consumers to Avro capable deserializers
-    5. Messages to the registered topic using an Avro serializer will now be
-       passed through the registry for verification before being delivered
-
-### Authentication and Authorization
-
-Strimzi's deploys provide us with a User Operator in addition to the Cluster
-Operator tasked with keeping the Zookeeper ensemble and Kafka broker cluster
-running and stable. With this operator, KafkaUser resources can be created to
-generate appropriate certificates and ACLs for a given client application. With
-the certs created, the client should then connect to the kafka-brokers service
-at port 9093. As we work towards a production deployment, the expectations is
-that non-authed access will be disabled in favor of only using the authed
-service.
-
-
-
-## Authors
-
-* **Chris Mitchell** - **Initial Work** - [wcmitchell](https://github.com/wcmitchell)
+We're currently investigating the option of moving our KafkaConnect workflows
+over to MSK as well, so for now consider this section **WIP!**
