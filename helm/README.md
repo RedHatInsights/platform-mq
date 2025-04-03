@@ -1,29 +1,26 @@
-# Creating Kafka Topic Template
+# Updating the Kafka Topic Template
 
-## Install Helm
+## Adding A New Topic
 
-See [docs](https://helm.sh/docs/) to [install](https://helm.sh/docs/intro/install/) Helm.
-
-## Generate Template
-
-Run following command to generate the OpenShift template to create the Kafka topics.
-
-```sh
-$ helm template ./helm/kafka-topics -f helm/kafka-topics/values.yaml > deploys/openshift/kafka-topics.yaml
-```
-
-## Add New Topic
-
-Add new topic and its configuration to [values.yaml](kafka-topics/values.yaml) and then run the `helm` command above to generate updated template.
+Submit a PR after adding the new topic and its configuration to
+[values.yaml](kafka-topics/values.yaml). GitHub Actions will generate the
+required deployment template on submission.
 
 ## Update Topic Configuration or Partitions
 
-Make the required changes in [values.yaml](kafka-topics/values.yaml) and then run the `helm` command above to generate an updated template.
+Make the required changes in [values.yaml](kafka-topics/values.yaml) and
+submit a PR, again a GitHub Action will generate the required deployment
+template on submission.
 
-## PRs and REF updates
+**NB:** Use caution when altering Partition counts on existing topics. A
+Topic's Partition count can be increased at need, but cannot be reduced
+without deletion and recreation of the Topic itself, losing any historic data
+within the Topic.
 
-After making any changes that require generating an updated template, make a PR here with the updated template and values.yaml files. Once merged in, the platform-mq ref in App-Interface can be updated to deploy the new changes to stage/prod.
+## REF updates
 
+Changes will be automatically deployed to Stage on PR acceptance, but will
+require an app-interface MR updating the targeted $ref for Prod deployment.
 
 # Creating Kafka Connectors Template
 
