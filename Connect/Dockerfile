@@ -8,14 +8,12 @@ ENV KAFKA_CONNECT_PLUGINS_DIR=/opt/kafka/plugins \
     GROOVY_VERSION=4.0.22 \
     RELATIONS_SINK_VERSION=0.4
 
-# commonly used for getting maven connect plugins
 RUN curl -sfSL --output-dir /usr/local/bin -o docker-maven-download.sh https://raw.githubusercontent.com/debezium/container-images/refs/heads/main/connect-base/3.0/docker-maven-download.sh && \
     chmod +x /usr/local/bin/docker-maven-download.sh
 
 RUN mkdir -p $KAFKA_CONNECT_PLUGINS_DIR
 
-# Can't pull this one easily from a repo
-COPY ./Connect/confluentinc-kafka-connect-s3-10.5.17 $KAFKA_CONNECT_PLUGINS_DIR
+COPY ./confluentinc-kafka-connect-s3-10.5.17 $KAFKA_CONNECT_PLUGINS_DIR
 
 # Groovy plugins deps
 RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh central org/apache/groovy groovy "$GROOVY_VERSION" b527c6bfa1af469f1a4374e9fc6de4bf
