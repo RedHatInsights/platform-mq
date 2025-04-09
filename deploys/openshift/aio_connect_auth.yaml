@@ -5,13 +5,13 @@ metadata:
 parameters:
 - name: KAFKA_CONNECT_IMAGE
   description: Image for kafka connect instance
-  value: quay.io/cloudservices/kafka-connect
+  value: quay.io/redhat-user-workloads/hcm-eng-prod-tenant/kafka-connect/kafka-connect
 - name: IMAGE_TAG
   description: Tag to use for this deploy of kafka connect
   value: latest
 - name: KAFKA_CONNECT_VERSION
   description: Version of the kafka-connect service
-  value: 3.6.0
+  value: 3.8.0
 - name: KAFKA_CONNECT_REPLICAS
   description: Number of connect instances to run
   value: "1"
