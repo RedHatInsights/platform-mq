@@ -35,7 +35,7 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaConnect
   metadata:
-    name: platform-kafka-connect
+    name: msk-connect
     labels:
       app: platform-mq
     annotations:
@@ -48,6 +48,18 @@ objects:
           - name: quay-cloudservices-pull
           - name: rh-registry-pull
           - name: quay.io
+      connectContainer:
+        env:
+          - name: AWS_ACCESS_KEY_ID
+            valueFrom:
+              secretKeyRef:
+                name: strimzi-bucket-read-write
+                key: aws_access_key_id
+          - name: AWS_SECRET_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: strimzi-bucket-read-write
+                key: aws_secret_access_key
     version: ${KAFKA_CONNECT_VERSION}
     replicas: ${{KAFKA_CONNECT_REPLICAS}}
     metricsConfig:
@@ -64,18 +76,6 @@ objects:
         cpu: ${KAFKA_CONNECT_CPU_REQUEST}
         memory: ${KAFKA_CONNECT_MEM_REQUEST}
     bootstrapServers: ${BOOTSTRAP_SERVERS}
-    externalConfiguration:
-      env:
-        - name: AWS_ACCESS_KEY_ID
-          valueFrom:
-            secretKeyRef:
-              name: strimzi-bucket-read-write
-              key: aws_access_key_id
-        - name: AWS_SECRET_ACCESS_KEY
-          valueFrom:
-            secretKeyRef:
-              name: strimzi-bucket-read-write
-              key: aws_secret_access_key
     tls:
       trustedCertificates: []
     authentication:
