@@ -39,7 +39,7 @@ parameters:
   description:  Kafka cluster name will be provided at run time
   value: ""
 - name: KAFKA_CONNECT_CLUSTER
-  value: ""
+  value: "platform-kafka-connect"
 - name: S3_SINK_CONNECTOR_NAME
   description: Name of the connector resource to create
   value: client-metrics-sink
