@@ -534,7 +534,7 @@ spec:
       - name: ADDITIONAL_TAGS
         value:
         - $(tasks.clone-repository.results.short-commit)
-        - "latest"
+        - latest
       runAfter:
       - build-image-index
       taskRef:
@@ -596,7 +596,8 @@ spec:
       optional: true
     - name: netrc
       optional: true
-  taskRunTemplate: {}
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-kafka-connect
   workspaces:
   - name: git-auth
     secret:
