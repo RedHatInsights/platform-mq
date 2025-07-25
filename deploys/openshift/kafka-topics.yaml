@@ -1435,6 +1435,7 @@ objects:
     topicName: kessel-kafka-connect-cluster-configs
     config:
       min.insync.replicas: 2
+      cleanup.policy: "compact"
       retention.ms: "259200000"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
@@ -1448,6 +1449,7 @@ objects:
     topicName: kessel-kafka-connect-cluster-offsets
     config:
       min.insync.replicas: 2
+      cleanup.policy: "compact"
       retention.ms: "259200000"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
@@ -1461,6 +1463,7 @@ objects:
     topicName: kessel-kafka-connect-cluster-status
     config:
       min.insync.replicas: 2
+      cleanup.policy: "compact"
       retention.ms: "259200000"
 parameters:
 # Needed for processing by app-interface but not used.
