@@ -455,9 +455,18 @@ topics:
 - topic_name: kessel-kafka-connect-cluster-configs
   partitions: 1
   replicas: 3
+  topic_configs:
+  - name: cleanup.policy
+    value: compact
 - topic_name: kessel-kafka-connect-cluster-offsets
   partitions: 25
   replicas: 3
+  topic_configs:
+  - name: cleanup.policy
+    value: compact
 - topic_name: kessel-kafka-connect-cluster-status
   partitions: 5
   replicas: 3
+  topic_configs:
+  - name: cleanup.policy
+    value: compact
