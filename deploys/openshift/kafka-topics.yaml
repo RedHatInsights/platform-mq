@@ -1283,6 +1283,19 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: platform.rhsm-subscriptions.utilization
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 24
+    replicas: 3
+    topicName: platform.rhsm-subscriptions.utilization
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: outbox.event.relations-replication-event
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}

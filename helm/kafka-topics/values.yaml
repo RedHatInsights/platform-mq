@@ -413,6 +413,9 @@ topics:
 - topic_name: platform.rhsm-subscriptions.billable-usage.status
   partitions: 24
   replicas: 3
+- topic_name: platform.rhsm-subscriptions.utilization
+  partitions: 24
+  replicas: 3
 - topic_name: outbox.event.relations-replication-event
   partitions: 1
   replicas: 3
