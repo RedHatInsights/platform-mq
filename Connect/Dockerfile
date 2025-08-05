@@ -4,7 +4,7 @@ USER root:root
 
 ENV KAFKA_CONNECT_PLUGINS_DIR=/opt/kafka/plugins \
     EXTERNAL_LIBS_DIR=/opt/kafka/libs \
-    DEBEZIUM_VERSION=2.7.3.Final \
+    DEBEZIUM_VERSION=2.7.4.Final \
     GROOVY_VERSION=4.0.27 \
     RELATIONS_SINK_VERSION=0.5
 
@@ -14,7 +14,7 @@ RUN curl -sfSL --output-dir /usr/local/bin -o docker-maven-download.sh https://r
 RUN mkdir -p $KAFKA_CONNECT_PLUGINS_DIR
 
 # This one we can't easily pull from a maven repo
-COPY ./confluentinc-kafka-connect-s3-10.6.5 $KAFKA_CONNECT_PLUGINS_DIR
+COPY ./confluentinc-kafka-connect-s3-10.6.7 $KAFKA_CONNECT_PLUGINS_DIR
 
 # Groovy plugins deps
 RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh central org/apache/groovy groovy "$GROOVY_VERSION" 5ed4a726792980fe8c6667e6824b0564
@@ -25,7 +25,9 @@ RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh ce
 RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh central org/project-kessel kafka-relations-sink "$RELATIONS_SINK_VERSION" 9a9ceeaa6734969f54b049d02dfd1812
 
 # Debezium Postgres Source
-RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh debezium postgres "$DEBEZIUM_VERSION" 9bb46566fa18541be206f0bd0f77c4de
-RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh debezium-optional scripting "$DEBEZIUM_VERSION" e8c6825ada56c4f028b67fe634f7d4d6
+# io/debezium/debezium-connector-postgres/$DEBEZIUM_VERSION/debezium-connector-postgres-$DEBEZIUM_VERSION-plugin.tar.gz
+RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh debezium postgres "$DEBEZIUM_VERSION" 0dce7962ecae166afca16ec5fcd508f9
+# io/debezium/debezium-scripting/$DEBEZIUM_VERSION/debezium-scripting-$DEBEZIUM_VERSION-plugin.tar.gz
+RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh debezium-optional scripting "$DEBEZIUM_VERSION" 75fdd97f8c81636bc09948f306bc5882
 
 USER 1001
