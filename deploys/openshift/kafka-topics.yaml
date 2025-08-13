@@ -1151,6 +1151,19 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: platform.rbac.read-after-write
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: platform.rbac.read-after-write
+    config:
+      min.insync.replicas: 3
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: platform.chrome
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
