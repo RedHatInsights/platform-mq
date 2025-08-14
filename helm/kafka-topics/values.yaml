@@ -470,3 +470,9 @@ topics:
   topic_configs:
   - name: cleanup.policy
     value: compact
+- topic_name: host-inventory.hbi.hosts
+  partitions: 1
+  replicas: 3
+- topic_name: outbox.event.hbi.hosts
+  partitions: 1
+  replicas: 3
