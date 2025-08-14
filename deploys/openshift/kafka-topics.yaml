@@ -1465,6 +1465,32 @@ objects:
       min.insync.replicas: 2
       cleanup.policy: "compact"
       retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: host-inventory.hbi.hosts
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: host-inventory.hbi.hosts
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: outbox.event.hbi.hosts
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: outbox.event.hbi.hosts
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
 parameters:
 # Needed for processing by app-interface but not used.
 - name: IMAGE_TAG
