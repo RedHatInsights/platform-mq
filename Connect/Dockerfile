@@ -1,4 +1,4 @@
-FROM registry.redhat.io/amq-streams/kafka-38-rhel9:2.9.1-2
+FROM registry.redhat.io/amq-streams/kafka-38-rhel9:2.9.1-5
 
 USER root:root
 
@@ -14,7 +14,7 @@ RUN curl -sfSL --output-dir /usr/local/bin -o docker-maven-download.sh https://r
 RUN mkdir -p $KAFKA_CONNECT_PLUGINS_DIR
 
 # This one we can't easily pull from a maven repo
-COPY ./confluentinc-kafka-connect-s3-10.6.7 $KAFKA_CONNECT_PLUGINS_DIR
+# COPY ./confluentinc-kafka-connect-s3-10.6.7 $KAFKA_CONNECT_PLUGINS_DIR
 
 # Groovy plugins deps
 RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh central org/apache/groovy groovy "$GROOVY_VERSION" 5ed4a726792980fe8c6667e6824b0564
@@ -29,5 +29,7 @@ RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh ce
 RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh debezium postgres "$DEBEZIUM_VERSION" 0dce7962ecae166afca16ec5fcd508f9
 # io/debezium/debezium-scripting/$DEBEZIUM_VERSION/debezium-scripting-$DEBEZIUM_VERSION-plugin.tar.gz
 RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh debezium-optional scripting "$DEBEZIUM_VERSION" 75fdd97f8c81636bc09948f306bc5882
+
+RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh confluent kafka-connect-s3 "10.6.5" 948a8a86f4e8ff397dc9b72e1712d29e
 
 USER 1001
