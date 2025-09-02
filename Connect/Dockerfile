@@ -13,6 +13,9 @@ RUN curl -sfSL --output-dir /usr/local/bin -o docker-maven-download.sh https://r
 
 RUN mkdir -p $KAFKA_CONNECT_PLUGINS_DIR
 
+# This one we can't easily pull from a maven repo
+COPY ./confluentinc-kafka-connect-s3-10.6.7 $KAFKA_CONNECT_PLUGINS_DIR
+
 # Groovy plugins deps
 RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh central org/apache/groovy groovy "$GROOVY_VERSION" 1e636c3520585172571980d545e84845
 RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh central org/apache/groovy groovy-json "$GROOVY_VERSION" 1c6f480c73719be5f81d1782eb0f25eb
@@ -26,7 +29,5 @@ RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh ce
 RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh debezium postgres "$DEBEZIUM_VERSION" 9ab417e37bee225e8440862749c755dd
 # io/debezium/debezium-scripting/$DEBEZIUM_VERSION/debezium-scripting-$DEBEZIUM_VERSION.tar.gz
 RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh debezium-optional scripting "$DEBEZIUM_VERSION" 6afda020b3432fcb7f17e3ed814dbf13
-
-RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh confluent kafka-connect-s3 "10.6.5" 948a8a86f4e8ff397dc9b72e1712d29e
 
 USER 1001
