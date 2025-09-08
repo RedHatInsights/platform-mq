@@ -335,7 +335,7 @@ topics:
   partitions: 6
   replicas: 3
 - topic_name: platform.notifications.tocamel
-  partitions: 3
+  partitions: 6
   replicas: 3
 - topic_name: platform.notifications.fromcamel
   partitions: 6
