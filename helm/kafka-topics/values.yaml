@@ -367,6 +367,9 @@ topics:
 - topic_name: platform.rbac.sync
   partitions: 10
   replicas: 3
+- topic_name: outbox.event.rbac-consumer-replication-event
+  partitions: 1
+  replicas: 3
 - topic_name: platform.chrome
   partitions: 10
   replicas: 3
