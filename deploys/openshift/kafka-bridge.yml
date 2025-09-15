@@ -13,6 +13,14 @@ parameters:
   value: "kafka"
 - name: AUTH_CLIENT_SECRET_KEY
   value: "client_secret"
+- name: CPU_LIMIT
+  value: "500m"
+- name: MEMORY_LIMIT
+  value: "512Mi"
+- name: CPU_REQUEST
+  value: "200m"
+- name: MEMORY_REQUEST
+  value: "256Mi"
 
 objects:
 - apiVersion: kafka.strimzi.io/v1beta2
@@ -35,3 +43,10 @@ objects:
         password: ${AUTH_CLIENT_SECRET_KEY}
     http:
       port: 8080
+    resources:
+      requests:
+        cpu: "${CPU_REQUEST}"
+        memory: "${MEMORY_REQUEST}"
+      limits:
+        cpu: "${CPU_LIMIT}"
+        memory: "${MEMORY_LIMIT}"
