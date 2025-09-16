@@ -433,7 +433,7 @@ spec:
       - name: CACHI2_ARTIFACT
         value: $(tasks.prefetch-dependencies.results.CACHI2_ARTIFACT)
       runAfter:
-      - coverity-availability-check
+      - clamav-scan
       taskRef:
         params:
         - name: name
