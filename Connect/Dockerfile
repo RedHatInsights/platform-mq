@@ -4,7 +4,7 @@ USER root:root
 
 ENV KAFKA_CONNECT_PLUGINS_DIR=/opt/kafka/plugins \
     EXTERNAL_LIBS_DIR=/opt/kafka/libs \
-    DEBEZIUM_VERSION=3.2.1.Final \
+    DEBEZIUM_VERSION=3.2.2.Final \
     GROOVY_VERSION=5.0.0 \
     RELATIONS_SINK_VERSION=0.5
 
@@ -26,8 +26,8 @@ RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh ce
 
 # Debezium Postgres Source
 # io/debezium/debezium-connector-postgres/$DEBEZIUM_VERSION/debezium-connector-postgres-$DEBEZIUM_VERSION-plugin.tar.gz
-RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh debezium postgres "$DEBEZIUM_VERSION" 9ab417e37bee225e8440862749c755dd
+RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh debezium postgres "$DEBEZIUM_VERSION" 7aab67711a68e69e27265aa36ec82f89
 # io/debezium/debezium-scripting/$DEBEZIUM_VERSION/debezium-scripting-$DEBEZIUM_VERSION.tar.gz
-RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh debezium-optional scripting "$DEBEZIUM_VERSION" 6afda020b3432fcb7f17e3ed814dbf13
+RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh debezium-optional scripting "$DEBEZIUM_VERSION" 06a42901cdc7fce560407b356b608697
 
 USER 1001
