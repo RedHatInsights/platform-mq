@@ -485,3 +485,6 @@ topics:
   topic_configs:
   - name: retention.ms
     value: '43200000'
+- topic_name: host-inventory.message
+  partitions: 1
+  replicas: 3
