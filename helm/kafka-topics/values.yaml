@@ -479,3 +479,9 @@ topics:
 - topic_name: outbox.event.hbi.hosts
   partitions: 1
   replicas: 3
+- topic_name: debezium-heartbeat.host-inventory
+  partitions: 1
+  replicas: 3
+  topic_configs:
+  - name: retention.ms
+    value: '43200000'
