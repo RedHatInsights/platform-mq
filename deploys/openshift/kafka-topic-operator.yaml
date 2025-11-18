@@ -134,7 +134,7 @@ objects:
                 - name: strimzi-tmp
                   mountPath: /tmp
               terminationMessagePolicy: File
-              image: registry.redhat.io/amq-streams/strimzi-rhel8-operator:2.5.1-12
+              image: registry.redhat.io/amq-streams/strimzi-rhel9-operator:2.9.3-6
               imagePullSecrets:
                 - registry-redhat-pull
               args:
