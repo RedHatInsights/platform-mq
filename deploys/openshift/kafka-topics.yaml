@@ -1331,7 +1331,7 @@ objects:
     topicName: outbox.event.relations-replication-event
     config:
       min.insync.replicas: 2
-      retention.ms: "259200000"
+      retention.ms: "604800000"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -1344,7 +1344,7 @@ objects:
     topicName: outbox.event.workspace
     config:
       min.insync.replicas: 2
-      retention.ms: "259200000"
+      retention.ms: "604800000"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
