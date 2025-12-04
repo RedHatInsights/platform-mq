@@ -155,7 +155,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 8
+    partitions: 16
     replicas: 3
     topicName: ccx.archive.synced
     config:
