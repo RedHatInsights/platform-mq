@@ -58,7 +58,7 @@ topics:
   partitions: 2
   replicas: 3
 - topic_name: ccx.archive.synced
-  partitions: 8
+  partitions: 16
   replicas: 3
 - topic_name: ccx.insights.rules.results
   partitions: 2
