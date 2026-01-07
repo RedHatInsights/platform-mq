@@ -14,7 +14,7 @@ RUN curl -sfSL --output-dir /usr/local/bin -o docker-maven-download.sh https://r
 RUN mkdir -p $KAFKA_CONNECT_PLUGINS_DIR
 
 # This one we can't easily pull from a maven repo
-COPY confluentinc-kafka-connect-s3-10.6.7 $KAFKA_CONNECT_PLUGINS_DIR
+COPY ./confluentinc-kafka-connect-s3-10.6.7 $KAFKA_CONNECT_PLUGINS_DIR
 
 # Groovy plugins deps
 RUN MAVEN_DEP_DESTINATION=$KAFKA_CONNECT_PLUGINS_DIR docker-maven-download.sh central org/apache/groovy groovy "$GROOVY_VERSION" 1e636c3520585172571980d545e84845
