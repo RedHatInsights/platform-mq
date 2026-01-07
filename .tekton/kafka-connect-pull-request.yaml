@@ -30,7 +30,7 @@ spec:
   - name: dockerfile
     value: Connect/Dockerfile
   - name: path-context
-    value: .
+    value: Connect
   pipelineSpec:
     description: |
       This pipeline is ideal for building container images from a Containerfile while reducing network traffic.
