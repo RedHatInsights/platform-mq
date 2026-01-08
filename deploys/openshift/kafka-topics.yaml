@@ -565,6 +565,19 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: platform.inventory.host-apps
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 32
+    replicas: 3
+    topicName: platform.inventory.host-apps
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: ruledev.nomination
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
@@ -1318,7 +1331,7 @@ objects:
     topicName: outbox.event.relations-replication-event
     config:
       min.insync.replicas: 2
-      retention.ms: "604800000"
+      retention.ms: "259200000"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
@@ -1331,7 +1344,7 @@ objects:
     topicName: outbox.event.workspace
     config:
       min.insync.replicas: 2
-      retention.ms: "604800000"
+      retention.ms: "259200000"
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
