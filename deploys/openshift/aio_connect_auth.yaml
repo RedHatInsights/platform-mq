@@ -5,7 +5,7 @@ metadata:
 parameters:
 - name: KAFKA_CONNECT_IMAGE
   description: Image for kafka connect instance
-  value: quay.io/redhat-user-workloads/hcm-eng-prod-tenant/kafka-connect/kafka-connect
+  value: quay.io/redhat-services-prod/hcm-eng-prod-tenant/kafka-connect/kafka-connect
 - name: IMAGE_TAG
   description: Tag to use for this deploy of kafka connect
   value: latest
