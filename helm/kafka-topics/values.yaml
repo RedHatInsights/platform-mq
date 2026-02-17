@@ -90,7 +90,7 @@ topics:
   partitions: 50
   replicas: 3
 - topic_name: platform.payload-status
-  partitions: 20
+  partitions: 30
   replicas: 3
 - topic_name: platform.service-portal
   partitions: 3
