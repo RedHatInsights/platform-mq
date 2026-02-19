@@ -64,7 +64,7 @@ topics:
   partitions: 3
   replicas: 3
 - topic_name: platform.notifications.ingress
-  partitions: 6
+  partitions: 12
   replicas: 3
 - topic_name: platform.policies.actions-email
   partitions: 2
