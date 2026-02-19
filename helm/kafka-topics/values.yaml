@@ -96,10 +96,10 @@ topics:
   partitions: 3
   replicas: 3
 - topic_name: platform.sources.event-stream
-  partitions: 6
+  partitions: 12
   replicas: 3
 - topic_name: platform.sources.status
-  partitions: 3
+  partitions: 6
   replicas: 3
 - topic_name: platform.topological-inventory.operations-satellite
   partitions: 3
@@ -305,7 +305,7 @@ topics:
   partitions: 24
   replicas: 3
 - topic_name: platform.sources.superkey-requests
-  partitions: 3
+  partitions: 6
   replicas: 3
 - topic_name: platform.insights.client-metrics
   partitions: 3
