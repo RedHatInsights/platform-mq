@@ -3,7 +3,7 @@
 Resources used in the deployment and maintenance of the Kafka instances used
 by Hybrid Cloud Management(HCM) environments.
 
-## Details
+## Architecture Overview
 
 We deploy Kafka via AWS Managed Services for Apache Kafka (MSK) with one
 instance each for our Stage and Production environments. These Kafka clusters
@@ -13,8 +13,14 @@ application communication.
 Our MSK instances are created and managed via app-interface.
 
 For management of topics and additional resources, we also internally run Red
-Hat's own "Streams for Apache Kafka" OpenShift operator at version 2.8.0 in
-OpenShift Dedicated.
+Hat's own "Streams for Apache Kafka" (AMQ Streams) OpenShift operator in
+OpenShift Dedicated. The operator provides Kubernetes CRDs (KafkaTopic, KafkaConnect,
+etc.) that we use to declaratively manage Kafka resources on our MSK clusters.
+
+**Important**: This repository provides OpenShift templates that are deployed via
+[app-interface](https://gitlab.cee.redhat.com/service/app-interface). See **[INTEGRATION.md](INTEGRATION.md)**
+for detailed information about how this repo integrates with app-interface and the
+deployment workflow.
 
 ## How it Works
 
@@ -54,6 +60,10 @@ resources or creation of templates for new resources.
 Changes made to known files here are immediately picked up by HCM Stage and
 can be tested nearly immediately there.
 
+**Deployment Workflow**: See [INTEGRATION.md](INTEGRATION.md) for the complete
+development workflow, including how changes flow from this repository through
+app-interface to OpenShift clusters.
+
 ### Deployment
 
 Deployment templates for various resources are present under the aptly named
@@ -87,3 +97,11 @@ which will then update the [OpenShift template](deploys/openshift/kafa-topics.ya
 
 We're currently investigating the option of moving our KafkaConnect workflows
 over to MSK as well, so for now consider this section **WIP!**
+
+## Documentation
+
+- **[INTEGRATION.md](INTEGRATION.md)**: How this repository integrates with app-interface and third-party-operators
+- **[helm/README.md](helm/README.md)**: Topic management workflow using Helm charts
+- **App-Interface Docs** (https://gitlab.cee.redhat.com/service/app-interface): 
+  - Architecture overview: `docs/tenant-services/strimzi/architecture.md`
+  - Operations guide: `docs/tenant-services/strimzi/operations.md`
