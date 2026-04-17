@@ -301,6 +301,9 @@ topics:
 - topic_name: platform.rhsm-subscriptions.offering-sync
   partitions: 24
   replicas: 3
+- topic_name: platform.rhsm-subscriptions.contract-sync
+  partitions: 24
+  replicas: 3
 - topic_name: platform.rhsm-subscriptions.billable-usage
   partitions: 24
   replicas: 3
