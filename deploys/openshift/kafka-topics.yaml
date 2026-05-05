@@ -181,7 +181,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 6
+    partitions: 12
     replicas: 3
     topicName: platform.notifications.ingress
     config:
@@ -273,7 +273,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 20
+    partitions: 30
     replicas: 3
     topicName: platform.payload-status
     config:
@@ -299,7 +299,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 6
+    partitions: 12
     replicas: 3
     topicName: platform.sources.event-stream
     config:
@@ -312,7 +312,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 6
     replicas: 3
     topicName: platform.sources.status
     config:
@@ -621,7 +621,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 10
     replicas: 3
     topicName: platform.export.requests
     config:
@@ -955,7 +955,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 3
+    partitions: 6
     replicas: 3
     topicName: platform.sources.superkey-requests
     config:
@@ -1342,6 +1342,19 @@ objects:
     partitions: 1
     replicas: 3
     topicName: outbox.event.workspace
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
+    name: outbox.event.workspace-bulk
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: outbox.event.workspace-bulk
     config:
       min.insync.replicas: 2
       retention.ms: "259200000"
