@@ -206,7 +206,7 @@ topics:
   partitions: 8
   replicas: 3
 - topic_name: platform.export.requests
-  partitions: 10
+  partitions: 12
   replicas: 3
 - topic_name: platform.rhsm-subscriptions.tasks
   partitions: 24
@@ -341,7 +341,7 @@ topics:
   partitions: 6
   replicas: 3
 - topic_name: platform.notifications.fromcamel
-  partitions: 6
+  partitions: 12
   replicas: 3
 - topic_name: heartbeats
   partitions: 1
@@ -374,7 +374,7 @@ topics:
   partitions: 1
   replicas: 3
 - topic_name: platform.chrome
-  partitions: 10
+  partitions: 12
   replicas: 3
 - topic_name: pdf-generator.updated.report
   partitions: 10
