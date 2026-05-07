@@ -3,7 +3,7 @@ run-name: Generating topic configs for ${{github.ref_name}}
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'helm/kafka-topics/values.yaml'
 jobs:
