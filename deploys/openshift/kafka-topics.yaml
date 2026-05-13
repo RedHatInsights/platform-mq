@@ -617,11 +617,24 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: patchman.advisory.update
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 64
+    replicas: 3
+    topicName: patchman.advisory.update
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: platform.export.requests
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 10
+    partitions: 12
     replicas: 3
     topicName: platform.export.requests
     config:
@@ -1074,7 +1087,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 6
+    partitions: 12
     replicas: 3
     topicName: platform.notifications.fromcamel
     config:
@@ -1181,7 +1194,7 @@ objects:
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
   spec:
-    partitions: 10
+    partitions: 12
     replicas: 3
     topicName: platform.chrome
     config:
