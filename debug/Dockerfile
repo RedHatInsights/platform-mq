@@ -1,4 +1,4 @@
-FROM registry.redhat.io/amq-streams/kafka-38-rhel9:2.9.1-5
+FROM registry.redhat.io/amq-streams/kafka-38-rhel9:2.9.3-28
 USER root:root
 COPY ./authed-kafka.properties.template /opt/kafka/config/
 RUN touch /opt/kafka/config/authed-kafka.properties
