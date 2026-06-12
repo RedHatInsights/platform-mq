@@ -149,6 +149,8 @@ spec:
       params:
       - name: input
         value: $(params.prefetch-input)
+      - name: enable-package-registry-proxy
+        value: "true"
       runAfter:
       - clone-repository
       taskRef:
@@ -156,7 +158,7 @@ spec:
         - name: name
           value: prefetch-dependencies
         - name: bundle
-          value: quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies:0.2@sha256:9fb4a1ee0e190d52e179c0b03f05e23aafc25b854a56efa97d07dcd94e273a56
+          value: quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies:0.3@sha256:39ef6f58c81b3c8b0d50acdc3750d30f7ee463375a176178918c2ceca9f010a2
         - name: kind
           value: task
         resolver: bundles
