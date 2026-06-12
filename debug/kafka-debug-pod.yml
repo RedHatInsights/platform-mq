@@ -42,19 +42,19 @@ objects:
               cpu: ${{CPU_REQUEST}}
               memory: ${{MEMORY_REQUEST}}
           env:
-          - name: BOOTSTRAP_SERVERS
+          - name: MSK_BOOTSTRAP_SERVERS
             valueFrom:
               secretKeyRef:
                 name: ${{KAFKA_ACCESS_SECRET_NAME}}
                 key: "bootstrap_brokers_sasl_scram"
                 optional: true
-          - name: KAFKA_USERNAME
+          - name: MSK_USER
             valueFrom:
               secretKeyRef:
                 name: ${{KAFKA_AUTH_SECRET_NAME}}
                 key: "username"
                 optional: true
-          - name: KAFKA_PASSWORD
+          - name: MSK_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: ${{KAFKA_AUTH_SECRET_NAME}}
@@ -62,9 +62,9 @@ objects:
                 optional: true
 parameters:
 - name: IMAGE
-  value: quay.io/cloudservices/kafka-debug
+  value: quay.io/redhat-user-workloads/app-sre-tenant/container-images-master/msk-debug-container-master
 - name: IMAGE_TAG
-  value: latest
+  value: "3.8"
 - name: KAFKA_ACCESS_SECRET_NAME
   value: "empty"
 - name: KAFKA_AUTH_SECRET_NAME
