@@ -465,7 +465,7 @@ topics:
   partitions: 1
   replicas: 3
 - topic_name: rhsm.cloudoreg.relay-topic.internal
-  partitions: 1
+  partitions: 3
   replicas: 3
 - topic_name: kessel-kafka-connect-cluster-configs
   partitions: 1
