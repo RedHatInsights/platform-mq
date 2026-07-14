@@ -1,3 +1,30 @@
+"""
+Example script for connecting to MSK and consuming messages via SASL/SSL.
+
+Demonstrates how to authenticate and consume from Kafka topics using SASL_PLAIN
+authentication. Useful for testing MSK connectivity and debugging message flow.
+
+Usage:
+    python mk_testing_consumer.py \\
+        -b bootstrap.server1:9096,bootstrap.server2:9096 \\
+        -u your_sasl_username \\
+        -p your_sasl_password \\
+        -t topic.name \\
+        --from-beginning
+
+Dependencies:
+    pip install kafka-python requests-oauthlib
+
+Example:
+    # Consume from beginning of topic
+    python mk_testing_consumer.py \\
+        -b $MSK_BOOTSTRAP_SERVERS \\
+        -u $MSK_USER \\
+        -p $MSK_PASSWORD \\
+        -t platform.notifications.ingress \\
+        --from-beginning
+"""
+
 from kafka import KafkaConsumer
 from requests_oauthlib import OAuth2Session
 from oauthlib.oauth2 import BackendApplicationClient
