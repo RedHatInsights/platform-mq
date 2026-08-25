@@ -1164,6 +1164,19 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: platform.lightwell.advisory_created
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 3
+    replicas: 3
+    topicName: platform.lightwell.advisory_created
+    config:
+      min.insync.replicas: 2
+      retention.ms: "259200000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: platform.rbac.sync
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
