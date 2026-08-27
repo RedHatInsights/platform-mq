@@ -160,6 +160,14 @@ topics:
     value: '5368709120'
   - name: retention.ms
     value: '2678400000'
+- topic_name: platform.compliance.dlq
+  partitions: 1
+  replicas: 3
+  topic_configs:
+  - name: retention.bytes
+    value: '5368709120'
+  - name: retention.ms
+    value: '2678400000'
 - topic_name: platform.rhsm-conduit.tasks
   partitions: 24
   replicas: 3
