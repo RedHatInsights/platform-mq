@@ -484,6 +484,20 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: platform.compliance.dlq
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 1
+    replicas: 3
+    topicName: platform.compliance.dlq
+    config:
+      min.insync.replicas: 2
+      retention.bytes: "5368709120"
+      retention.ms: "2678400000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: platform.rhsm-conduit.tasks
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
