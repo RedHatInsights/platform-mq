@@ -1,19 +1,39 @@
 name: generate-topic-configs
 run-name: Generating topic configs for ${{github.ref_name}}
+
 on:
   push:
     branches:
       - main
     paths:
       - 'helm/kafka-topics/values.yaml'
+
+permissions: {}
+
 jobs:
   run-helm-topic-gen:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          show-progress: false
+      - uses: azure/setup-helm@9bc31f4ebc9c6b171d7bfbaa5d006ae7abdb4310 # v5.0.1
+        with:
+          version: v3.21.4
       - name: Check helm template
         run: helm lint ./helm/kafka-topics/
       - name: Generate kafka-topics.yaml
         run: helm template ./helm/kafka-topics -f ./helm/kafka-topics/values.yaml > ./deploys/openshift/kafka-topics.yaml
       - name: Add PR for generated yaml
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          title: "Update deploys manifests"
+          commit-message: "Update deploys manifests"
+          sign-commits: true
+          branch: "feat/manifests-update"
+          delete-branch: true
+          add-paths: |
+            deploys/openshift/kafka-topics.yaml
