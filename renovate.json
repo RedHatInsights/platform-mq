@@ -2,7 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    "github>konflux-ci/mintmaker-presets:cve-automerge-all"
+    "github>konflux-ci/mintmaker-presets:cve-automerge-all",
+    "helpers:pinGitHubActionDigestsToSemver"
   ],
   "tekton": {
     "enabled": true,
