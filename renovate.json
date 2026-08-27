@@ -1,33 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
+    ":disableMajorUpdates",
     "github>konflux-ci/mintmaker-presets:cve-automerge-all",
     "helpers:pinGitHubActionDigestsToSemver"
   ],
-  "tekton": {
-    "enabled": true,
+  "dockerfile": {
     "managerFilePatterns": [
-      ".tekton/**"
+      "/^Connect/Dockerfile$/"
     ]
   },
   "packageRules": [
     {
-      "description": "Auto-merge Konflux Tekton task bundle updates",
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "pin",
-        "digest"
-      ],
-      "automerge": true,
-      "platformAutomerge": true,
-      "matchPackageNames": [
-        "/konflux-ci/tekton-catalog/"
-      ]
-    },
-    {
-      "description": "AMQ Streams base image - stay on 2.9.3.x, manual review",
+      "description": "AMQ Streams base image - stay on 2.9.4-x, manual review",
       "matchDatasources": [
         "docker"
       ],
@@ -35,7 +20,7 @@
         "registry.redhat.io/amq-streams/kafka-38-rhel9"
       ],
       "versioning": "redhat",
-      "allowedVersions": "/^2\\.9\\.3-.+$/",
+      "allowedVersions": "/^2\\.9\\.4-[0-9]+$/",
       "automerge": false
     }
   ]
