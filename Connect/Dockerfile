@@ -1,4 +1,4 @@
-FROM registry.redhat.io/amq-streams/kafka-38-rhel9:2.9.4-10
+FROM registry.redhat.io/amq-streams/kafka-38-rhel9:2.9.4-21
 
 USER root:root
 
