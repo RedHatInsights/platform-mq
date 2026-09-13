@@ -22,7 +22,7 @@ jobs:
           show-progress: false
       - uses: azure/setup-helm@9bc31f4ebc9c6b171d7bfbaa5d006ae7abdb4310 # v5.0.1
         with:
-          version: v3.21.4
+          version: v3.22.0
       - name: Check helm template
         run: helm lint ./helm/kafka-topics/
       - name: Generate kafka-topics.yaml
