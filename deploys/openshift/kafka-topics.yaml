@@ -190,6 +190,19 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: platform.otel.traces
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 6
+    replicas: 3
+    topicName: platform.otel.traces
+    config:
+      min.insync.replicas: 2
+      retention.ms: "604800000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: platform.policies.actions-email
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}

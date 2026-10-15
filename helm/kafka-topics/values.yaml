@@ -66,6 +66,12 @@ topics:
 - topic_name: platform.notifications.ingress
   partitions: 12
   replicas: 3
+- topic_name: platform.otel.traces
+  partitions: 6
+  replicas: 3
+  topic_configs:
+  - name: retention.ms
+    value: '604800000'
 - topic_name: platform.policies.actions-email
   partitions: 2
   replicas: 3
