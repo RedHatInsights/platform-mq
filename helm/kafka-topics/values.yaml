@@ -520,3 +520,6 @@ topics:
 - topic_name: host-inventory.message
   partitions: 1
   replicas: 3
+- topic_name: app-sre.prototype.test
+  partitions: 3
+  replicas: 3
