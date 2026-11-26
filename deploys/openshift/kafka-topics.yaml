@@ -451,6 +451,19 @@ objects:
 - apiVersion: kafka.strimzi.io/v1beta2
   kind: KafkaTopic
   metadata:
+    name: platform.upload-processor.rhsm-host-records
+    labels:
+      strimzi.io/cluster: ${KAFKA_CLUSTER}
+  spec:
+    partitions: 30
+    replicas: 3
+    topicName: platform.upload-processor.rhsm-host-records
+    config:
+      min.insync.replicas: 2
+      retention.ms: "604800000"
+- apiVersion: kafka.strimzi.io/v1beta2
+  kind: KafkaTopic
+  metadata:
     name: platform.inventory.events
     labels:
       strimzi.io/cluster: ${KAFKA_CLUSTER}
